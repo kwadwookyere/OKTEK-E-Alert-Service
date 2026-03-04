@@ -1,6 +1,6 @@
 # Centralized Communication Service (Email + SMS)
 
-A production-ready ASP.NET MVC service for managing and sending Email and SMS notifications across multiple applications and providers.
+AdvansE-Alert is a centralized email and SMS service designed to serve all websites and applications within the group. It provides a production-ready ASP.NET MVC architecture for managing and sending notifications efficiently across multiple channels and providers.
 
 ## 🚀 Features
 
