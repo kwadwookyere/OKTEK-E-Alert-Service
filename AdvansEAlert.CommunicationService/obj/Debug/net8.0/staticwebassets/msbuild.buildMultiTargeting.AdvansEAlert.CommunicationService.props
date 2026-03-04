@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/AdvansEAlert.CommunicationService.props" />
+</Project>

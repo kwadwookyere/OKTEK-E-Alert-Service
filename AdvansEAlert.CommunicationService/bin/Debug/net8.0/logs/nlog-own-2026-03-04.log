@@ -1,0 +1,7 @@
+2026-03-04 14:14:00.3666|0|DEBUG|AdvansEAlert.CommunicationService.Program|init main |url: |action: |AdvansEAlert.CommunicationService.Program.<Main>$
+2026-03-04 14:14:01.1070|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7104 |url: |action: |Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync
+2026-03-04 14:14:01.1317|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5086 |url: |action: |Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync
+2026-03-04 14:14:01.1318|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted
+2026-03-04 14:14:01.1318|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted
+2026-03-04 14:14:01.1318|0|INFO|Microsoft.Hosting.Lifetime|Content root path: /Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService |url: |action: |Microsoft.Extensions.Hosting.Internal.ApplicationLifetime.NotifyStarted
+2026-03-04 17:44:54.3799|0|INFO|Microsoft.Hosting.Lifetime|Application is shutting down... |url: |action: |Microsoft.Extensions.Hosting.Internal.ApplicationLifetime.StopApplication

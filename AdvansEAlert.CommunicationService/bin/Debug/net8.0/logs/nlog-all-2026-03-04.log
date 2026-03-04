@@ -1,0 +1,949 @@
+2026-03-04 14:14:00.3666|0|DEBUG|AdvansEAlert.CommunicationService.Program|init main 
+2026-03-04 14:14:00.7231|12|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactory|Registered model binder providers, in the following order: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider 
+2026-03-04 14:14:00.7518|1|DEBUG|Microsoft.Extensions.Hosting.Internal.Host|Hosting starting 
+2026-03-04 14:14:00.7612|62|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using '/Users/kwadwookyere/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest. 
+2026-03-04 14:14:00.7648|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file '/Users/kwadwookyere/.aspnet/DataProtection-Keys/key-8946b956-92d9-4a5d-8a95-0b9b275520b5.xml'. 
+2026-03-04 14:14:00.7671|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file '/Users/kwadwookyere/.aspnet/DataProtection-Keys/key-bc1cf883-e12b-4cb0-8a0e-40f4ff948c62.xml'. 
+2026-03-04 14:14:00.7671|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file '/Users/kwadwookyere/.aspnet/DataProtection-Keys/key-793426ef-a6df-4767-bd53-9a72f05352ef.xml'. 
+2026-03-04 14:14:00.7683|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file '/Users/kwadwookyere/.aspnet/DataProtection-Keys/key-7989e801-0db5-494f-8687-728d79b81bd7.xml'. 
+2026-03-04 14:14:00.7683|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file '/Users/kwadwookyere/.aspnet/DataProtection-Keys/key-67159e97-29c3-4fe8-a9b7-578f421b913b.xml'. 
+2026-03-04 14:14:00.7688|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file '/Users/kwadwookyere/.aspnet/DataProtection-Keys/key-160937ae-79e1-4f2b-98f0-e20c59961a09.xml'. 
+2026-03-04 14:14:00.7688|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file '/Users/kwadwookyere/.aspnet/DataProtection-Keys/key-cc58e94b-08e6-499f-97ff-03757027c7b5.xml'. 
+2026-03-04 14:14:00.7688|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file '/Users/kwadwookyere/.aspnet/DataProtection-Keys/key-4973013b-0d3a-410f-827f-91a447ccb14d.xml'. 
+2026-03-04 14:14:00.7688|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file '/Users/kwadwookyere/.aspnet/DataProtection-Keys/key-7a4cab68-788e-4952-9657-493d3b3aea07.xml'. 
+2026-03-04 14:14:00.7688|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file '/Users/kwadwookyere/.aspnet/DataProtection-Keys/key-41541f3c-f13b-4f83-bea0-d8122289694b.xml'. 
+2026-03-04 14:14:00.7688|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file '/Users/kwadwookyere/.aspnet/DataProtection-Keys/key-71503430-c882-48fd-8aca-85c1b08f9e30.xml'. 
+2026-03-04 14:14:00.7688|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file '/Users/kwadwookyere/.aspnet/DataProtection-Keys/key-84409d89-e0bb-42cb-94bf-abe1a4d32cfe.xml'. 
+2026-03-04 14:14:00.7700|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file '/Users/kwadwookyere/.aspnet/DataProtection-Keys/key-b60f308c-d150-4e19-a75c-33d49be52a7e.xml'. 
+2026-03-04 14:14:00.7700|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file '/Users/kwadwookyere/.aspnet/DataProtection-Keys/key-4d444630-f70b-44e0-a4df-dafe497cb84d.xml'. 
+2026-03-04 14:14:00.7700|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file '/Users/kwadwookyere/.aspnet/DataProtection-Keys/key-bfbfd7c0-e328-41b8-922b-ba2b789175f2.xml'. 
+2026-03-04 14:14:00.7724|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {8946b956-92d9-4a5d-8a95-0b9b275520b5}. 
+2026-03-04 14:14:00.7741|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {bc1cf883-e12b-4cb0-8a0e-40f4ff948c62}. 
+2026-03-04 14:14:00.7741|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {793426ef-a6df-4767-bd53-9a72f05352ef}. 
+2026-03-04 14:14:00.7741|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {7989e801-0db5-494f-8687-728d79b81bd7}. 
+2026-03-04 14:14:00.7741|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {67159e97-29c3-4fe8-a9b7-578f421b913b}. 
+2026-03-04 14:14:00.7741|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {160937ae-79e1-4f2b-98f0-e20c59961a09}. 
+2026-03-04 14:14:00.7741|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {cc58e94b-08e6-499f-97ff-03757027c7b5}. 
+2026-03-04 14:14:00.7741|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {4973013b-0d3a-410f-827f-91a447ccb14d}. 
+2026-03-04 14:14:00.7741|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {7a4cab68-788e-4952-9657-493d3b3aea07}. 
+2026-03-04 14:14:00.7741|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {41541f3c-f13b-4f83-bea0-d8122289694b}. 
+2026-03-04 14:14:00.7741|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {71503430-c882-48fd-8aca-85c1b08f9e30}. 
+2026-03-04 14:14:00.7741|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {84409d89-e0bb-42cb-94bf-abe1a4d32cfe}. 
+2026-03-04 14:14:00.7741|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {b60f308c-d150-4e19-a75c-33d49be52a7e}. 
+2026-03-04 14:14:00.7741|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {4d444630-f70b-44e0-a4df-dafe497cb84d}. 
+2026-03-04 14:14:00.7741|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {bfbfd7c0-e328-41b8-922b-ba2b789175f2}. 
+2026-03-04 14:14:00.7776|13|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.DefaultKeyResolver|Considering key {160937ae-79e1-4f2b-98f0-e20c59961a09} with expiration date 2026-04-26 10:05:47Z as default key. 
+2026-03-04 14:14:00.7781|0|DEBUG|Microsoft.AspNetCore.DataProtection.TypeForwardingActivator|Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60 
+2026-03-04 14:14:00.7781|11|DEBUG|Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ManagedAuthenticatedEncryptorFactory|Using managed symmetric algorithm 'System.Security.Cryptography.Aes'. 
+2026-03-04 14:14:00.7781|10|DEBUG|Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ManagedAuthenticatedEncryptorFactory|Using managed keyed hash algorithm 'System.Security.Cryptography.HMACSHA256'. 
+2026-03-04 14:14:00.7801|2|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingProvider|Using key {160937ae-79e1-4f2b-98f0-e20c59961a09} as the default key. 
+2026-03-04 14:14:00.7801|65|DEBUG|Microsoft.AspNetCore.DataProtection.Internal.DataProtectionHostedService|Key ring with default key {160937ae-79e1-4f2b-98f0-e20c59961a09} was loaded during application startup. 
+2026-03-04 14:14:00.8003|7|DEBUG|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|Middleware configuration started with options: {AllowedHosts = *, AllowEmptyHosts = True, IncludeFailureMessage = True} 
+2026-03-04 14:14:00.8015|0|DEBUG|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|Wildcard detected, all requests with hosts will be allowed. 
+2026-03-04 14:14:01.1070|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7104 
+2026-03-04 14:14:01.1317|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5086 
+2026-03-04 14:14:01.1318|13|DEBUG|Microsoft.AspNetCore.Hosting.Diagnostics|Loaded hosting startup assembly AdvansEAlert.CommunicationService 
+2026-03-04 14:14:01.1318|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2026-03-04 14:14:01.1318|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2026-03-04 14:14:01.1318|0|INFO|Microsoft.Hosting.Lifetime|Content root path: /Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService 
+2026-03-04 14:14:01.1318|2|DEBUG|Microsoft.Extensions.Hosting.Internal.Host|Hosting started 
+2026-03-04 14:14:01.1336|39|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HNJPV14APUU5" accepted. 
+2026-03-04 14:14:01.1338|1|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HNJPV14APUU5" started. 
+2026-03-04 14:14:02.1118|6|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets|Connection id "0HNJPV14APUU5" received FIN. 
+2026-03-04 14:14:02.1137|1|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware|Failed to authenticate HTTPS connection. System.IO.IOException: Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveHandshakeFrameAsync[TIOAdapter](CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2026-03-04 14:14:02.1201|2|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HNJPV14APUU5" stopped. 
+2026-03-04 14:14:02.1218|7|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets|Connection id "0HNJPV14APUU5" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2026-03-04 14:14:02.1867|39|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HNJPV14APUU6" accepted. 
+2026-03-04 14:14:02.1869|1|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HNJPV14APUU6" started. 
+2026-03-04 14:14:02.2579|3|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware|Connection 0HNJPV14APUU6 established using the following protocol: Tls12 
+2026-03-04 14:14:02.2696|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU6" sending SETTINGS frame for stream ID 0 with length 24 and flags NONE. 
+2026-03-04 14:14:02.2717|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU6" sending WINDOW_UPDATE frame for stream ID 0 with length 4 and flags 0x0. 
+2026-03-04 14:14:02.2718|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU6" received SETTINGS frame for stream ID 0 with length 24 and flags NONE. 
+2026-03-04 14:14:02.2718|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU6" sending SETTINGS frame for stream ID 0 with length 0 and flags ACK. 
+2026-03-04 14:14:02.2718|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU6" received WINDOW_UPDATE frame for stream ID 0 with length 4 and flags 0x0. 
+2026-03-04 14:14:02.2718|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU6" received HEADERS frame for stream ID 1 with length 1401 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2026-03-04 14:14:02.2796|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU6" received SETTINGS frame for stream ID 0 with length 0 and flags ACK. 
+2026-03-04 14:14:02.2864|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7104/ - - - 
+2026-03-04 14:14:02.2864|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2026-03-04 14:14:02.2871|4|DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|The request path / does not match a supported file type 
+2026-03-04 14:14:02.3000|1001|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/' 
+2026-03-04 14:14:02.3014|1005|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|Endpoint 'AdvansEAlert.CommunicationService.Controllers.AdminController.Index (AdvansEAlert.CommunicationService)' with route pattern '{controller=Admin}/{action=Index}/{id?}' is valid for the request path '/' 
+2026-03-04 14:14:02.3014|1|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint 'AdvansEAlert.CommunicationService.Controllers.AdminController.Index (AdvansEAlert.CommunicationService)' 
+2026-03-04 14:14:02.3020|8|TRACE|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|The endpoint does not specify the IRequestSizeLimitMetadata. 
+2026-03-04 14:14:02.3153|15|DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Static files was skipped as the request already matched an endpoint. 
+2026-03-04 14:14:02.3240|5|TRACE|Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector|Performing unprotect operation to key {160937ae-79e1-4f2b-98f0-e20c59961a09} with purposes ('/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/', 'Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationMiddleware', 'Cookies', 'v2'). 
+2026-03-04 14:14:02.3251|8|DEBUG|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|AuthenticationScheme: Cookies was successfully authenticated. 
+2026-03-04 14:14:02.3286|1|DEBUG|Microsoft.AspNetCore.Authorization.DefaultAuthorizationService|Authorization was successful. 
+2026-03-04 14:14:02.3697|10401|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|An 'IServiceProvider' was created for internal use by Entity Framework. 
+2026-03-04 14:14:02.3838|0|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'AdvansEAlert.CommunicationService.Controllers.AdminController.Index (AdvansEAlert.CommunicationService)' 
+2026-03-04 14:14:02.3923|102|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Index", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller AdvansEAlert.CommunicationService.Controllers.AdminController (AdvansEAlert.CommunicationService). 
+2026-03-04 14:14:02.3928|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of authorization filters (in the following order): None 
+2026-03-04 14:14:02.3928|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of resource filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter 
+2026-03-04 14:14:02.3928|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648), Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Filters.ResponseCacheFilter 
+2026-03-04 14:14:02.3928|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of exception filters (in the following order): None 
+2026-03-04 14:14:02.3928|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter 
+2026-03-04 14:14:02.3928|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: Before executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 14:14:02.3928|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: After executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 14:14:02.3937|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing controller factory for controller AdvansEAlert.CommunicationService.Controllers.AdminController (AdvansEAlert.CommunicationService) 
+2026-03-04 14:14:02.3937|2|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed controller factory for controller AdvansEAlert.CommunicationService.Controllers.AdminController (AdvansEAlert.CommunicationService) 
+2026-03-04 14:14:02.3937|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecutionAsync on filter Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter. 
+2026-03-04 14:14:02.3937|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2026-03-04 14:14:02.3937|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2026-03-04 14:14:02.3937|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Filters.ResponseCacheFilter. 
+2026-03-04 14:14:02.3950|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Filters.ResponseCacheFilter. 
+2026-03-04 14:14:02.3978|101|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method AdvansEAlert.CommunicationService.Controllers.AdminController.Index (AdvansEAlert.CommunicationService) - Validation state: Valid 
+2026-03-04 14:14:02.7801|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'RoleId'} was not created on entity type 'RolePermission' as the properties are already covered by the index {'RoleId', 'PermissionId'}. 
+2026-03-04 14:14:02.7801|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'UserId'} was not created on entity type 'UserRole' as the properties are already covered by the index {'UserId', 'RoleId'}. 
+2026-03-04 14:14:02.8907|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-04 14:14:02.9085|10111|DEBUG|Microsoft.EntityFrameworkCore.Query|Compiling query expression: 
+'DbSet<Application>()
+    .Count()' 
+2026-03-04 14:14:02.9742|10107|DEBUG|Microsoft.EntityFrameworkCore.Query|Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleAsync<int>(
+    asyncEnumerable: new SingleQueryingEnumerable<int>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.QueryExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> 0
+            SELECT COUNT(*)
+            FROM Applications AS a), 
+        null, 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, int>, 
+        AdvansEAlert.CommunicationService.Data.ApplicationDbContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)' 
+2026-03-04 14:14:02.9853|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-04 14:14:02.9929|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (5ms). 
+2026-03-04 14:14:02.9940|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 14:14:04.1970|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 14:14:04.1981|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-04 14:14:04.2005|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (1ms). 
+2026-03-04 14:14:04.2010|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (3ms). 
+2026-03-04 14:14:04.2034|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Applications] AS [a] 
+2026-03-04 14:14:04.4324|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (229ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Applications] AS [a] 
+2026-03-04 14:14:04.4381|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 14:14:04.4405|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 6ms reading results. 
+2026-03-04 14:14:04.4414|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 14:14:04.4431|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (1ms). 
+2026-03-04 14:14:04.4504|10111|DEBUG|Microsoft.EntityFrameworkCore.Query|Compiling query expression: 
+'DbSet<EmailLog>()
+    .Count()' 
+2026-03-04 14:14:04.4516|10107|DEBUG|Microsoft.EntityFrameworkCore.Query|Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleAsync<int>(
+    asyncEnumerable: new SingleQueryingEnumerable<int>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.QueryExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> 0
+            SELECT COUNT(*)
+            FROM EmailLogs AS e), 
+        null, 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, int>, 
+        AdvansEAlert.CommunicationService.Data.ApplicationDbContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)' 
+2026-03-04 14:14:04.4518|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 14:14:04.4518|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 14:14:04.4518|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-04 14:14:04.4518|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-04 14:14:04.4518|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-04 14:14:04.4518|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [EmailLogs] AS [e] 
+2026-03-04 14:14:04.6659|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (214ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [EmailLogs] AS [e] 
+2026-03-04 14:14:04.6659|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 14:14:04.6659|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-04 14:14:04.6659|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 14:14:04.6659|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-04 14:14:04.6671|10111|DEBUG|Microsoft.EntityFrameworkCore.Query|Compiling query expression: 
+'DbSet<SmsLog>()
+    .Count()' 
+2026-03-04 14:14:04.6678|10107|DEBUG|Microsoft.EntityFrameworkCore.Query|Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleAsync<int>(
+    asyncEnumerable: new SingleQueryingEnumerable<int>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.QueryExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> 0
+            SELECT COUNT(*)
+            FROM SmsLogs AS s), 
+        null, 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, int>, 
+        AdvansEAlert.CommunicationService.Data.ApplicationDbContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)' 
+2026-03-04 14:14:04.6678|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 14:14:04.6678|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 14:14:04.6678|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-04 14:14:04.6678|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-04 14:14:04.6678|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-04 14:14:04.6678|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [SmsLogs] AS [s] 
+2026-03-04 14:14:04.8818|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (214ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [SmsLogs] AS [s] 
+2026-03-04 14:14:04.8818|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 14:14:04.8818|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-04 14:14:04.8818|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 14:14:04.8818|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-04 14:14:04.8858|103|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action method AdvansEAlert.CommunicationService.Controllers.AdminController.Index (AdvansEAlert.CommunicationService), returned result Microsoft.AspNetCore.Mvc.ViewResult in 2485.3967ms. 
+2026-03-04 14:14:04.8858|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Filters.ResponseCacheFilter. 
+2026-03-04 14:14:04.8858|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Filters.ResponseCacheFilter. 
+2026-03-04 14:14:04.8858|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2026-03-04 14:14:04.8858|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2026-03-04 14:14:04.8858|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecutionAsync on filter Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter. 
+2026-03-04 14:14:04.8858|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 14:14:04.8858|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 14:14:04.8869|5|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Before executing action result Microsoft.AspNetCore.Mvc.ViewResult. 
+2026-03-04 14:14:04.8882|1|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine|View lookup cache miss for view 'Index' in controller 'Admin'. 
+2026-03-04 14:14:04.8894|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Initializing Razor view compiler with compiled view: '/Views/Account/ForgotPassword.cshtml'. 
+2026-03-04 14:14:04.8894|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Initializing Razor view compiler with compiled view: '/Views/Account/Login.cshtml'. 
+2026-03-04 14:14:04.8894|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Initializing Razor view compiler with compiled view: '/Views/Account/ResetPassword.cshtml'. 
+2026-03-04 14:14:04.8894|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Initializing Razor view compiler with compiled view: '/Views/Admin/Applications.cshtml'. 
+2026-03-04 14:14:04.8894|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Initializing Razor view compiler with compiled view: '/Views/Admin/Index.cshtml'. 
+2026-03-04 14:14:04.8894|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Initializing Razor view compiler with compiled view: '/Views/Admin/Logs.cshtml'. 
+2026-03-04 14:14:04.8894|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Initializing Razor view compiler with compiled view: '/Views/Admin/SMSProviders.cshtml'. 
+2026-03-04 14:14:04.8894|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Initializing Razor view compiler with compiled view: '/Views/Admin/SMTP.cshtml'. 
+2026-03-04 14:14:04.8894|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Initializing Razor view compiler with compiled view: '/Views/Admin/Templates.cshtml'. 
+2026-03-04 14:14:04.8894|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Initializing Razor view compiler with compiled view: '/Views/Admin/Users.cshtml'. 
+2026-03-04 14:14:04.8894|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Initializing Razor view compiler with compiled view: '/Views/Home/Index.cshtml'. 
+2026-03-04 14:14:04.8894|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Initializing Razor view compiler with compiled view: '/Views/Home/Privacy.cshtml'. 
+2026-03-04 14:14:04.8894|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Initializing Razor view compiler with compiled view: '/Views/Shared/Error.cshtml'. 
+2026-03-04 14:14:04.8894|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Initializing Razor view compiler with compiled view: '/Views/Shared/_AdminLayout.cshtml'. 
+2026-03-04 14:14:04.8894|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Initializing Razor view compiler with compiled view: '/Views/Shared/_ValidationScriptsPartial.cshtml'. 
+2026-03-04 14:14:04.8894|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Initializing Razor view compiler with compiled view: '/Views/_ViewImports.cshtml'. 
+2026-03-04 14:14:04.8894|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Initializing Razor view compiler with compiled view: '/Views/_ViewStart.cshtml'. 
+2026-03-04 14:14:04.8894|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Initializing Razor view compiler with compiled view: '/Views/Shared/_Layout.cshtml'. 
+2026-03-04 14:14:04.8899|5|TRACE|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Located compiled view for view at path '/Views/Admin/Index.cshtml'. 
+2026-03-04 14:14:04.8912|9|TRACE|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Invalidating compiled view at path '/Views/Admin/Index.cshtml' with a file since the checksum did not match. 
+2026-03-04 14:14:05.3376|1|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Compilation of the generated code for the Razor file at '/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/Views/Admin/Index.cshtml' started. 
+2026-03-04 14:14:05.9178|2|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Compilation of the generated code for the Razor file at '/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/Views/Admin/Index.cshtml' completed in 577.6355ms. 
+2026-03-04 14:14:05.9194|7|TRACE|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Could not find a file for view at path '/Views/Admin/_ViewStart.cshtml'. 
+2026-03-04 14:14:05.9194|5|TRACE|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Located compiled view for view at path '/Views/_ViewStart.cshtml'. 
+2026-03-04 14:14:05.9194|9|TRACE|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Invalidating compiled view at path '/Views/_ViewStart.cshtml' with a file since the checksum did not match. 
+2026-03-04 14:14:05.9728|1|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Compilation of the generated code for the Razor file at '/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/Views/_ViewStart.cshtml' started. 
+2026-03-04 14:14:06.0036|2|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Compilation of the generated code for the Razor file at '/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/Views/_ViewStart.cshtml' completed in 30.7134ms. 
+2026-03-04 14:14:06.0043|7|TRACE|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Could not find a file for view at path '/_ViewStart.cshtml'. 
+2026-03-04 14:14:06.0049|1|INFO|Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor|Executing ViewResult, running view Index. 
+2026-03-04 14:14:06.0049|2|DEBUG|Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor|The view path '/Views/Admin/Index.cshtml' was found in 1116.9921ms. 
+2026-03-04 14:14:06.0293|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Applications],controller=[Admin]) 
+2026-03-04 14:14:06.0303|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/Applications and  
+2026-03-04 14:14:06.0303|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/Applications 
+2026-03-04 14:14:06.0317|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[SMTP],controller=[Admin]) 
+2026-03-04 14:14:06.0318|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/SMTP and  
+2026-03-04 14:14:06.0318|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/SMTP 
+2026-03-04 14:14:06.0318|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[SMSProviders],controller=[Admin]) 
+2026-03-04 14:14:06.0318|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/SMSProviders and  
+2026-03-04 14:14:06.0318|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/SMSProviders 
+2026-03-04 14:14:06.0318|1|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine|View lookup cache miss for view '_AdminLayout' in controller 'Admin'. 
+2026-03-04 14:14:06.0318|7|TRACE|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Could not find a file for view at path '/Views/Admin/_AdminLayout.cshtml'. 
+2026-03-04 14:14:06.0318|5|TRACE|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Located compiled view for view at path '/Views/Shared/_AdminLayout.cshtml'. 
+2026-03-04 14:14:06.0318|9|TRACE|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Invalidating compiled view at path '/Views/Shared/_AdminLayout.cshtml' with a file since the checksum did not match. 
+2026-03-04 14:14:06.1214|1|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Compilation of the generated code for the Razor file at '/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/Views/Shared/_AdminLayout.cshtml' started. 
+2026-03-04 14:14:06.2035|2|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Compilation of the generated code for the Razor file at '/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/Views/Shared/_AdminLayout.cshtml' completed in 82.001ms. 
+2026-03-04 14:14:06.2775|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Index],controller=[Admin]) 
+2026-03-04 14:14:06.2775|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in  and  
+2026-03-04 14:14:06.2775|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result / 
+2026-03-04 14:14:06.2778|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Applications],controller=[Admin]) 
+2026-03-04 14:14:06.2778|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/Applications and  
+2026-03-04 14:14:06.2778|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/Applications 
+2026-03-04 14:14:06.2778|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[SMTP],controller=[Admin]) 
+2026-03-04 14:14:06.2778|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/SMTP and  
+2026-03-04 14:14:06.2778|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/SMTP 
+2026-03-04 14:14:06.2778|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[SMSProviders],controller=[Admin]) 
+2026-03-04 14:14:06.2778|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/SMSProviders and  
+2026-03-04 14:14:06.2778|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/SMSProviders 
+2026-03-04 14:14:06.2778|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Templates],controller=[Admin]) 
+2026-03-04 14:14:06.2778|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/Templates and  
+2026-03-04 14:14:06.2778|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/Templates 
+2026-03-04 14:14:06.2778|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Logs],controller=[Admin]) 
+2026-03-04 14:14:06.2778|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/Logs and  
+2026-03-04 14:14:06.2778|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/Logs 
+2026-03-04 14:14:06.2778|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Users],controller=[Admin]) 
+2026-03-04 14:14:06.2778|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/Users and  
+2026-03-04 14:14:06.2778|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/Users 
+2026-03-04 14:14:06.2795|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Logout],controller=[Account]) 
+2026-03-04 14:14:06.2795|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Account/Logout and  
+2026-03-04 14:14:06.2795|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Account/Logout 
+2026-03-04 14:14:06.2800|5|TRACE|Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector|Performing unprotect operation to key {160937ae-79e1-4f2b-98f0-e20c59961a09} with purposes ('/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/', 'Microsoft.AspNetCore.Antiforgery.AntiforgeryToken.v1'). 
+2026-03-04 14:14:06.2800|31|TRACE|Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector|Performing protect operation to key {160937ae-79e1-4f2b-98f0-e20c59961a09} with purposes ('/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/', 'Microsoft.AspNetCore.Antiforgery.AntiforgeryToken.v1'). 
+2026-03-04 14:14:06.2809|6|DEBUG|Microsoft.AspNetCore.Antiforgery.DefaultAntiforgery|An antiforgery cookie token was reused. 
+2026-03-04 14:14:06.2818|1|DEBUG|Microsoft.AspNetCore.Mvc.ViewFeatures.CookieTempDataProvider|The temp data cookie .AspNetCore.Mvc.CookieTempDataProvider was not found. 
+2026-03-04 14:14:06.2864|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU6" sending HEADERS frame for stream ID 1 with length 216 and flags END_HEADERS. 
+2026-03-04 14:14:06.2864|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU6" sending DATA frame for stream ID 1 with length 10555 and flags NONE. 
+2026-03-04 14:14:06.2877|4|INFO|Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor|Executed ViewResult - view Index executed in 1399.8266ms. 
+2026-03-04 14:14:06.2879|6|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|After executing action result Microsoft.AspNetCore.Mvc.ViewResult. 
+2026-03-04 14:14:06.2879|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 14:14:06.2879|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 14:14:06.2879|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: Before executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 14:14:06.2879|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: After executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 14:14:06.2879|105|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action AdvansEAlert.CommunicationService.Controllers.AdminController.Index (AdvansEAlert.CommunicationService) in 3895.5551ms 
+2026-03-04 14:14:06.2887|1|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'AdvansEAlert.CommunicationService.Controllers.AdminController.Index (AdvansEAlert.CommunicationService)' 
+2026-03-04 14:14:06.2887|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU6" sending DATA frame for stream ID 1 with length 0 and flags END_STREAM. 
+2026-03-04 14:14:06.2906|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-04 14:14:06.2918|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 14:14:06.2918|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-04 14:14:06.2918|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7104/ - 200 - text/html;+charset=utf-8 4006.9955ms 
+2026-03-04 14:14:06.3040|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU6" received HEADERS frame for stream ID 3 with length 177 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2026-03-04 14:14:06.3040|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7104/css/site.css?v=nnZ5zVA-niTDQW1Y0Y9zPklcHPLjiTUCw8NR_y0ptmU - - - 
+2026-03-04 14:14:06.3040|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2026-03-04 14:14:06.3060|0|TRACE|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Range header's value is empty. 
+2026-03-04 14:14:06.3060|6|INFO|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|The file /css/site.css was not modified 
+2026-03-04 14:14:06.3060|8|DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Handled. Status code: 304 File: /css/site.css 
+2026-03-04 14:14:06.3070|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7104/css/site.css?v=nnZ5zVA-niTDQW1Y0Y9zPklcHPLjiTUCw8NR_y0ptmU - 304 - text/css 2.4255ms 
+2026-03-04 14:14:06.3070|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU6" sending HEADERS frame for stream ID 3 with length 70 and flags END_STREAM, END_HEADERS. 
+2026-03-04 14:14:06.3080|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU6" received RST_STREAM frame for stream ID 3 with length 4 and flags 0x0. 
+2026-03-04 14:14:21.8245|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU6" received HEADERS frame for stream ID 5 with length 47 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2026-03-04 14:14:21.8245|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU6" received PING frame for stream ID 0 with length 8 and flags NONE. 
+2026-03-04 14:14:21.8245|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7104/Admin/Applications - - - 
+2026-03-04 14:14:21.8248|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2026-03-04 14:14:21.8248|4|DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|The request path /Admin/Applications does not match a supported file type 
+2026-03-04 14:14:21.8248|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU6" sending PING frame for stream ID 0 with length 8 and flags ACK. 
+2026-03-04 14:14:21.8248|1001|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/Admin/Applications' 
+2026-03-04 14:14:21.8258|1005|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|Endpoint 'AdvansEAlert.CommunicationService.Controllers.AdminController.Applications (AdvansEAlert.CommunicationService)' with route pattern '{controller=Admin}/{action=Index}/{id?}' is valid for the request path '/Admin/Applications' 
+2026-03-04 14:14:21.8258|1|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint 'AdvansEAlert.CommunicationService.Controllers.AdminController.Applications (AdvansEAlert.CommunicationService)' 
+2026-03-04 14:14:21.8258|8|TRACE|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|The endpoint does not specify the IRequestSizeLimitMetadata. 
+2026-03-04 14:14:21.8258|15|DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Static files was skipped as the request already matched an endpoint. 
+2026-03-04 14:14:21.8258|5|TRACE|Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector|Performing unprotect operation to key {160937ae-79e1-4f2b-98f0-e20c59961a09} with purposes ('/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/', 'Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationMiddleware', 'Cookies', 'v2'). 
+2026-03-04 14:14:21.8258|8|DEBUG|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|AuthenticationScheme: Cookies was successfully authenticated. 
+2026-03-04 14:14:21.8269|1|DEBUG|Microsoft.AspNetCore.Authorization.DefaultAuthorizationService|Authorization was successful. 
+2026-03-04 14:14:21.8278|0|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'AdvansEAlert.CommunicationService.Controllers.AdminController.Applications (AdvansEAlert.CommunicationService)' 
+2026-03-04 14:14:21.8303|102|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Applications", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Applications() on controller AdvansEAlert.CommunicationService.Controllers.AdminController (AdvansEAlert.CommunicationService). 
+2026-03-04 14:14:21.8303|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of authorization filters (in the following order): None 
+2026-03-04 14:14:21.8303|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of resource filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter 
+2026-03-04 14:14:21.8303|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648), Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Filters.ResponseCacheFilter 
+2026-03-04 14:14:21.8303|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of exception filters (in the following order): None 
+2026-03-04 14:14:21.8303|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter 
+2026-03-04 14:14:21.8303|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: Before executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 14:14:21.8303|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: After executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 14:14:21.8303|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing controller factory for controller AdvansEAlert.CommunicationService.Controllers.AdminController (AdvansEAlert.CommunicationService) 
+2026-03-04 14:14:21.8303|2|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed controller factory for controller AdvansEAlert.CommunicationService.Controllers.AdminController (AdvansEAlert.CommunicationService) 
+2026-03-04 14:14:21.8303|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecutionAsync on filter Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter. 
+2026-03-04 14:14:21.8303|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2026-03-04 14:14:21.8303|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2026-03-04 14:14:21.8303|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Filters.ResponseCacheFilter. 
+2026-03-04 14:14:21.8303|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Filters.ResponseCacheFilter. 
+2026-03-04 14:14:21.8303|101|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method AdvansEAlert.CommunicationService.Controllers.AdminController.Applications (AdvansEAlert.CommunicationService) - Validation state: Valid 
+2026-03-04 14:14:21.8323|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-04 14:14:21.8323|10111|DEBUG|Microsoft.EntityFrameworkCore.Query|Compiling query expression: 
+'DbSet<Application>()' 
+2026-03-04 14:14:21.8460|10107|DEBUG|Microsoft.EntityFrameworkCore.Query|Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Application>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Application.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Application.ApiKeyEncrypted (string), 1], [Property: Application.ApiKeyHash (string) Required MaxLength(100), 2], [Property: Application.CreatedAt (DateTime) Required, 3], [Property: Application.IsEnabled (bool) Required, 4], [Property: Application.Name (string) Required Index MaxLength(100), 5] }
+        SELECT a.Id, a.ApiKeyEncrypted, a.ApiKeyHash, a.CreatedAt, a.IsEnabled, a.Name
+        FROM Applications AS a), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Application>, 
+    AdvansEAlert.CommunicationService.Data.ApplicationDbContext, 
+    False, 
+    False, 
+    True
+)' 
+2026-03-04 14:14:21.8475|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-04 14:14:21.8475|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-04 14:14:21.8475|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 14:14:21.8475|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 14:14:21.8475|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-04 14:14:21.8475|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-04 14:14:21.8475|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-04 14:14:21.8475|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[ApiKeyEncrypted], [a].[ApiKeyHash], [a].[CreatedAt], [a].[IsEnabled], [a].[Name]
+FROM [Applications] AS [a] 
+2026-03-04 14:14:22.0714|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (224ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[ApiKeyEncrypted], [a].[ApiKeyHash], [a].[CreatedAt], [a].[IsEnabled], [a].[Name]
+FROM [Applications] AS [a] 
+2026-03-04 14:14:22.0812|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'Application' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2026-03-04 14:14:22.0883|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 14:14:22.0883|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 16ms reading results. 
+2026-03-04 14:14:22.0883|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 14:14:22.0883|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-04 14:14:22.0893|103|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action method AdvansEAlert.CommunicationService.Controllers.AdminController.Applications (AdvansEAlert.CommunicationService), returned result Microsoft.AspNetCore.Mvc.ViewResult in 258.7579ms. 
+2026-03-04 14:14:22.0893|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Filters.ResponseCacheFilter. 
+2026-03-04 14:14:22.0893|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Filters.ResponseCacheFilter. 
+2026-03-04 14:14:22.0893|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2026-03-04 14:14:22.0893|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2026-03-04 14:14:22.0893|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecutionAsync on filter Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter. 
+2026-03-04 14:14:22.0893|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 14:14:22.0893|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 14:14:22.0893|5|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Before executing action result Microsoft.AspNetCore.Mvc.ViewResult. 
+2026-03-04 14:14:22.0893|1|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine|View lookup cache miss for view 'Applications' in controller 'Admin'. 
+2026-03-04 14:14:22.0893|5|TRACE|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Located compiled view for view at path '/Views/Admin/Applications.cshtml'. 
+2026-03-04 14:14:22.0893|9|TRACE|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Invalidating compiled view at path '/Views/Admin/Applications.cshtml' with a file since the checksum did not match. 
+2026-03-04 14:14:22.1610|1|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Compilation of the generated code for the Razor file at '/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/Views/Admin/Applications.cshtml' started. 
+2026-03-04 14:14:22.2389|2|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Compilation of the generated code for the Razor file at '/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/Views/Admin/Applications.cshtml' completed in 77.8152ms. 
+2026-03-04 14:14:22.2389|1|INFO|Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor|Executing ViewResult, running view Applications. 
+2026-03-04 14:14:22.2389|2|DEBUG|Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor|The view path '/Views/Admin/Applications.cshtml' was found in 149.9487ms. 
+2026-03-04 14:14:22.2429|1|DEBUG|Microsoft.AspNetCore.Mvc.ViewFeatures.CookieTempDataProvider|The temp data cookie .AspNetCore.Mvc.CookieTempDataProvider was not found. 
+2026-03-04 14:14:22.2429|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[RegenerateApiKey],controller=[Admin]) 
+2026-03-04 14:14:22.2429|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/RegenerateApiKey and  
+2026-03-04 14:14:22.2429|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/RegenerateApiKey 
+2026-03-04 14:14:22.2429|5|TRACE|Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector|Performing unprotect operation to key {160937ae-79e1-4f2b-98f0-e20c59961a09} with purposes ('/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/', 'Microsoft.AspNetCore.Antiforgery.AntiforgeryToken.v1'). 
+2026-03-04 14:14:22.2429|31|TRACE|Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector|Performing protect operation to key {160937ae-79e1-4f2b-98f0-e20c59961a09} with purposes ('/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/', 'Microsoft.AspNetCore.Antiforgery.AntiforgeryToken.v1'). 
+2026-03-04 14:14:22.2429|6|DEBUG|Microsoft.AspNetCore.Antiforgery.DefaultAntiforgery|An antiforgery cookie token was reused. 
+2026-03-04 14:14:22.2443|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[DeleteApplication],controller=[Admin]) 
+2026-03-04 14:14:22.2443|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/DeleteApplication and  
+2026-03-04 14:14:22.2443|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/DeleteApplication 
+2026-03-04 14:14:22.2443|6|DEBUG|Microsoft.AspNetCore.Antiforgery.DefaultAntiforgery|An antiforgery cookie token was reused. 
+2026-03-04 14:14:22.2443|2|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine|View lookup cache hit for view '_AdminLayout' in controller 'Admin'. 
+2026-03-04 14:14:22.2450|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Index],controller=[Admin]) 
+2026-03-04 14:14:22.2450|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in  and  
+2026-03-04 14:14:22.2450|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result / 
+2026-03-04 14:14:22.2450|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Applications],controller=[Admin]) 
+2026-03-04 14:14:22.2450|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/Applications and  
+2026-03-04 14:14:22.2450|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/Applications 
+2026-03-04 14:14:22.2450|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[SMTP],controller=[Admin]) 
+2026-03-04 14:14:22.2450|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/SMTP and  
+2026-03-04 14:14:22.2450|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/SMTP 
+2026-03-04 14:14:22.2450|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[SMSProviders],controller=[Admin]) 
+2026-03-04 14:14:22.2450|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/SMSProviders and  
+2026-03-04 14:14:22.2450|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/SMSProviders 
+2026-03-04 14:14:22.2450|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Templates],controller=[Admin]) 
+2026-03-04 14:14:22.2450|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/Templates and  
+2026-03-04 14:14:22.2450|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/Templates 
+2026-03-04 14:14:22.2450|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Logs],controller=[Admin]) 
+2026-03-04 14:14:22.2450|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/Logs and  
+2026-03-04 14:14:22.2450|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/Logs 
+2026-03-04 14:14:22.2450|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Users],controller=[Admin]) 
+2026-03-04 14:14:22.2450|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/Users and  
+2026-03-04 14:14:22.2450|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/Users 
+2026-03-04 14:14:22.2450|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Logout],controller=[Account]) 
+2026-03-04 14:14:22.2450|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Account/Logout and  
+2026-03-04 14:14:22.2450|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Account/Logout 
+2026-03-04 14:14:22.2450|6|DEBUG|Microsoft.AspNetCore.Antiforgery.DefaultAntiforgery|An antiforgery cookie token was reused. 
+2026-03-04 14:14:22.2458|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[CreateApplication],controller=[Admin]) 
+2026-03-04 14:14:22.2458|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/CreateApplication and  
+2026-03-04 14:14:22.2458|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/CreateApplication 
+2026-03-04 14:14:22.2458|6|DEBUG|Microsoft.AspNetCore.Antiforgery.DefaultAntiforgery|An antiforgery cookie token was reused. 
+2026-03-04 14:14:22.2458|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[EditApplication],controller=[Admin]) 
+2026-03-04 14:14:22.2458|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/EditApplication and  
+2026-03-04 14:14:22.2458|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/EditApplication 
+2026-03-04 14:14:22.2458|6|DEBUG|Microsoft.AspNetCore.Antiforgery.DefaultAntiforgery|An antiforgery cookie token was reused. 
+2026-03-04 14:14:22.2458|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU6" sending HEADERS frame for stream ID 5 with length 149 and flags END_HEADERS. 
+2026-03-04 14:14:22.2458|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU6" sending DATA frame for stream ID 5 with length 14142 and flags NONE. 
+2026-03-04 14:14:22.2458|4|INFO|Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor|Executed ViewResult - view Applications executed in 157.1962ms. 
+2026-03-04 14:14:22.2458|6|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|After executing action result Microsoft.AspNetCore.Mvc.ViewResult. 
+2026-03-04 14:14:22.2458|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 14:14:22.2458|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 14:14:22.2458|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: Before executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 14:14:22.2458|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: After executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 14:14:22.2458|105|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action AdvansEAlert.CommunicationService.Controllers.AdminController.Applications (AdvansEAlert.CommunicationService) in 416.353ms 
+2026-03-04 14:14:22.2458|1|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'AdvansEAlert.CommunicationService.Controllers.AdminController.Applications (AdvansEAlert.CommunicationService)' 
+2026-03-04 14:14:22.2458|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU6" sending DATA frame for stream ID 5 with length 0 and flags END_STREAM. 
+2026-03-04 14:14:22.2458|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-04 14:14:22.2468|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 14:14:22.2468|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-04 14:14:22.2468|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7104/Admin/Applications - 200 - text/html;+charset=utf-8 422.0837ms 
+2026-03-04 14:14:22.2468|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU6" received WINDOW_UPDATE frame for stream ID 0 with length 4 and flags 0x0. 
+2026-03-04 14:28:15.6358|6|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets|Connection id "0HNJPV14APUU6" received FIN. 
+2026-03-04 14:28:15.6677|48|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU6" is closed. The last processed stream ID was 5. 
+2026-03-04 14:28:15.6698|7|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets|Connection id "0HNJPV14APUU6" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2026-03-04 14:28:15.6771|62|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Http2|The connection queue processing loop for 0HNJPV14APUU6 completed. 
+2026-03-04 14:28:15.6808|2|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HNJPV14APUU6" stopped. 
+2026-03-04 15:03:30.6377|39|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HNJPV14APUU7" accepted. 
+2026-03-04 15:03:30.6393|1|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HNJPV14APUU7" started. 
+2026-03-04 15:03:30.6737|3|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware|Connection 0HNJPV14APUU7 established using the following protocol: Tls12 
+2026-03-04 15:03:30.7309|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" sending SETTINGS frame for stream ID 0 with length 24 and flags NONE. 
+2026-03-04 15:03:30.7309|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" sending WINDOW_UPDATE frame for stream ID 0 with length 4 and flags 0x0. 
+2026-03-04 15:03:30.7317|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" received SETTINGS frame for stream ID 0 with length 24 and flags NONE. 
+2026-03-04 15:03:30.7325|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" sending SETTINGS frame for stream ID 0 with length 0 and flags ACK. 
+2026-03-04 15:03:30.7378|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" received WINDOW_UPDATE frame for stream ID 0 with length 4 and flags 0x0. 
+2026-03-04 15:03:30.7378|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" received HEADERS frame for stream ID 1 with length 1437 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2026-03-04 15:03:30.7385|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" received SETTINGS frame for stream ID 0 with length 0 and flags ACK. 
+2026-03-04 15:03:30.7385|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7104/ - - - 
+2026-03-04 15:03:30.7398|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2026-03-04 15:03:30.7398|4|DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|The request path / does not match a supported file type 
+2026-03-04 15:03:30.7398|1001|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/' 
+2026-03-04 15:03:30.7406|1005|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|Endpoint 'AdvansEAlert.CommunicationService.Controllers.AdminController.Index (AdvansEAlert.CommunicationService)' with route pattern '{controller=Admin}/{action=Index}/{id?}' is valid for the request path '/' 
+2026-03-04 15:03:30.7406|1|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint 'AdvansEAlert.CommunicationService.Controllers.AdminController.Index (AdvansEAlert.CommunicationService)' 
+2026-03-04 15:03:30.7406|8|TRACE|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|The endpoint does not specify the IRequestSizeLimitMetadata. 
+2026-03-04 15:03:30.7431|15|DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Static files was skipped as the request already matched an endpoint. 
+2026-03-04 15:03:30.7519|5|TRACE|Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector|Performing unprotect operation to key {160937ae-79e1-4f2b-98f0-e20c59961a09} with purposes ('/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/', 'Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationMiddleware', 'Cookies', 'v2'). 
+2026-03-04 15:03:30.7531|8|DEBUG|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|AuthenticationScheme: Cookies was successfully authenticated. 
+2026-03-04 15:03:30.7562|1|DEBUG|Microsoft.AspNetCore.Authorization.DefaultAuthorizationService|Authorization was successful. 
+2026-03-04 15:03:30.7581|0|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'AdvansEAlert.CommunicationService.Controllers.AdminController.Index (AdvansEAlert.CommunicationService)' 
+2026-03-04 15:03:30.7608|102|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Index", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller AdvansEAlert.CommunicationService.Controllers.AdminController (AdvansEAlert.CommunicationService). 
+2026-03-04 15:03:30.7608|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of authorization filters (in the following order): None 
+2026-03-04 15:03:30.7608|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of resource filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter 
+2026-03-04 15:03:30.7608|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648), Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Filters.ResponseCacheFilter 
+2026-03-04 15:03:30.7608|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of exception filters (in the following order): None 
+2026-03-04 15:03:30.7608|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter 
+2026-03-04 15:03:30.7608|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: Before executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 15:03:30.7608|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: After executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 15:03:30.7608|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing controller factory for controller AdvansEAlert.CommunicationService.Controllers.AdminController (AdvansEAlert.CommunicationService) 
+2026-03-04 15:03:30.7637|2|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed controller factory for controller AdvansEAlert.CommunicationService.Controllers.AdminController (AdvansEAlert.CommunicationService) 
+2026-03-04 15:03:30.7637|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecutionAsync on filter Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter. 
+2026-03-04 15:03:30.7637|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2026-03-04 15:03:30.7637|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2026-03-04 15:03:30.7637|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Filters.ResponseCacheFilter. 
+2026-03-04 15:03:30.7637|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Filters.ResponseCacheFilter. 
+2026-03-04 15:03:30.7637|101|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method AdvansEAlert.CommunicationService.Controllers.AdminController.Index (AdvansEAlert.CommunicationService) - Validation state: Valid 
+2026-03-04 15:03:30.8063|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-04 15:03:30.8081|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-04 15:03:30.8081|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-04 15:03:30.8081|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 15:03:32.1294|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 15:03:32.1298|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-04 15:03:32.1298|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-04 15:03:32.1298|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-04 15:03:32.1298|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Applications] AS [a] 
+2026-03-04 15:03:32.4111|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (281ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Applications] AS [a] 
+2026-03-04 15:03:32.4117|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 15:03:32.4117|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-04 15:03:32.4117|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 15:03:32.4117|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-04 15:03:32.4128|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 15:03:32.4128|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 15:03:32.4128|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-04 15:03:32.4128|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-04 15:03:32.4128|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-04 15:03:32.4128|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [EmailLogs] AS [e] 
+2026-03-04 15:03:32.7157|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (302ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [EmailLogs] AS [e] 
+2026-03-04 15:03:32.7157|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 15:03:32.7157|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-04 15:03:32.7157|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 15:03:32.7165|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-04 15:03:32.7165|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 15:03:32.7165|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 15:03:32.7175|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-04 15:03:32.7175|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-04 15:03:32.7175|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-04 15:03:32.7175|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [SmsLogs] AS [s] 
+2026-03-04 15:03:33.0216|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (304ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [SmsLogs] AS [s] 
+2026-03-04 15:03:33.0216|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 15:03:33.0216|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-04 15:03:33.0225|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 15:03:33.0225|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-04 15:03:33.0225|103|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action method AdvansEAlert.CommunicationService.Controllers.AdminController.Index (AdvansEAlert.CommunicationService), returned result Microsoft.AspNetCore.Mvc.ViewResult in 2258.7009ms. 
+2026-03-04 15:03:33.0225|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Filters.ResponseCacheFilter. 
+2026-03-04 15:03:33.0225|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Filters.ResponseCacheFilter. 
+2026-03-04 15:03:33.0225|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2026-03-04 15:03:33.0225|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2026-03-04 15:03:33.0225|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecutionAsync on filter Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter. 
+2026-03-04 15:03:33.0225|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 15:03:33.0225|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 15:03:33.0225|5|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Before executing action result Microsoft.AspNetCore.Mvc.ViewResult. 
+2026-03-04 15:03:33.0256|1|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine|View lookup cache miss for view 'Index' in controller 'Admin'. 
+2026-03-04 15:03:33.0299|1|INFO|Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor|Executing ViewResult, running view Index. 
+2026-03-04 15:03:33.0299|2|DEBUG|Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor|The view path '/Views/Admin/Index.cshtml' was found in 6.756ms. 
+2026-03-04 15:03:33.0315|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Applications],controller=[Admin]) 
+2026-03-04 15:03:33.0315|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/Applications and  
+2026-03-04 15:03:33.0315|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/Applications 
+2026-03-04 15:03:33.0315|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[SMTP],controller=[Admin]) 
+2026-03-04 15:03:33.0315|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/SMTP and  
+2026-03-04 15:03:33.0315|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/SMTP 
+2026-03-04 15:03:33.0315|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[SMSProviders],controller=[Admin]) 
+2026-03-04 15:03:33.0315|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/SMSProviders and  
+2026-03-04 15:03:33.0315|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/SMSProviders 
+2026-03-04 15:03:33.0325|1|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine|View lookup cache miss for view '_AdminLayout' in controller 'Admin'. 
+2026-03-04 15:03:33.0351|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Index],controller=[Admin]) 
+2026-03-04 15:03:33.0351|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in  and  
+2026-03-04 15:03:33.0351|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result / 
+2026-03-04 15:03:33.0355|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Applications],controller=[Admin]) 
+2026-03-04 15:03:33.0355|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/Applications and  
+2026-03-04 15:03:33.0355|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/Applications 
+2026-03-04 15:03:33.0355|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[SMTP],controller=[Admin]) 
+2026-03-04 15:03:33.0355|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/SMTP and  
+2026-03-04 15:03:33.0355|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/SMTP 
+2026-03-04 15:03:33.0355|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[SMSProviders],controller=[Admin]) 
+2026-03-04 15:03:33.0355|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/SMSProviders and  
+2026-03-04 15:03:33.0355|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/SMSProviders 
+2026-03-04 15:03:33.0355|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Templates],controller=[Admin]) 
+2026-03-04 15:03:33.0355|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/Templates and  
+2026-03-04 15:03:33.0355|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/Templates 
+2026-03-04 15:03:33.0365|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Logs],controller=[Admin]) 
+2026-03-04 15:03:33.0365|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/Logs and  
+2026-03-04 15:03:33.0365|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/Logs 
+2026-03-04 15:03:33.0365|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Users],controller=[Admin]) 
+2026-03-04 15:03:33.0365|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/Users and  
+2026-03-04 15:03:33.0365|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/Users 
+2026-03-04 15:03:33.0365|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Logout],controller=[Account]) 
+2026-03-04 15:03:33.0375|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Account/Logout and  
+2026-03-04 15:03:33.0375|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Account/Logout 
+2026-03-04 15:03:33.0375|5|TRACE|Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector|Performing unprotect operation to key {160937ae-79e1-4f2b-98f0-e20c59961a09} with purposes ('/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/', 'Microsoft.AspNetCore.Antiforgery.AntiforgeryToken.v1'). 
+2026-03-04 15:03:33.0375|31|TRACE|Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector|Performing protect operation to key {160937ae-79e1-4f2b-98f0-e20c59961a09} with purposes ('/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/', 'Microsoft.AspNetCore.Antiforgery.AntiforgeryToken.v1'). 
+2026-03-04 15:03:33.0375|6|DEBUG|Microsoft.AspNetCore.Antiforgery.DefaultAntiforgery|An antiforgery cookie token was reused. 
+2026-03-04 15:03:33.0388|1|DEBUG|Microsoft.AspNetCore.Mvc.ViewFeatures.CookieTempDataProvider|The temp data cookie .AspNetCore.Mvc.CookieTempDataProvider was not found. 
+2026-03-04 15:03:33.0401|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" sending HEADERS frame for stream ID 1 with length 216 and flags END_HEADERS. 
+2026-03-04 15:03:33.0401|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" sending DATA frame for stream ID 1 with length 10555 and flags NONE. 
+2026-03-04 15:03:33.0406|4|INFO|Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor|Executed ViewResult - view Index executed in 17.3187ms. 
+2026-03-04 15:03:33.0406|6|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|After executing action result Microsoft.AspNetCore.Mvc.ViewResult. 
+2026-03-04 15:03:33.0406|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 15:03:33.0406|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 15:03:33.0406|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: Before executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 15:03:33.0406|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: After executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 15:03:33.0406|105|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action AdvansEAlert.CommunicationService.Controllers.AdminController.Index (AdvansEAlert.CommunicationService) in 2279.6829ms 
+2026-03-04 15:03:33.0406|1|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'AdvansEAlert.CommunicationService.Controllers.AdminController.Index (AdvansEAlert.CommunicationService)' 
+2026-03-04 15:03:33.0406|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" sending DATA frame for stream ID 1 with length 0 and flags END_STREAM. 
+2026-03-04 15:03:33.0406|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-04 15:03:33.0406|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 15:03:33.0406|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-04 15:03:33.0406|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7104/ - 200 - text/html;+charset=utf-8 2302.0254ms 
+2026-03-04 15:03:33.0764|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" received HEADERS frame for stream ID 3 with length 149 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2026-03-04 15:03:33.0768|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" received HEADERS frame for stream ID 5 with length 116 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2026-03-04 15:03:33.0768|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" received HEADERS frame for stream ID 7 with length 86 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2026-03-04 15:03:33.0768|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7104/css/site.css?v=nnZ5zVA-niTDQW1Y0Y9zPklcHPLjiTUCw8NR_y0ptmU - - - 
+2026-03-04 15:03:33.0768|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7104/lib/bootstrap/dist/css/bootstrap.min.css - - - 
+2026-03-04 15:03:33.0768|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" received HEADERS frame for stream ID 9 with length 81 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2026-03-04 15:03:33.0768|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2026-03-04 15:03:33.0768|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2026-03-04 15:03:33.0777|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7104/lib/jquery/dist/jquery.min.js - - - 
+2026-03-04 15:03:33.0777|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2026-03-04 15:03:33.1009|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7104/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 
+2026-03-04 15:03:33.1009|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2026-03-04 15:03:33.1043|0|TRACE|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Range header's value is empty. 
+2026-03-04 15:03:33.1043|0|TRACE|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Range header's value is empty. 
+2026-03-04 15:03:33.1043|0|TRACE|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Range header's value is empty. 
+2026-03-04 15:03:33.1043|6|INFO|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|The file /lib/jquery/dist/jquery.min.js was not modified 
+2026-03-04 15:03:33.1043|6|INFO|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|The file /lib/bootstrap/dist/js/bootstrap.bundle.min.js was not modified 
+2026-03-04 15:03:33.1043|0|TRACE|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Range header's value is empty. 
+2026-03-04 15:03:33.1045|8|DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Handled. Status code: 304 File: /lib/bootstrap/dist/js/bootstrap.bundle.min.js 
+2026-03-04 15:03:33.1045|6|INFO|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|The file /css/site.css was not modified 
+2026-03-04 15:03:33.1043|6|INFO|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|The file /lib/bootstrap/dist/css/bootstrap.min.css was not modified 
+2026-03-04 15:03:33.1045|8|DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Handled. Status code: 304 File: /lib/bootstrap/dist/css/bootstrap.min.css 
+2026-03-04 15:03:33.1045|8|DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Handled. Status code: 304 File: /css/site.css 
+2026-03-04 15:03:33.1045|8|DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Handled. Status code: 304 File: /lib/jquery/dist/jquery.min.js 
+2026-03-04 15:03:33.1045|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7104/css/site.css?v=nnZ5zVA-niTDQW1Y0Y9zPklcHPLjiTUCw8NR_y0ptmU - 304 - text/css 27.7084ms 
+2026-03-04 15:03:33.1045|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7104/lib/bootstrap/dist/css/bootstrap.min.css - 304 - text/css 27.7077ms 
+2026-03-04 15:03:33.1045|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7104/lib/bootstrap/dist/js/bootstrap.bundle.min.js - 304 - text/javascript 3.9088ms 
+2026-03-04 15:03:33.1045|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7104/lib/jquery/dist/jquery.min.js - 304 - text/javascript 27.0412ms 
+2026-03-04 15:03:33.1045|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" sending HEADERS frame for stream ID 3 with length 70 and flags END_STREAM, END_HEADERS. 
+2026-03-04 15:03:33.1045|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" sending HEADERS frame for stream ID 5 with length 55 and flags END_STREAM, END_HEADERS. 
+2026-03-04 15:03:33.1069|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" sending HEADERS frame for stream ID 7 with length 41 and flags END_STREAM, END_HEADERS. 
+2026-03-04 15:03:33.1083|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" sending HEADERS frame for stream ID 9 with length 25 and flags END_STREAM, END_HEADERS. 
+2026-03-04 15:03:47.4257|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" received HEADERS frame for stream ID 11 with length 41 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2026-03-04 15:03:47.4257|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" received PING frame for stream ID 0 with length 8 and flags NONE. 
+2026-03-04 15:03:47.4257|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" sending PING frame for stream ID 0 with length 8 and flags ACK. 
+2026-03-04 15:03:47.4266|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7104/Admin/Logs - - - 
+2026-03-04 15:03:47.4266|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2026-03-04 15:03:47.4266|4|DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|The request path /Admin/Logs does not match a supported file type 
+2026-03-04 15:03:47.4320|1001|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/Admin/Logs' 
+2026-03-04 15:03:47.4320|1005|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|Endpoint 'AdvansEAlert.CommunicationService.Controllers.AdminController.Logs (AdvansEAlert.CommunicationService)' with route pattern '{controller=Admin}/{action=Index}/{id?}' is valid for the request path '/Admin/Logs' 
+2026-03-04 15:03:47.4320|1|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint 'AdvansEAlert.CommunicationService.Controllers.AdminController.Logs (AdvansEAlert.CommunicationService)' 
+2026-03-04 15:03:47.4320|8|TRACE|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|The endpoint does not specify the IRequestSizeLimitMetadata. 
+2026-03-04 15:03:47.4328|15|DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Static files was skipped as the request already matched an endpoint. 
+2026-03-04 15:03:47.4328|5|TRACE|Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector|Performing unprotect operation to key {160937ae-79e1-4f2b-98f0-e20c59961a09} with purposes ('/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/', 'Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationMiddleware', 'Cookies', 'v2'). 
+2026-03-04 15:03:47.4328|8|DEBUG|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|AuthenticationScheme: Cookies was successfully authenticated. 
+2026-03-04 15:03:47.4335|1|DEBUG|Microsoft.AspNetCore.Authorization.DefaultAuthorizationService|Authorization was successful. 
+2026-03-04 15:03:47.4335|0|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'AdvansEAlert.CommunicationService.Controllers.AdminController.Logs (AdvansEAlert.CommunicationService)' 
+2026-03-04 15:03:47.4419|102|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Logs", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Logs() on controller AdvansEAlert.CommunicationService.Controllers.AdminController (AdvansEAlert.CommunicationService). 
+2026-03-04 15:03:47.4419|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of authorization filters (in the following order): None 
+2026-03-04 15:03:47.4419|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of resource filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter 
+2026-03-04 15:03:47.4419|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648), Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Filters.ResponseCacheFilter 
+2026-03-04 15:03:47.4419|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of exception filters (in the following order): None 
+2026-03-04 15:03:47.4419|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter 
+2026-03-04 15:03:47.4419|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: Before executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 15:03:47.4419|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: After executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 15:03:47.4419|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing controller factory for controller AdvansEAlert.CommunicationService.Controllers.AdminController (AdvansEAlert.CommunicationService) 
+2026-03-04 15:03:47.4419|2|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed controller factory for controller AdvansEAlert.CommunicationService.Controllers.AdminController (AdvansEAlert.CommunicationService) 
+2026-03-04 15:03:47.4419|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecutionAsync on filter Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter. 
+2026-03-04 15:03:47.4419|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2026-03-04 15:03:47.4419|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2026-03-04 15:03:47.4419|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Filters.ResponseCacheFilter. 
+2026-03-04 15:03:47.4419|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Filters.ResponseCacheFilter. 
+2026-03-04 15:03:47.4419|101|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method AdvansEAlert.CommunicationService.Controllers.AdminController.Logs (AdvansEAlert.CommunicationService) - Validation state: Valid 
+2026-03-04 15:03:47.4468|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-04 15:03:47.4543|10111|DEBUG|Microsoft.EntityFrameworkCore.Query|Compiling query expression: 
+'DbSet<EmailLog>()
+    .OrderByDescending(l => l.Timestamp)
+    .Take(__p_0)' 
+2026-03-04 15:03:47.4694|10107|DEBUG|Microsoft.EntityFrameworkCore.Query|Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<EmailLog>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: EmailLog.Id (long) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: EmailLog.ApplicationId (int) Required FK Index, 1], [Property: EmailLog.Body (string), 2], [Property: EmailLog.ErrorMessage (string), 3], [Property: EmailLog.Recipient (string) Required MaxLength(100), 4], [Property: EmailLog.Status (string) Required Index, 5], [Property: EmailLog.Subject (string) Required MaxLength(200), 6], [Property: EmailLog.Timestamp (DateTime) Required Index, 7], [Property: EmailLog.UsedSmtpConfigurationId (int?), 8] }
+        SELECT TOP(@__p_0) e.Id, e.ApplicationId, e.Body, e.ErrorMessage, e.Recipient, e.Status, e.Subject, e.Timestamp, e.UsedSmtpConfigurationId
+        FROM EmailLogs AS e
+        ORDER BY e.Timestamp DESC), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, EmailLog>, 
+    AdvansEAlert.CommunicationService.Data.ApplicationDbContext, 
+    False, 
+    False, 
+    True
+)' 
+2026-03-04 15:03:47.4734|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-04 15:03:47.4734|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-04 15:03:47.4734|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 15:03:47.4736|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 15:03:47.4736|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-04 15:03:47.4736|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-04 15:03:47.4759|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (2ms). 
+2026-03-04 15:03:47.4781|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(@__p_0) [e].[Id], [e].[ApplicationId], [e].[Body], [e].[ErrorMessage], [e].[Recipient], [e].[Status], [e].[Subject], [e].[Timestamp], [e].[UsedSmtpConfigurationId]
+FROM [EmailLogs] AS [e]
+ORDER BY [e].[Timestamp] DESC 
+2026-03-04 15:03:47.7672|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (291ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(@__p_0) [e].[Id], [e].[ApplicationId], [e].[Body], [e].[ErrorMessage], [e].[Recipient], [e].[Status], [e].[Subject], [e].[Timestamp], [e].[UsedSmtpConfigurationId]
+FROM [EmailLogs] AS [e]
+ORDER BY [e].[Timestamp] DESC 
+2026-03-04 15:03:47.7739|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'EmailLog' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2026-03-04 15:03:47.7794|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 15:03:47.7797|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 12ms reading results. 
+2026-03-04 15:03:47.7797|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 15:03:47.7797|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-04 15:03:47.7797|10111|DEBUG|Microsoft.EntityFrameworkCore.Query|Compiling query expression: 
+'DbSet<SmsLog>()
+    .OrderByDescending(l => l.Timestamp)
+    .Take(__p_0)' 
+2026-03-04 15:03:47.7820|10107|DEBUG|Microsoft.EntityFrameworkCore.Query|Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<SmsLog>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: SmsLog.Id (long) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: SmsLog.ApplicationId (int) Required FK Index, 1], [Property: SmsLog.ErrorMessage (string), 2], [Property: SmsLog.Message (string) Required MaxLength(500), 3], [Property: SmsLog.ProviderResponse (string), 4], [Property: SmsLog.Recipient (string) Required MaxLength(20), 5], [Property: SmsLog.Status (string) Required Index, 6], [Property: SmsLog.Timestamp (DateTime) Required Index, 7], [Property: SmsLog.UsedSmsProviderId (int?), 8] }
+        SELECT TOP(@__p_0) s.Id, s.ApplicationId, s.ErrorMessage, s.Message, s.ProviderResponse, s.Recipient, s.Status, s.Timestamp, s.UsedSmsProviderId
+        FROM SmsLogs AS s
+        ORDER BY s.Timestamp DESC), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, SmsLog>, 
+    AdvansEAlert.CommunicationService.Data.ApplicationDbContext, 
+    False, 
+    False, 
+    True
+)' 
+2026-03-04 15:03:47.7820|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 15:03:47.7820|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 15:03:47.7820|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-04 15:03:47.7820|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-04 15:03:47.7820|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-04 15:03:47.7820|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(@__p_0) [s].[Id], [s].[ApplicationId], [s].[ErrorMessage], [s].[Message], [s].[ProviderResponse], [s].[Recipient], [s].[Status], [s].[Timestamp], [s].[UsedSmsProviderId]
+FROM [SmsLogs] AS [s]
+ORDER BY [s].[Timestamp] DESC 
+2026-03-04 15:03:48.0745|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (292ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(@__p_0) [s].[Id], [s].[ApplicationId], [s].[ErrorMessage], [s].[Message], [s].[ProviderResponse], [s].[Recipient], [s].[Status], [s].[Timestamp], [s].[UsedSmsProviderId]
+FROM [SmsLogs] AS [s]
+ORDER BY [s].[Timestamp] DESC 
+2026-03-04 15:03:48.0747|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 15:03:48.0747|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-04 15:03:48.0747|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 15:03:48.0747|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-04 15:03:48.0780|103|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action method AdvansEAlert.CommunicationService.Controllers.AdminController.Logs (AdvansEAlert.CommunicationService), returned result Microsoft.AspNetCore.Mvc.ViewResult in 635.5722ms. 
+2026-03-04 15:03:48.0780|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Filters.ResponseCacheFilter. 
+2026-03-04 15:03:48.0780|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Filters.ResponseCacheFilter. 
+2026-03-04 15:03:48.0780|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2026-03-04 15:03:48.0780|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2026-03-04 15:03:48.0780|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecutionAsync on filter Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter. 
+2026-03-04 15:03:48.0780|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 15:03:48.0780|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 15:03:48.0780|5|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Before executing action result Microsoft.AspNetCore.Mvc.ViewResult. 
+2026-03-04 15:03:48.0780|1|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine|View lookup cache miss for view 'Logs' in controller 'Admin'. 
+2026-03-04 15:03:48.0780|5|TRACE|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Located compiled view for view at path '/Views/Admin/Logs.cshtml'. 
+2026-03-04 15:03:48.0787|9|TRACE|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Invalidating compiled view at path '/Views/Admin/Logs.cshtml' with a file since the checksum did not match. 
+2026-03-04 15:03:48.3100|1|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Compilation of the generated code for the Razor file at '/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/Views/Admin/Logs.cshtml' started. 
+2026-03-04 15:03:48.3830|2|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler|Compilation of the generated code for the Razor file at '/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/Views/Admin/Logs.cshtml' completed in 72.9016ms. 
+2026-03-04 15:03:48.3830|1|INFO|Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor|Executing ViewResult, running view Logs. 
+2026-03-04 15:03:48.3830|2|DEBUG|Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor|The view path '/Views/Admin/Logs.cshtml' was found in 305.3099ms. 
+2026-03-04 15:03:48.3875|2|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine|View lookup cache hit for view '_AdminLayout' in controller 'Admin'. 
+2026-03-04 15:03:48.3876|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Index],controller=[Admin]) 
+2026-03-04 15:03:48.3876|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in  and  
+2026-03-04 15:03:48.3876|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result / 
+2026-03-04 15:03:48.3876|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Applications],controller=[Admin]) 
+2026-03-04 15:03:48.3876|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/Applications and  
+2026-03-04 15:03:48.3876|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/Applications 
+2026-03-04 15:03:48.3876|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[SMTP],controller=[Admin]) 
+2026-03-04 15:03:48.3876|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/SMTP and  
+2026-03-04 15:03:48.3876|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/SMTP 
+2026-03-04 15:03:48.3876|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[SMSProviders],controller=[Admin]) 
+2026-03-04 15:03:48.3876|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/SMSProviders and  
+2026-03-04 15:03:48.3876|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/SMSProviders 
+2026-03-04 15:03:48.3876|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Templates],controller=[Admin]) 
+2026-03-04 15:03:48.3876|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/Templates and  
+2026-03-04 15:03:48.3876|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/Templates 
+2026-03-04 15:03:48.3876|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Logs],controller=[Admin]) 
+2026-03-04 15:03:48.3876|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/Logs and  
+2026-03-04 15:03:48.3876|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/Logs 
+2026-03-04 15:03:48.3876|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Users],controller=[Admin]) 
+2026-03-04 15:03:48.3876|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/Users and  
+2026-03-04 15:03:48.3876|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/Users 
+2026-03-04 15:03:48.3876|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Logout],controller=[Account]) 
+2026-03-04 15:03:48.3876|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Account/Logout and  
+2026-03-04 15:03:48.3876|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Account/Logout 
+2026-03-04 15:03:48.3876|5|TRACE|Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector|Performing unprotect operation to key {160937ae-79e1-4f2b-98f0-e20c59961a09} with purposes ('/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/', 'Microsoft.AspNetCore.Antiforgery.AntiforgeryToken.v1'). 
+2026-03-04 15:03:48.3876|31|TRACE|Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector|Performing protect operation to key {160937ae-79e1-4f2b-98f0-e20c59961a09} with purposes ('/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/', 'Microsoft.AspNetCore.Antiforgery.AntiforgeryToken.v1'). 
+2026-03-04 15:03:48.3876|6|DEBUG|Microsoft.AspNetCore.Antiforgery.DefaultAntiforgery|An antiforgery cookie token was reused. 
+2026-03-04 15:03:48.3876|1|DEBUG|Microsoft.AspNetCore.Mvc.ViewFeatures.CookieTempDataProvider|The temp data cookie .AspNetCore.Mvc.CookieTempDataProvider was not found. 
+2026-03-04 15:03:48.3876|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" sending HEADERS frame for stream ID 11 with length 149 and flags END_HEADERS. 
+2026-03-04 15:03:48.3876|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" sending DATA frame for stream ID 11 with length 8471 and flags NONE. 
+2026-03-04 15:03:48.3876|4|INFO|Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor|Executed ViewResult - view Logs executed in 310.0455ms. 
+2026-03-04 15:03:48.3876|6|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|After executing action result Microsoft.AspNetCore.Mvc.ViewResult. 
+2026-03-04 15:03:48.3876|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 15:03:48.3876|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 15:03:48.3876|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: Before executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 15:03:48.3876|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: After executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 15:03:48.3876|105|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action AdvansEAlert.CommunicationService.Controllers.AdminController.Logs (AdvansEAlert.CommunicationService) in 946.1314ms 
+2026-03-04 15:03:48.3876|1|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'AdvansEAlert.CommunicationService.Controllers.AdminController.Logs (AdvansEAlert.CommunicationService)' 
+2026-03-04 15:03:48.3876|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" sending DATA frame for stream ID 11 with length 0 and flags END_STREAM. 
+2026-03-04 15:03:48.3876|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-04 15:03:48.3876|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 15:03:48.3876|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-04 15:03:48.3876|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7104/Admin/Logs - 200 - text/html;+charset=utf-8 961.8614ms 
+2026-03-04 15:03:48.3903|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" received WINDOW_UPDATE frame for stream ID 0 with length 4 and flags 0x0. 
+2026-03-04 15:04:43.4374|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" received HEADERS frame for stream ID 13 with length 66 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2026-03-04 15:04:43.4410|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" received PING frame for stream ID 0 with length 8 and flags NONE. 
+2026-03-04 15:04:43.4410|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" sending PING frame for stream ID 0 with length 8 and flags ACK. 
+2026-03-04 15:04:43.4433|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7104/Admin/Logs - - - 
+2026-03-04 15:04:43.4433|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2026-03-04 15:04:43.4440|4|DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|The request path /Admin/Logs does not match a supported file type 
+2026-03-04 15:04:43.4440|1001|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/Admin/Logs' 
+2026-03-04 15:04:43.4440|1005|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|Endpoint 'AdvansEAlert.CommunicationService.Controllers.AdminController.Logs (AdvansEAlert.CommunicationService)' with route pattern '{controller=Admin}/{action=Index}/{id?}' is valid for the request path '/Admin/Logs' 
+2026-03-04 15:04:43.4440|1|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint 'AdvansEAlert.CommunicationService.Controllers.AdminController.Logs (AdvansEAlert.CommunicationService)' 
+2026-03-04 15:04:43.4440|8|TRACE|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|The endpoint does not specify the IRequestSizeLimitMetadata. 
+2026-03-04 15:04:43.4456|15|DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Static files was skipped as the request already matched an endpoint. 
+2026-03-04 15:04:43.4477|5|TRACE|Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector|Performing unprotect operation to key {160937ae-79e1-4f2b-98f0-e20c59961a09} with purposes ('/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/', 'Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationMiddleware', 'Cookies', 'v2'). 
+2026-03-04 15:04:43.4486|8|DEBUG|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|AuthenticationScheme: Cookies was successfully authenticated. 
+2026-03-04 15:04:43.4493|1|DEBUG|Microsoft.AspNetCore.Authorization.DefaultAuthorizationService|Authorization was successful. 
+2026-03-04 15:04:43.4506|0|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'AdvansEAlert.CommunicationService.Controllers.AdminController.Logs (AdvansEAlert.CommunicationService)' 
+2026-03-04 15:04:43.4512|102|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Logs", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Logs() on controller AdvansEAlert.CommunicationService.Controllers.AdminController (AdvansEAlert.CommunicationService). 
+2026-03-04 15:04:43.4512|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of authorization filters (in the following order): None 
+2026-03-04 15:04:43.4512|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of resource filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter 
+2026-03-04 15:04:43.4512|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648), Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Filters.ResponseCacheFilter 
+2026-03-04 15:04:43.4512|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of exception filters (in the following order): None 
+2026-03-04 15:04:43.4512|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter 
+2026-03-04 15:04:43.4512|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: Before executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 15:04:43.4512|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: After executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 15:04:43.4519|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing controller factory for controller AdvansEAlert.CommunicationService.Controllers.AdminController (AdvansEAlert.CommunicationService) 
+2026-03-04 15:04:43.4519|2|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed controller factory for controller AdvansEAlert.CommunicationService.Controllers.AdminController (AdvansEAlert.CommunicationService) 
+2026-03-04 15:04:43.4519|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecutionAsync on filter Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter. 
+2026-03-04 15:04:43.4519|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2026-03-04 15:04:43.4519|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2026-03-04 15:04:43.4519|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Filters.ResponseCacheFilter. 
+2026-03-04 15:04:43.4531|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Filters.ResponseCacheFilter. 
+2026-03-04 15:04:43.4531|101|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method AdvansEAlert.CommunicationService.Controllers.AdminController.Logs (AdvansEAlert.CommunicationService) - Validation state: Valid 
+2026-03-04 15:04:43.4555|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-04 15:04:43.4603|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-04 15:04:43.4603|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-04 15:04:43.4603|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 15:04:43.4608|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 15:04:43.4608|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-04 15:04:43.4608|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-04 15:04:43.4608|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-04 15:04:43.4608|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(@__p_0) [e].[Id], [e].[ApplicationId], [e].[Body], [e].[ErrorMessage], [e].[Recipient], [e].[Status], [e].[Subject], [e].[Timestamp], [e].[UsedSmtpConfigurationId]
+FROM [EmailLogs] AS [e]
+ORDER BY [e].[Timestamp] DESC 
+2026-03-04 15:04:43.7413|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (280ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(@__p_0) [e].[Id], [e].[ApplicationId], [e].[Body], [e].[ErrorMessage], [e].[Recipient], [e].[Status], [e].[Subject], [e].[Timestamp], [e].[UsedSmtpConfigurationId]
+FROM [EmailLogs] AS [e]
+ORDER BY [e].[Timestamp] DESC 
+2026-03-04 15:04:43.7427|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'EmailLog' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2026-03-04 15:04:43.7428|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 15:04:43.7428|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 1ms reading results. 
+2026-03-04 15:04:43.7428|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 15:04:43.7428|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-04 15:04:43.7428|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 15:04:43.7428|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 15:04:43.7428|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-04 15:04:43.7428|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-04 15:04:43.7428|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-04 15:04:43.7428|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(@__p_0) [s].[Id], [s].[ApplicationId], [s].[ErrorMessage], [s].[Message], [s].[ProviderResponse], [s].[Recipient], [s].[Status], [s].[Timestamp], [s].[UsedSmsProviderId]
+FROM [SmsLogs] AS [s]
+ORDER BY [s].[Timestamp] DESC 
+2026-03-04 15:04:43.9764|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (233ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(@__p_0) [s].[Id], [s].[ApplicationId], [s].[ErrorMessage], [s].[Message], [s].[ProviderResponse], [s].[Recipient], [s].[Status], [s].[Timestamp], [s].[UsedSmsProviderId]
+FROM [SmsLogs] AS [s]
+ORDER BY [s].[Timestamp] DESC 
+2026-03-04 15:04:43.9764|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 15:04:43.9769|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-04 15:04:43.9769|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 15:04:43.9769|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-04 15:04:43.9779|103|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action method AdvansEAlert.CommunicationService.Controllers.AdminController.Logs (AdvansEAlert.CommunicationService), returned result Microsoft.AspNetCore.Mvc.ViewResult in 524.5004ms. 
+2026-03-04 15:04:43.9779|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Filters.ResponseCacheFilter. 
+2026-03-04 15:04:43.9779|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Filters.ResponseCacheFilter. 
+2026-03-04 15:04:43.9779|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2026-03-04 15:04:43.9779|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2026-03-04 15:04:43.9779|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecutionAsync on filter Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter. 
+2026-03-04 15:04:43.9779|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 15:04:43.9779|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 15:04:43.9779|5|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Before executing action result Microsoft.AspNetCore.Mvc.ViewResult. 
+2026-03-04 15:04:43.9789|2|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine|View lookup cache hit for view 'Logs' in controller 'Admin'. 
+2026-03-04 15:04:43.9789|1|INFO|Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor|Executing ViewResult, running view Logs. 
+2026-03-04 15:04:43.9789|2|DEBUG|Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor|The view path '/Views/Admin/Logs.cshtml' was found in 0.7258ms. 
+2026-03-04 15:04:43.9817|2|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine|View lookup cache hit for view '_AdminLayout' in controller 'Admin'. 
+2026-03-04 15:04:43.9841|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Index],controller=[Admin]) 
+2026-03-04 15:04:43.9841|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in  and  
+2026-03-04 15:04:43.9841|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result / 
+2026-03-04 15:04:43.9841|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Applications],controller=[Admin]) 
+2026-03-04 15:04:43.9848|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/Applications and  
+2026-03-04 15:04:43.9848|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/Applications 
+2026-03-04 15:04:43.9848|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[SMTP],controller=[Admin]) 
+2026-03-04 15:04:43.9848|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/SMTP and  
+2026-03-04 15:04:43.9848|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/SMTP 
+2026-03-04 15:04:43.9848|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[SMSProviders],controller=[Admin]) 
+2026-03-04 15:04:43.9848|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/SMSProviders and  
+2026-03-04 15:04:43.9848|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/SMSProviders 
+2026-03-04 15:04:43.9848|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Templates],controller=[Admin]) 
+2026-03-04 15:04:43.9848|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/Templates and  
+2026-03-04 15:04:43.9848|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/Templates 
+2026-03-04 15:04:43.9848|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Logs],controller=[Admin]) 
+2026-03-04 15:04:43.9848|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/Logs and  
+2026-03-04 15:04:43.9848|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/Logs 
+2026-03-04 15:04:43.9858|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Users],controller=[Admin]) 
+2026-03-04 15:04:43.9858|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Admin/Users and  
+2026-03-04 15:04:43.9858|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Admin/Users 
+2026-03-04 15:04:43.9858|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Admin}/{action=Index}/{id?} for address (action=[Logout],controller=[Account]) 
+2026-03-04 15:04:43.9858|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Admin}/{action=Index}/{id?} for Route: {controller=Admin}/{action=Index}/{id?} resulting in /Account/Logout and  
+2026-03-04 15:04:43.9858|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Admin}/{action=Index}/{id?} with result /Account/Logout 
+2026-03-04 15:04:43.9858|5|TRACE|Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector|Performing unprotect operation to key {160937ae-79e1-4f2b-98f0-e20c59961a09} with purposes ('/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/', 'Microsoft.AspNetCore.Antiforgery.AntiforgeryToken.v1'). 
+2026-03-04 15:04:43.9872|31|TRACE|Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector|Performing protect operation to key {160937ae-79e1-4f2b-98f0-e20c59961a09} with purposes ('/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/', 'Microsoft.AspNetCore.Antiforgery.AntiforgeryToken.v1'). 
+2026-03-04 15:04:43.9872|6|DEBUG|Microsoft.AspNetCore.Antiforgery.DefaultAntiforgery|An antiforgery cookie token was reused. 
+2026-03-04 15:04:43.9879|1|DEBUG|Microsoft.AspNetCore.Mvc.ViewFeatures.CookieTempDataProvider|The temp data cookie .AspNetCore.Mvc.CookieTempDataProvider was not found. 
+2026-03-04 15:04:43.9893|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" sending HEADERS frame for stream ID 13 with length 149 and flags END_HEADERS. 
+2026-03-04 15:04:43.9893|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" sending DATA frame for stream ID 13 with length 8471 and flags NONE. 
+2026-03-04 15:04:43.9901|4|INFO|Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor|Executed ViewResult - view Logs executed in 11.6674ms. 
+2026-03-04 15:04:43.9901|6|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|After executing action result Microsoft.AspNetCore.Mvc.ViewResult. 
+2026-03-04 15:04:43.9901|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 15:04:43.9901|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 15:04:43.9901|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: Before executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 15:04:43.9901|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: After executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2026-03-04 15:04:43.9901|105|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action AdvansEAlert.CommunicationService.Controllers.AdminController.Logs (AdvansEAlert.CommunicationService) in 538.9776ms 
+2026-03-04 15:04:43.9901|1|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'AdvansEAlert.CommunicationService.Controllers.AdminController.Logs (AdvansEAlert.CommunicationService)' 
+2026-03-04 15:04:43.9901|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" sending DATA frame for stream ID 13 with length 0 and flags END_STREAM. 
+2026-03-04 15:04:43.9907|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-04 15:04:43.9907|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-04 15:04:43.9907|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-04 15:04:43.9907|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7104/Admin/Logs - 200 - text/html;+charset=utf-8 548.1033ms 
+2026-03-04 15:04:43.9931|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" received WINDOW_UPDATE frame for stream ID 0 with length 4 and flags 0x0. 
+2026-03-04 15:14:56.4413|6|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets|Connection id "0HNJPV14APUU7" received FIN. 
+2026-03-04 15:14:56.4506|48|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HNJPV14APUU7" is closed. The last processed stream ID was 13. 
+2026-03-04 15:14:56.4506|7|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets|Connection id "0HNJPV14APUU7" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2026-03-04 15:14:56.4619|62|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Http2|The connection queue processing loop for 0HNJPV14APUU7 completed. 
+2026-03-04 15:14:56.4626|2|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HNJPV14APUU7" stopped. 
+2026-03-04 17:44:54.3799|0|INFO|Microsoft.Hosting.Lifetime|Application is shutting down... 
+2026-03-04 17:44:54.5292|3|DEBUG|Microsoft.Extensions.Hosting.Internal.Host|Hosting stopping 
