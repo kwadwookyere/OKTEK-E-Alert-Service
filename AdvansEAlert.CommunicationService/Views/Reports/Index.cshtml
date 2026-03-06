@@ -1,0 +1,137 @@
+@model AdvansEAlert.CommunicationService.ViewModels.ReportsDashboardViewModel
+@{
+    ViewData["Title"] = "Reports Dashboard";
+    Layout = "_AdminLayout";
+}
+
+<div class="row g-4 mb-4">
+    <div class="col-md-3">
+        <div class="card glass p-4 text-center">
+            <h6 class="text-dim uppercase small fw-bold">Email Sent</h6>
+            <h2 class="fw-bold text-success">@Model.TotalEmailSent</h2>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card glass p-4 text-center">
+            <h6 class="text-dim uppercase small fw-bold">Email Failed</h6>
+            <h2 class="fw-bold text-danger">@Model.TotalEmailFailed</h2>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card glass p-4 text-center">
+            <h6 class="text-dim uppercase small fw-bold">SMS Sent</h6>
+            <h2 class="fw-bold text-success">@Model.TotalSmsSent</h2>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card glass p-4 text-center">
+            <h6 class="text-dim uppercase small fw-bold">SMS Failed</h6>
+            <h2 class="fw-bold text-danger">@Model.TotalSmsFailed</h2>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4 mb-4">
+    <div class="col-lg-8">
+        <div class="card glass p-4 h-100">
+            <h5 class="fw-bold mb-4">Communication Trends (Last 7 Days)</h5>
+            <canvas id="trendChart" style="max-height: 300px;"></canvas>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card glass p-4 h-100">
+            <h5 class="fw-bold mb-4">Top Applications</h5>
+            <div class="table-responsive">
+                <table class="table table-borderless align-middle">
+                    <thead>
+                        <tr class="text-dim small uppercase">
+                            <th>App</th>
+                            <th class="text-end">Traffic</th>
+                            <th class="text-end">Success</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var app in Model.TopApplications)
+                        {
+                            <tr>
+                                <td class="fw-medium">@app.AppName</td>
+                                <td class="text-end">@app.TotalCount</td>
+                                <td class="text-end">
+                                    <span class="badge glass border-@(app.SuccessRate > 90 ? "success text-success" : "warning text-warning")">
+                                        @app.SuccessRate.ToString("F1")%
+                                    </span>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card glass p-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h5 class="fw-bold m-0">Recent Activity Summary</h5>
+        <a asp-action="CommunicationLog" class="btn btn-sm btn-outline-primary glass-hover px-3">View Full Log</a>
+    </div>
+    <p class="text-dim">The dashboard shows an aggregated view of your communication traffic. For detailed logs and filtering, please visit the Communication Log page.</p>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('trendChart').getContext('2d');
+        const labels = @Json.Serialize(Model.EmailTrend.Select(t => t.Label));
+        const emailData = @Json.Serialize(Model.EmailTrend.Select(t => t.Value));
+        const smsData = @Json.Serialize(Model.SmsTrend.Select(t => t.Value));
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Emails',
+                        data: emailData,
+                        borderColor: '#4e73df',
+                        backgroundColor: 'rgba(78, 115, 223, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    },
+                    {
+                        label: 'SMS',
+                        data: smsData,
+                        borderColor: '#1cc88a',
+                        backgroundColor: 'rgba(28, 200, 138, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            color: 'rgba(255, 255, 255, 0.7)'
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: { color: 'rgba(255, 255, 255, 0.5)' },
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                    },
+                    x: {
+                        ticks: { color: 'rgba(255, 255, 255, 0.5)' },
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+    </script>
+}

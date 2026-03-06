@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body class="animate-fade-in">
+    <!-- Global Loader -->
+    <div id="global-loader">
+        <div class="loader-spinner"></div>
+        <div class="loader-text">Loading AdvansE-Alert...</div>
+    </div>
     <!-- Mobile Header -->
     <header class="top-header glass d-lg-none">
         <div class="d-flex align-items-center">
@@ -41,11 +46,23 @@
             <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "SMSProviders" ? "active" : "")" asp-controller="Admin" asp-action="SMSProviders">
                 <i class="bi bi-chat-left-dots"></i> SMS Providers
             </a>
+            <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "BulkMessaging" && ViewContext.RouteData.Values["action"]?.ToString() == "Compose" ? "active" : "")" asp-controller="BulkMessaging" asp-action="Compose">
+                <i class="bi bi-send-plus"></i> Compose Bulk
+            </a>
+            <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "BulkMessaging" && ViewContext.RouteData.Values["action"]?.ToString() == "History" ? "active" : "")" asp-controller="BulkMessaging" asp-action="History">
+                <i class="bi bi-bar-chart-steps"></i> Bulk Reporting
+            </a>
+            <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Contact" ? "active" : "")" asp-controller="Contact" asp-action="Index">
+                <i class="bi bi-people"></i> Contacts & Groups
+            </a>
             <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Templates" ? "active" : "")" asp-controller="Admin" asp-action="Templates">
                 <i class="bi bi-file-earmark-code"></i> Templates
             </a>
             <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Logs" ? "active" : "")" asp-controller="Admin" asp-action="Logs">
                 <i class="bi bi-journal-text"></i> Audit Logs
+            </a>
+            <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Reports" ? "active" : "")" asp-controller="Reports" asp-action="Index">
+                <i class="bi bi-bar-chart-line"></i> Reports
             </a>
             <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Users" ? "active" : "")" asp-controller="Admin" asp-action="Users">
                 <i class="bi bi-people"></i> User Management
@@ -128,6 +145,30 @@
             $('#sidebarToggle, #sidebarOverlay').on('click', function() {
                 $('#sidebar').toggleClass('show');
                 $('#sidebarOverlay').fadeToggle(200);
+            });
+
+            // Loader logic
+            window.showLoader = function() {
+                $('#global-loader').css('display', 'flex').hide().fadeIn(300);
+            };
+
+            window.hideLoader = function() {
+                $('#global-loader').fadeOut(300);
+            };
+
+            // Show loader on form submissions
+            $('form').on('submit', function() {
+                if ($(this).valid ? $(this).valid() : true) {
+                    showLoader();
+                }
+            });
+
+            // Show loader on page transitions (links that are not buttons or toggles)
+            $('a').on('click', function(e) {
+                const href = $(this).attr('href');
+                if (href && href !== '#' && !href.startsWith('javascript') && !$(this).attr('target')) {
+                    showLoader();
+                }
             });
         });
     </script>

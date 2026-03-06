@@ -57,6 +57,177 @@ namespace AdvansEAlert.CommunicationService.Migrations
                     b.ToTable("Applications");
                 });
 
+            modelBuilder.Entity("AdvansEAlert.CommunicationService.Models.DomainModels.AuditLog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Action")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Details")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Entity")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("EntityId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("IpAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Timestamp");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AuditLogs");
+                });
+
+            modelBuilder.Entity("AdvansEAlert.CommunicationService.Models.DomainModels.BulkMessageBatch", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ApplicationId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("FailureCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("MessagePreview")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PendingCount")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ScheduledFor")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Subject")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SuccessCount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TotalRecipients")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationId");
+
+                    b.ToTable("BulkMessageBatches");
+                });
+
+            modelBuilder.Entity("AdvansEAlert.CommunicationService.Models.DomainModels.Contact", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ApplicationId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationId");
+
+                    b.ToTable("Contacts");
+                });
+
+            modelBuilder.Entity("AdvansEAlert.CommunicationService.Models.DomainModels.ContactGroup", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ApplicationId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationId");
+
+                    b.ToTable("ContactGroups");
+                });
+
+            modelBuilder.Entity("AdvansEAlert.CommunicationService.Models.DomainModels.ContactGroupAssignment", b =>
+                {
+                    b.Property<int>("ContactId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ContactGroupId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ContactId", "ContactGroupId");
+
+                    b.HasIndex("ContactGroupId");
+
+                    b.ToTable("ContactGroupAssignments");
+                });
+
             modelBuilder.Entity("AdvansEAlert.CommunicationService.Models.DomainModels.EmailLog", b =>
                 {
                     b.Property<long>("Id")
@@ -68,16 +239,34 @@ namespace AdvansEAlert.CommunicationService.Migrations
                     b.Property<int>("ApplicationId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("BatchId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Body")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("ClickCount")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ClickedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("ErrorMessage")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("LastAttemptedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("OpenedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Recipient")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("RetryCount")
+                        .HasColumnType("int");
 
                     b.Property<string>("Status")
                         .IsRequired()
@@ -91,12 +280,17 @@ namespace AdvansEAlert.CommunicationService.Migrations
                     b.Property<DateTime>("Timestamp")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid>("TrackingGuid")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<int?>("UsedSmtpConfigurationId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ApplicationId");
+
+                    b.HasIndex("BatchId");
 
                     b.HasIndex("Status");
 
@@ -236,6 +430,62 @@ namespace AdvansEAlert.CommunicationService.Migrations
                         });
                 });
 
+            modelBuilder.Entity("AdvansEAlert.CommunicationService.Models.DomainModels.ScheduledMessage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ApplicationId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("BatchId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ContactGroupId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsProcessed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsTemplate")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Recipients")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ScheduledFor")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Subject")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TemplateName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationId");
+
+                    b.HasIndex("BatchId");
+
+                    b.ToTable("ScheduledMessages");
+                });
+
             modelBuilder.Entity("AdvansEAlert.CommunicationService.Models.DomainModels.SmsLog", b =>
                 {
                     b.Property<long>("Id")
@@ -247,8 +497,14 @@ namespace AdvansEAlert.CommunicationService.Migrations
                     b.Property<int>("ApplicationId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("BatchId")
+                        .HasColumnType("int");
+
                     b.Property<string>("ErrorMessage")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("LastAttemptedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Message")
                         .IsRequired()
@@ -263,6 +519,9 @@ namespace AdvansEAlert.CommunicationService.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
+                    b.Property<int>("RetryCount")
+                        .HasColumnType("int");
+
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
@@ -276,6 +535,8 @@ namespace AdvansEAlert.CommunicationService.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ApplicationId");
+
+                    b.HasIndex("BatchId");
 
                     b.HasIndex("Status");
 
@@ -407,6 +668,30 @@ namespace AdvansEAlert.CommunicationService.Migrations
                     b.ToTable("SmtpConfigurations");
                 });
 
+            modelBuilder.Entity("AdvansEAlert.CommunicationService.Models.DomainModels.SystemSetting", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Key")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SystemSettings");
+                });
+
             modelBuilder.Entity("AdvansEAlert.CommunicationService.Models.DomainModels.User", b =>
                 {
                     b.Property<int>("Id")
@@ -446,7 +731,7 @@ namespace AdvansEAlert.CommunicationService.Migrations
                             Id = 1,
                             Email = "admin@advansio.com",
                             IsActive = true,
-                            PasswordHash = "$2a$11$Tvju8gDiPLEKM6GLZsa/UuKBnJl..mtPoqJLPq/dQqtebzIpNeoEi",
+                            PasswordHash = "$2a$11$B42gw2m1FaYTPVv9cpWMGOjbKzbTV/YiSth0E61oZUvRb/Z47yOQO",
                             Username = "admin"
                         });
                 });
@@ -473,7 +758,7 @@ namespace AdvansEAlert.CommunicationService.Migrations
                         });
                 });
 
-            modelBuilder.Entity("AdvansEAlert.CommunicationService.Models.DomainModels.EmailLog", b =>
+            modelBuilder.Entity("AdvansEAlert.CommunicationService.Models.DomainModels.BulkMessageBatch", b =>
                 {
                     b.HasOne("AdvansEAlert.CommunicationService.Models.DomainModels.Application", "Application")
                         .WithMany()
@@ -482,6 +767,64 @@ namespace AdvansEAlert.CommunicationService.Migrations
                         .IsRequired();
 
                     b.Navigation("Application");
+                });
+
+            modelBuilder.Entity("AdvansEAlert.CommunicationService.Models.DomainModels.Contact", b =>
+                {
+                    b.HasOne("AdvansEAlert.CommunicationService.Models.DomainModels.Application", "Application")
+                        .WithMany()
+                        .HasForeignKey("ApplicationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Application");
+                });
+
+            modelBuilder.Entity("AdvansEAlert.CommunicationService.Models.DomainModels.ContactGroup", b =>
+                {
+                    b.HasOne("AdvansEAlert.CommunicationService.Models.DomainModels.Application", "Application")
+                        .WithMany()
+                        .HasForeignKey("ApplicationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Application");
+                });
+
+            modelBuilder.Entity("AdvansEAlert.CommunicationService.Models.DomainModels.ContactGroupAssignment", b =>
+                {
+                    b.HasOne("AdvansEAlert.CommunicationService.Models.DomainModels.ContactGroup", "ContactGroup")
+                        .WithMany("ContactAssignments")
+                        .HasForeignKey("ContactGroupId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("AdvansEAlert.CommunicationService.Models.DomainModels.Contact", "Contact")
+                        .WithMany("GroupAssignments")
+                        .HasForeignKey("ContactId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Contact");
+
+                    b.Navigation("ContactGroup");
+                });
+
+            modelBuilder.Entity("AdvansEAlert.CommunicationService.Models.DomainModels.EmailLog", b =>
+                {
+                    b.HasOne("AdvansEAlert.CommunicationService.Models.DomainModels.Application", "Application")
+                        .WithMany()
+                        .HasForeignKey("ApplicationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AdvansEAlert.CommunicationService.Models.DomainModels.BulkMessageBatch", "Batch")
+                        .WithMany("EmailLogs")
+                        .HasForeignKey("BatchId");
+
+                    b.Navigation("Application");
+
+                    b.Navigation("Batch");
                 });
 
             modelBuilder.Entity("AdvansEAlert.CommunicationService.Models.DomainModels.EmailTemplate", b =>
@@ -514,6 +857,23 @@ namespace AdvansEAlert.CommunicationService.Migrations
                     b.Navigation("Role");
                 });
 
+            modelBuilder.Entity("AdvansEAlert.CommunicationService.Models.DomainModels.ScheduledMessage", b =>
+                {
+                    b.HasOne("AdvansEAlert.CommunicationService.Models.DomainModels.Application", "Application")
+                        .WithMany()
+                        .HasForeignKey("ApplicationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AdvansEAlert.CommunicationService.Models.DomainModels.BulkMessageBatch", "Batch")
+                        .WithMany()
+                        .HasForeignKey("BatchId");
+
+                    b.Navigation("Application");
+
+                    b.Navigation("Batch");
+                });
+
             modelBuilder.Entity("AdvansEAlert.CommunicationService.Models.DomainModels.SmsLog", b =>
                 {
                     b.HasOne("AdvansEAlert.CommunicationService.Models.DomainModels.Application", "Application")
@@ -522,7 +882,13 @@ namespace AdvansEAlert.CommunicationService.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("AdvansEAlert.CommunicationService.Models.DomainModels.BulkMessageBatch", "Batch")
+                        .WithMany("SmsLogs")
+                        .HasForeignKey("BatchId");
+
                     b.Navigation("Application");
+
+                    b.Navigation("Batch");
                 });
 
             modelBuilder.Entity("AdvansEAlert.CommunicationService.Models.DomainModels.SmsProviderConfiguration", b =>
@@ -582,6 +948,23 @@ namespace AdvansEAlert.CommunicationService.Migrations
                     b.Navigation("SmsProviders");
 
                     b.Navigation("SmtpConfigurations");
+                });
+
+            modelBuilder.Entity("AdvansEAlert.CommunicationService.Models.DomainModels.BulkMessageBatch", b =>
+                {
+                    b.Navigation("EmailLogs");
+
+                    b.Navigation("SmsLogs");
+                });
+
+            modelBuilder.Entity("AdvansEAlert.CommunicationService.Models.DomainModels.Contact", b =>
+                {
+                    b.Navigation("GroupAssignments");
+                });
+
+            modelBuilder.Entity("AdvansEAlert.CommunicationService.Models.DomainModels.ContactGroup", b =>
+                {
+                    b.Navigation("ContactAssignments");
                 });
 
             modelBuilder.Entity("AdvansEAlert.CommunicationService.Models.DomainModels.Role", b =>

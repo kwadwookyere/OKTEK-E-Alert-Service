@@ -21,16 +21,43 @@ public class ApplicationDbContext : DbContext
     public DbSet<Permission> Permissions { get; set; }
     public DbSet<UserRole> UserRoles { get; set; }
     public DbSet<RolePermission> RolePermissions { get; set; }
+    public DbSet<Contact> Contacts { get; set; }
+    public DbSet<ContactGroup> ContactGroups { get; set; }
+    public DbSet<ContactGroupAssignment> ContactGroupAssignments { get; set; }
+    public DbSet<ScheduledMessage> ScheduledMessages { get; set; }
+    public DbSet<BulkMessageBatch> BulkMessageBatches { get; set; }
+    public DbSet<AuditLog> AuditLogs { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<AuditLog>(entity =>
+        {
+            entity.HasIndex(e => e.Timestamp);
+            entity.HasIndex(e => e.UserId);
+        });
 
         modelBuilder.Entity<UserRole>()
             .HasKey(ur => new { ur.UserId, ur.RoleId });
 
         modelBuilder.Entity<RolePermission>()
             .HasKey(rp => new { rp.RoleId, rp.PermissionId });
+
+        modelBuilder.Entity<ContactGroupAssignment>()
+            .HasKey(cga => new { cga.ContactId, cga.ContactGroupId });
+
+        modelBuilder.Entity<ContactGroupAssignment>()
+            .HasOne(cga => cga.Contact)
+            .WithMany(c => c.GroupAssignments)
+            .HasForeignKey(cga => cga.ContactId)
+            .OnDelete(DeleteBehavior.NoAction);
+
+        modelBuilder.Entity<ContactGroupAssignment>()
+            .HasOne(cga => cga.ContactGroup)
+            .WithMany(g => g.ContactAssignments)
+            .HasForeignKey(cga => cga.ContactGroupId)
+            .OnDelete(DeleteBehavior.NoAction);
 
         modelBuilder.Entity<Application>(entity =>
         {

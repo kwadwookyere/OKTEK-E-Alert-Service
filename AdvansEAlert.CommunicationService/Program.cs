@@ -5,6 +5,7 @@ using AdvansEAlert.CommunicationService.Services.Implementations;
 using AdvansEAlert.CommunicationService.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.RateLimiting;
 using NLog;
 using NLog.Web;
 
@@ -31,6 +32,22 @@ builder.Services.AddScoped<ISmtpResolver, SmtpResolver>();
 builder.Services.AddScoped<ISmsProviderResolver, SmsProviderResolver>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<ISmsService, SmsService>();
+builder.Services.AddSingleton<IAuditService, AuditService>();
+
+builder.Services.AddHostedService<MessagingBackgroundService>();
+
+// Add Rate Limiting
+builder.Services.AddRateLimiter(options =>
+{
+    options.AddFixedWindowLimiter("fixed", opt =>
+    {
+        opt.Window = TimeSpan.FromMinutes(1);
+        opt.PermitLimit = 100; // 100 requests per minute global per IP
+        opt.QueueLimit = 0;
+    });
+
+    options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+});
 
 var mvcBuilder = builder.Services.AddControllersWithViews();
 
@@ -100,6 +117,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseRateLimiter(); // Enable the rate limiter
 
 app.UseSwagger();
 app.UseSwaggerUI(c =>

@@ -459,8 +459,11 @@
 /Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/bin/Debug/net8.0/NLog.dll
 /Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/bin/Debug/net8.0/NLog.Extensions.Logging.dll
 /Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/bin/Debug/net8.0/NLog.Web.AspNetCore.dll
-/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/obj/Debug/net8.0/staticwebassets/msbuild.AdvansEAlert.CommunicationService.Microsoft.AspNetCore.StaticWebAssets.props
-/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/obj/Debug/net8.0/staticwebassets/msbuild.build.AdvansEAlert.CommunicationService.props
-/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.AdvansEAlert.CommunicationService.props
-/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.AdvansEAlert.CommunicationService.props
-/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/obj/Debug/net8.0/staticwebassets.pack.json
+/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/bin/Debug/net8.0/AdvansEAlert.CommunicationService.staticwebassets.endpoints.json
+/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/obj/Debug/net8.0/rpswa.dswa.cache.json
+/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/obj/Debug/net8.0/rjimswa.dswa.cache.json
+/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/obj/Debug/net8.0/rjsmrazor.dswa.cache.json
+/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/obj/Debug/net8.0/rjsmcshtml.dswa.cache.json
+/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/obj/Debug/net8.0/staticwebassets.build.json.cache
+/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/obj/Debug/net8.0/staticwebassets.build.endpoints.json
+/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/AdvansEAlert.CommunicationService/obj/Debug/net8.0/swae.build.ex.cache

@@ -3,9 +3,18 @@
     ViewData["Title"] = "Communication Logs";
     Layout = "_AdminLayout";
     var smsLogs = (IEnumerable<AdvansEAlert.CommunicationService.Models.DomainModels.SmsLog>)ViewBag.SmsLogs;
+    var batchId = ViewBag.BatchId as int?;
 }
 
 <div class="animate-fade-in">
+    @if (batchId.HasValue)
+    {
+        <div class="alert glass border-info text-info d-flex justify-content-between align-items-center mb-4">
+            <span><i class="bi bi-filter-circle me-2"></i> Viewing logs for Bulk Batch <strong>#@batchId.Value</strong></span>
+            <a asp-action="Logs" class="btn btn-sm btn-outline-info">Clear Filter</a>
+        </div>
+    }
+
     <ul class="nav nav-pills glass p-1 rounded-4 mb-4 d-inline-flex" id="logTabs" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active rounded-4 px-4" id="email-log-tab" data-bs-toggle="tab" data-bs-target="#email-log-pane" type="button">Email Logs</button>
@@ -25,6 +34,8 @@
                                 <th>Time</th>
                                 <th>Recipient</th>
                                 <th>Subject</th>
+                                <th>Opened</th>
+                                <th class="text-center">Clicks</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
@@ -35,6 +46,30 @@
                                     <td><span class="text-dim small">@log.Timestamp.ToString("G")</span></td>
                                     <td><span class="fw-medium">@log.Recipient</span></td>
                                     <td>@log.Subject</td>
+                                    <td>
+                                        @if (log.OpenedAt.HasValue)
+                                        {
+                                            <span class="text-success small" title="Opened at @log.OpenedAt.Value.ToString("G")">
+                                                <i class="bi bi-envelope-open-fill"></i> Opened
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="text-dim small"><i class="bi bi-envelope-fill"></i> Sent</span>
+                                        }
+                                    </td>
+                                    <td class="text-center">
+                                        @if (log.ClickCount > 0)
+                                        {
+                                            <span class="badge rounded-pill bg-info bg-opacity-10 text-info">
+                                                <i class="bi bi-cursor-fill me-1"></i> @log.ClickCount
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="text-dim small">0</span>
+                                        }
+                                    </td>
                                     <td>
                                         @if (log.Status == "Sent")
                                         {

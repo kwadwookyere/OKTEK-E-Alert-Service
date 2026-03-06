@@ -281,10 +281,21 @@ public class AdminController : Controller
         return RedirectToAction(nameof(Templates));
     }
 
-    public async Task<IActionResult> Logs()
+    public async Task<IActionResult> Logs(int? batchId)
     {
-        var emailLogs = await _context.EmailLogs.OrderByDescending(l => l.Timestamp).Take(100).ToListAsync();
-        var smsLogs = await _context.SmsLogs.OrderByDescending(l => l.Timestamp).Take(100).ToListAsync();
+        var emailQuery = _context.EmailLogs.AsQueryable();
+        var smsQuery = _context.SmsLogs.AsQueryable();
+
+        if (batchId.HasValue)
+        {
+            emailQuery = emailQuery.Where(l => l.BatchId == batchId.Value);
+            smsQuery = smsQuery.Where(l => l.BatchId == batchId.Value);
+            ViewBag.BatchId = batchId.Value;
+        }
+
+        var emailLogs = await emailQuery.OrderByDescending(l => l.Timestamp).Take(100).ToListAsync();
+        var smsLogs = await smsQuery.OrderByDescending(l => l.Timestamp).Take(100).ToListAsync();
+        
         ViewBag.SmsLogs = smsLogs;
         return View(emailLogs);
     }

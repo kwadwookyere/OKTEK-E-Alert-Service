@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AdvansEAlert.CommunicationService")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7a9cd615d44dc454db6abb006dce37eb391bb219")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bdc9ae71518815e56ac9e93e25546143febb82b8")]
 [assembly: System.Reflection.AssemblyProductAttribute("AdvansEAlert.CommunicationService")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AdvansEAlert.CommunicationService")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

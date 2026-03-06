@@ -13,11 +13,13 @@ public class AccountController : Controller
 {
     private readonly ApplicationDbContext _context;
     private readonly ILogger<AccountController> _logger;
+    private readonly Services.Implementations.IAuditService _auditService;
 
-    public AccountController(ApplicationDbContext context, ILogger<AccountController> logger)
+    public AccountController(ApplicationDbContext context, ILogger<AccountController> logger, Services.Implementations.IAuditService auditService)
     {
         _context = context;
         _logger = logger;
+        _auditService = auditService;
     }
 
     [HttpGet]
@@ -71,6 +73,7 @@ public class AccountController : Controller
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
 
             _logger.LogInformation("User {Username} logged in successfully.", user.Username);
+            await _auditService.LogAsync(user.Username, "Login", "User", user.Id, "Successful login", Request.HttpContext.Connection.RemoteIpAddress?.ToString() ?? "Unknown");
 
             if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
                 return Redirect(returnUrl);
@@ -86,8 +89,10 @@ public class AccountController : Controller
     [HttpPost]
     public async Task<IActionResult> Logout()
     {
-        _logger.LogInformation("User {Username} logged out.", User.Identity?.Name);
+        var username = User.Identity?.Name ?? "Unknown";
+        _logger.LogInformation("User {Username} logged out.", username);
         await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        await _auditService.LogAsync(username, "Logout", "User", null, "User logged out", Request.HttpContext.Connection.RemoteIpAddress?.ToString() ?? "Unknown");
         return RedirectToAction("Login");
     }
 

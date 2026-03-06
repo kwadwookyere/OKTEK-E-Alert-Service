@@ -65,19 +65,24 @@
                     <p class="text-dim mb-4">Jump straight to configuration and management modules.</p>
                     
                     <div class="row g-3">
-                        <div class="col-sm-4">
-                            <a asp-action="Applications" class="btn btn-primary d-flex align-items-center justify-content-center py-3 w-100 h-100">
+                        <div class="col-sm-3">
+                            <a asp-action="Applications" asp-controller="Admin" class="btn btn-primary d-flex align-items-center justify-content-center py-3 w-100 h-100">
                                 <i class="bi bi-plus-circle-dotted me-2 fs-5"></i> New App
                             </a>
                         </div>
-                        <div class="col-sm-4">
-                            <a asp-action="SMTP" class="btn btn-outline-light d-flex align-items-center justify-content-center py-3 w-100 h-100 glass-hover">
+                        <div class="col-sm-3">
+                            <a asp-action="SMTP" asp-controller="Admin" class="btn btn-outline-light d-flex align-items-center justify-content-center py-3 w-100 h-100 glass-hover">
                                 <i class="bi bi-gear-wide-connected me-2 fs-5"></i> SMTP
                             </a>
                         </div>
-                        <div class="col-sm-4">
-                            <a asp-action="SMSProviders" class="btn btn-outline-light d-flex align-items-center justify-content-center py-3 w-100 h-100 glass-hover">
+                        <div class="col-sm-3">
+                            <a asp-action="SMSProviders" asp-controller="Admin" class="btn btn-outline-light d-flex align-items-center justify-content-center py-3 w-100 h-100 glass-hover">
                                 <i class="bi bi-phone-vibrate me-2 fs-5"></i> SMS
+                            </a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a asp-action="Index" asp-controller="Reports" class="btn btn-outline-info d-flex align-items-center justify-content-center py-3 w-100 h-100 glass-hover">
+                                <i class="bi bi-bar-chart-line me-2 fs-5"></i> Reports
                             </a>
                         </div>
                     </div>
