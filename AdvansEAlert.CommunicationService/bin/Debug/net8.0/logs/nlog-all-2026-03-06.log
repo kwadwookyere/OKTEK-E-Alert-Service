@@ -35461,3 +35461,1203 @@ WHERE [b].[Status] IN (N'Pending', N'Processing')
 2026-03-06 18:01:47.8111|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
 2026-03-06 18:01:47.8111|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
 2026-03-06 18:01:47.8111|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:02:17.8295|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:02:17.8319|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:02:17.8323|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:02:17.8323|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:02:17.8323|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:02:17.8323|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:02:17.8323|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:02:17.8323|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:02:17.8323|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:02:18.0369|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (204ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:02:18.0369|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:02:18.0369|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:02:18.0369|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:02:18.0369|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:02:18.0372|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:02:18.0372|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:02:18.0372|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:02:18.0392|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:02:18.0398|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:02:18.0398|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:02:18.0398|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:02:18.0398|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:02:18.0398|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:02:18.0398|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:02:18.0398|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:02:18.0398|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:02:18.2451|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (205ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:02:18.2453|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:02:18.2453|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:02:18.2453|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:02:18.2453|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:02:18.2453|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:02:18.2453|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:02:18.2453|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:02:48.2469|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:02:48.2487|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:02:48.2487|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:02:48.2487|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:02:48.2487|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:02:48.2487|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:02:48.2487|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:02:48.2487|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:02:48.2487|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:02:48.4650|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (216ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:02:48.4650|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:02:48.4664|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:02:48.4664|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:02:48.4664|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:02:48.4664|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:02:48.4664|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:02:48.4664|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:02:48.4706|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:02:48.4706|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:02:48.4706|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:02:48.4706|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:02:48.4706|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:02:48.4714|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:02:48.4714|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:02:48.4714|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:02:48.4714|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:02:48.6728|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (201ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:02:48.6728|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:02:48.6728|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:02:48.6728|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:02:48.6728|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:02:48.6728|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:02:48.6728|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:02:48.6728|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:03:18.6756|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:03:18.6756|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:03:18.6756|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:03:18.6756|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:03:18.6756|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:03:18.6756|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:03:18.6756|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:03:18.6756|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:03:18.6756|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:03:18.8922|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (216ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:03:18.8922|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:03:18.8925|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:03:18.8925|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:03:18.8925|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:03:18.8925|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:03:18.8925|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:03:18.8925|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:03:18.8942|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:03:18.8946|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:03:18.8946|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:03:18.8946|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:03:18.8946|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:03:18.8946|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:03:18.8946|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:03:18.8946|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:03:18.8946|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:03:19.1000|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (205ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:03:19.1000|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:03:19.1000|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:03:19.1000|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:03:19.1000|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:03:19.1000|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:03:19.1000|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:03:19.1000|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:03:49.1033|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:03:49.1044|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:03:49.1044|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:03:49.1044|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:03:49.1047|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:03:49.1047|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:03:49.1047|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:03:49.1047|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:03:49.1047|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:03:49.3168|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (212ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:03:49.3168|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:03:49.3168|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:03:49.3168|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:03:49.3168|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:03:49.3168|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:03:49.3168|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:03:49.3168|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:03:49.3198|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:03:49.3198|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:03:49.3198|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:03:49.3198|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:03:49.3198|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:03:49.3198|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:03:49.3198|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:03:49.3198|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:03:49.3198|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:03:49.5207|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (200ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:03:49.5207|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:03:49.5207|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:03:49.5207|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:03:49.5207|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:03:49.5207|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:03:49.5207|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:03:49.5207|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:04:19.5240|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:04:19.5256|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:04:19.5258|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:04:19.5258|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:04:19.5258|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:04:19.5258|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:04:19.5258|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:04:19.5258|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:04:19.5258|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:04:19.7714|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (245ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:04:19.7742|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:04:19.7742|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 2ms reading results. 
+2026-03-06 18:04:19.7742|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:04:19.7762|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (1ms). 
+2026-03-06 18:04:19.7762|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:04:19.7762|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:04:19.7762|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:04:19.7780|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:04:19.7780|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:04:19.7780|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:04:19.7780|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:04:19.7780|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:04:19.7788|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:04:19.7788|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:04:19.7788|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:04:19.7788|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:04:19.9996|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (221ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:04:19.9996|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:04:19.9996|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:04:19.9996|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:04:19.9996|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:04:19.9996|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:04:19.9998|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:04:19.9998|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:04:50.0028|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:04:50.0043|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:04:50.0043|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:04:50.0043|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:04:50.0043|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:04:50.0043|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:04:50.0043|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:04:50.0043|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:04:50.0043|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:04:50.2239|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (219ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:04:50.2240|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:04:50.2262|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 2ms reading results. 
+2026-03-06 18:04:50.2262|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:04:50.2262|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:04:50.2262|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:04:50.2262|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:04:50.2262|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:04:50.2294|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:04:50.2294|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:04:50.2294|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:04:50.2294|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:04:50.2294|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:04:50.2294|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:04:50.2294|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:04:50.2294|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:04:50.2294|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:04:50.4486|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (219ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:04:50.4486|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:04:50.4486|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:04:50.4486|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:04:50.4486|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:04:50.4486|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:04:50.4486|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:04:50.4486|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:05:20.4511|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:05:20.4511|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:05:20.4511|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:05:20.4511|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:05:20.4521|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:05:20.4521|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:05:20.4521|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:05:20.4521|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:05:20.4521|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:05:20.7523|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (300ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:05:20.7523|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:05:20.7523|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:05:20.7523|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:05:20.7523|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:05:20.7523|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:05:20.7523|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:05:20.7523|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:05:20.7543|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:05:20.7543|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:05:20.7543|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:05:20.7543|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:05:20.7543|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:05:20.7543|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:05:20.7543|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:05:20.7543|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:05:20.7543|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:05:21.5568|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (802ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:05:21.5571|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:05:21.5571|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:05:21.5571|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:05:21.5571|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:05:21.5571|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:05:21.5571|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:05:21.5571|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:05:51.5598|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:05:51.5610|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:05:51.5610|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:05:51.5610|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:05:51.5613|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:05:51.5613|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:05:51.5613|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:05:51.5613|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:05:51.5613|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:05:51.7688|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (207ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:05:51.7688|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:05:51.7688|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:05:51.7688|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:05:51.7688|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:05:51.7688|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:05:51.7692|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:05:51.7692|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:05:51.7692|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:05:51.7703|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:05:51.7703|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:05:51.7703|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:05:51.7703|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:05:51.7703|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:05:51.7703|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:05:51.7703|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:05:51.7703|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:05:51.9812|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (210ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:05:51.9815|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:05:51.9815|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:05:51.9848|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:05:51.9848|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:05:51.9848|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:05:51.9879|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:05:51.9879|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (2ms). 
+2026-03-06 18:06:21.9897|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:06:21.9897|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:06:21.9897|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:06:21.9897|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:06:21.9904|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:06:21.9904|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:06:21.9904|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:06:21.9904|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:06:21.9904|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:06:22.2240|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (233ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:06:22.2240|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:06:22.2240|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:06:22.2244|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:06:22.2244|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:06:22.2244|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:06:22.2244|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:06:22.2244|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:06:22.2260|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:06:22.2260|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:06:22.2264|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:06:22.2264|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:06:22.2264|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:06:22.2264|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:06:22.2264|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:06:22.2264|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:06:22.2264|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:06:22.4475|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (221ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:06:22.4475|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:06:22.4475|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:06:22.4475|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:06:22.4475|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:06:22.4475|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:06:22.4475|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:06:22.4475|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:06:52.4500|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:06:52.4500|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:06:52.4500|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:06:52.4500|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:06:52.4500|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:06:52.4505|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:06:52.4505|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:06:52.4505|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:06:52.4505|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:06:52.6630|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (212ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:06:52.6630|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:06:52.6630|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:06:52.6630|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:06:52.6630|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:06:52.6630|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:06:52.6630|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:06:52.6635|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:06:52.6648|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:06:52.6648|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:06:52.6648|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:06:52.6648|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:06:52.6656|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:06:52.6656|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:06:52.6656|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:06:52.6656|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:06:52.6656|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:06:52.8652|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (199ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:06:52.8652|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:06:52.8652|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:06:52.8655|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:06:52.8655|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:06:52.8655|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:06:52.8655|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:06:52.8655|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:07:22.8678|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:07:22.8701|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:07:22.8701|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:07:22.8701|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:07:22.8701|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:07:22.8707|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:07:22.8707|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:07:22.8707|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:07:22.8707|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:07:23.0769|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (206ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:07:23.0769|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:07:23.0769|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:07:23.0769|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:07:23.0769|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:07:23.0769|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:07:23.0769|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:07:23.0769|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:07:23.0796|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:07:23.0799|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:07:23.0799|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:07:23.0799|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:07:23.0799|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:07:23.0799|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:07:23.0799|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:07:23.0799|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:07:23.0799|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:07:23.2801|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (200ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:07:23.2801|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:07:23.2801|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:07:23.2801|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:07:23.2801|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:07:23.2801|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:07:23.2801|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:07:23.2801|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:07:53.2830|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:07:53.2830|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:07:53.2838|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:07:53.2838|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:07:53.2838|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:07:53.2838|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:07:53.2838|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:07:53.2838|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:07:53.2838|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:07:53.9988|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (714ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:07:53.9988|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:07:53.9988|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:07:53.9988|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:07:53.9988|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:07:53.9988|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:07:53.9988|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:07:53.9988|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:07:54.0768|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:07:54.0773|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:07:54.0773|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:07:54.0773|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:07:54.0773|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:07:54.0773|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:07:54.0773|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:07:54.0773|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:07:54.0778|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:07:54.2912|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (213ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:07:54.2912|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:07:54.2912|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:07:54.2912|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:07:54.2919|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:07:54.2919|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:07:54.2919|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:07:54.2919|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:08:24.2953|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:08:24.2974|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:08:24.2974|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:08:24.2974|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:08:24.2974|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:08:24.2980|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:08:24.2980|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:08:24.2980|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:08:24.2980|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:08:24.5210|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (223ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:08:24.5210|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:08:24.5472|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:08:24.5472|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:08:24.5472|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:08:24.5472|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:08:24.5472|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:08:24.5497|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (2ms). 
+2026-03-06 18:08:24.5509|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:08:24.5512|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:08:24.5512|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:08:24.5512|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:08:24.5512|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:08:24.5512|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:08:24.5512|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:08:24.5512|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:08:24.5512|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:08:25.1959|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (644ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:08:25.1962|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:08:25.1962|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:08:25.1962|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:08:25.1962|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:08:25.1962|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:08:25.1962|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:08:25.1962|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:08:55.2008|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:08:55.2031|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:08:55.2033|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:08:55.2033|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:08:55.2033|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:08:55.2033|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:08:55.2033|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:08:55.2033|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:08:55.2041|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:08:56.0488|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (845ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:08:56.0488|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:08:56.0491|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:08:56.0491|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:08:56.0491|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:08:56.0491|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:08:56.0491|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:08:56.0491|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:08:56.0511|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:08:56.0516|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:08:56.0516|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:08:56.0516|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:08:56.0516|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:08:56.0516|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:08:56.0516|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:08:56.0516|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:08:56.0516|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:08:56.2523|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (200ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:08:56.2523|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:08:56.2523|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:08:56.2523|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:08:56.2523|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:08:56.2523|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:08:56.2523|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:08:56.2523|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:09:26.2530|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:09:26.2547|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:09:26.2547|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:09:26.2547|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:09:26.2547|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:09:26.2551|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:09:26.2551|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:09:26.2551|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:09:26.2551|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:09:26.4577|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (202ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:09:26.4577|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:09:26.4577|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:09:26.4577|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:09:26.4581|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:09:26.4581|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:09:26.4581|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:09:26.4581|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:09:26.4595|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:09:26.4595|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:09:26.4595|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:09:26.4600|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:09:26.4600|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:09:26.4600|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:09:26.4600|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:09:26.4600|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:09:26.4600|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:09:26.6673|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (207ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:09:26.6673|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:09:26.6673|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:09:26.6704|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:09:26.6704|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:09:26.6704|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:09:26.6704|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:09:26.6729|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (2ms). 
+2026-03-06 18:09:56.6751|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:09:56.6759|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:09:56.6759|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:09:56.6759|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:09:56.6759|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:09:56.6759|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:09:56.6759|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:09:56.6759|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:09:56.6759|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:09:56.8820|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (205ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:09:56.8820|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:09:56.8820|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:09:56.8820|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:09:56.8820|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:09:56.8820|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:09:56.8820|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:09:56.8820|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:09:56.8837|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:09:56.8840|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:09:56.8840|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:09:56.8840|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:09:56.8840|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:09:56.8840|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:09:56.8840|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:09:56.8840|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:09:56.8840|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:09:57.1019|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (218ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:09:57.1019|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:09:57.1019|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:09:57.1042|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:09:57.1042|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (2ms). 
+2026-03-06 18:09:57.1042|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:09:57.1042|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:09:57.1042|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:10:27.1063|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:10:27.1063|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:10:27.1063|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:10:27.1063|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:10:27.1077|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:10:27.1077|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:10:27.1077|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:10:27.1077|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:10:27.1077|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:10:27.3256|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (218ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:10:27.3256|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:10:27.3256|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:10:27.3259|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:10:27.3259|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:10:27.3259|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:10:27.3259|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:10:27.3259|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:10:27.3269|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:10:27.3269|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:10:27.3269|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:10:27.3269|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:10:27.3269|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:10:27.3269|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:10:27.3269|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:10:27.3269|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:10:27.3269|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:10:27.5458|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (218ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:10:27.5460|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:10:27.5460|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:10:27.5460|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:10:27.5460|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:10:27.5460|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:10:27.5460|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:10:27.5460|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:10:57.5481|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:10:57.5494|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:10:57.5494|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:10:57.5494|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:10:57.5494|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:10:57.5494|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:10:57.5494|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:10:57.5494|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:10:57.5494|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:10:57.7753|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (225ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:10:57.7753|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:10:57.7753|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:10:57.7753|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:10:57.7753|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:10:57.7753|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:10:57.7753|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:10:57.7753|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:10:57.7773|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:10:57.7773|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:10:57.7773|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:10:57.7773|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:10:57.7773|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:10:57.7773|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:10:57.7773|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:10:57.7780|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:10:57.7780|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:10:57.9902|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (212ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:10:57.9902|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:10:57.9902|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:10:57.9902|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:10:57.9928|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (2ms). 
+2026-03-06 18:10:57.9928|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:10:57.9928|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:10:57.9930|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:11:27.9955|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:11:27.9971|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:11:27.9972|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:11:27.9972|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:11:27.9972|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:11:27.9972|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:11:27.9972|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:11:27.9972|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:11:27.9972|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:11:28.2184|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (221ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:11:28.2184|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:11:28.2184|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:11:28.2184|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:11:28.2184|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:11:28.2184|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:11:28.2184|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:11:28.2184|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:11:28.2205|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:11:28.2205|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:11:28.2205|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:11:28.2205|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:11:28.2205|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:11:28.2205|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:11:28.2211|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:11:28.2211|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:11:28.2211|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:11:28.4386|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (217ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:11:28.4386|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:11:28.4386|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:11:28.4386|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:11:28.4386|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:11:28.4386|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:11:28.4386|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:11:28.4386|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:11:58.4422|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:11:58.4436|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:11:58.4436|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:11:58.4436|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:11:58.4436|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:11:58.4436|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:11:58.4436|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:11:58.4436|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:11:58.4443|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:11:59.2007|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (756ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:11:59.2007|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:11:59.2007|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:11:59.2007|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:11:59.2007|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:11:59.2007|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:11:59.2007|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:11:59.2007|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:11:59.2024|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:11:59.2024|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:11:59.2024|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:11:59.2024|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:11:59.2024|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:11:59.2024|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:11:59.2024|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:11:59.2024|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:11:59.2033|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:11:59.4227|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (219ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:11:59.4227|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:11:59.4227|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:11:59.4227|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:11:59.4227|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:11:59.4227|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:11:59.4227|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:11:59.4227|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:12:29.4256|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:12:29.4273|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:12:29.4275|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:12:29.4275|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:12:29.4275|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:12:29.4275|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:12:29.4275|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:12:29.4275|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:12:29.4275|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:12:29.6783|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (250ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:12:29.6786|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:12:29.6786|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:12:29.6786|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:12:29.6821|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (3ms). 
+2026-03-06 18:12:29.6821|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:12:29.6821|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:12:29.6825|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:12:29.6860|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:12:29.6864|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:12:29.6864|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:12:29.6864|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:12:29.6864|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:12:29.6864|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:12:29.6864|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:12:29.6864|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:12:29.6864|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:12:29.9089|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (222ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:12:29.9089|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:12:29.9089|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:12:29.9089|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:12:29.9094|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:12:29.9094|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:12:29.9094|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:12:29.9094|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:12:59.9136|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:12:59.9154|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:12:59.9157|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:12:59.9157|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:12:59.9157|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:12:59.9157|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:12:59.9157|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:12:59.9157|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:12:59.9157|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:13:00.1266|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (210ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:13:00.1266|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:13:00.1266|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:13:00.1266|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:13:00.1294|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (2ms). 
+2026-03-06 18:13:00.1294|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:13:00.1295|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:13:00.1295|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:13:00.1316|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:13:00.1316|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:13:00.1316|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:13:00.1316|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:13:00.1316|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:13:00.1316|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:13:00.1316|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:13:00.1316|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:13:00.1316|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:13:00.3500|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (218ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:13:00.3500|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:13:00.3500|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:13:00.3500|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:13:00.3500|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:13:00.3505|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:13:00.3505|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:13:00.3505|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:13:30.3537|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:13:30.3537|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:13:30.3537|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:13:30.3537|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:13:30.3548|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:13:30.3548|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:13:30.3548|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:13:30.3548|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:13:30.3548|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:13:31.5331|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1,178ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:13:31.5331|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:13:31.5331|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:13:31.5364|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:13:31.5364|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:13:31.5364|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:13:31.5367|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:13:31.5384|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (1ms). 
+2026-03-06 18:13:31.5398|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:13:31.5398|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:13:31.5398|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:13:31.5407|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:13:31.5407|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:13:31.5407|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:13:31.5407|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:13:31.5407|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:13:31.5407|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:13:31.7415|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (200ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:13:31.7417|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:13:31.7417|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:13:31.7417|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:13:31.7417|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:13:31.7417|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:13:31.7417|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:13:31.7417|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:14:01.7579|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:14:01.7609|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:14:01.7609|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:14:01.7609|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:14:01.7609|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:14:01.7620|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:14:01.7620|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:14:01.7620|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:14:01.7620|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:14:01.9658|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (204ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:14:01.9658|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:14:01.9658|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:14:01.9658|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:14:01.9658|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:14:01.9658|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:14:01.9658|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:14:01.9658|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:14:01.9672|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:14:01.9672|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:14:01.9678|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:14:01.9678|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:14:01.9678|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:14:01.9678|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:14:01.9678|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:14:01.9678|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:14:01.9678|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:14:02.1745|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (206ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:14:02.1745|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:14:02.1748|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:14:02.1748|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:14:02.1748|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:14:02.1748|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:14:02.1748|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:14:02.1748|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:14:32.1781|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:14:32.1790|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:14:32.1790|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:14:32.1790|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:14:32.1790|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:14:32.1790|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:14:32.1790|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:14:32.1790|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:14:32.1790|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:14:32.3968|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (217ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ApplicationId], [s].[BatchId], [s].[ContactGroupId], [s].[CreatedAt], [s].[IsProcessed], [s].[IsTemplate], [s].[Message], [s].[Recipients], [s].[ScheduledFor], [s].[Subject], [s].[TemplateName], [s].[Type], [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [ScheduledMessages] AS [s]
+LEFT JOIN [BulkMessageBatches] AS [b] ON [s].[BatchId] = [b].[Id]
+WHERE [s].[IsProcessed] = CAST(0 AS bit) AND [s].[ScheduledFor] <= GETUTCDATE() 
+2026-03-06 18:14:32.3971|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:14:32.3971|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:14:32.3971|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:14:32.3971|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:14:32.3971|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:14:32.3971|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:14:32.3971|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2026-03-06 18:14:32.3989|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 8.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.12' with options: None 
+2026-03-06 18:14:32.3989|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2026-03-06 18:14:32.3989|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2026-03-06 18:14:32.3989|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:14:32.3989|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:14:32.3989|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2026-03-06 18:14:32.3989|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:14:32.3989|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2026-03-06 18:14:32.3999|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:14:32.6037|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (204ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[ApplicationId], [b].[CreatedAt], [b].[FailureCount], [b].[MessagePreview], [b].[PendingCount], [b].[ScheduledFor], [b].[Status], [b].[Subject], [b].[SuccessCount], [b].[TotalRecipients], [b].[Type]
+FROM [BulkMessageBatches] AS [b]
+WHERE [b].[Status] IN (N'Pending', N'Processing') 
+2026-03-06 18:14:32.6040|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:14:32.6040|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' is being disposed after spending 0ms reading results. 
+2026-03-06 18:14:32.6040|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:14:32.6040|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com' (0ms). 
+2026-03-06 18:14:32.6040|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2026-03-06 18:14:32.6040|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'AdvansEAlert_CommService' on server 'ec2-44-204-72-15.compute-1.amazonaws.com'. 
+2026-03-06 18:14:32.6040|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
