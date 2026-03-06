@@ -1,0 +1,200 @@
+@model EAlertService.ViewModels.BulkMessageViewModel
+@{
+    ViewData["Title"] = "Bulk Messaging";
+    Layout = "_AdminLayout";
+}
+
+<div class="row justify-content-center animate-fade-in">
+    <div class="col-xl-10">
+        <div class="card glass shadow-lg p-4 p-lg-5">
+            <div class="d-flex align-items-center mb-4">
+                <div class="rounded-4 bg-primary bg-opacity-10 p-3 text-accent me-3">
+                    <i class="bi bi-send-plus fs-3"></i>
+                </div>
+                <div>
+                    <h4 class="fw-bold mb-0">Compose Bulk Message</h4>
+                    <p class="text-dim mb-0">Send a message to multiple recipients at once.</p>
+                </div>
+            </div>
+
+            <form asp-action="Send" method="post" enctype="multipart/form-data">
+                @Html.AntiForgeryToken()
+                
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="mb-4">
+                            <label asp-for="ApplicationId" class="form-label small text-dim uppercase fw-bold">Application Context</label>
+                            <select asp-for="ApplicationId" class="form-select glass text-white py-3 px-4 rounded-4" required>
+                                <option value="">Select Application...</option>
+                                @foreach (var app in Model.Applications!)
+                                {
+                                    <option value="@app.Id">@app.Name</option>
+                                }
+                            </select>
+                            <span asp-validation-for="ApplicationId" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label small text-dim uppercase fw-bold">Communication Channel</label>
+                            <div class="d-flex gap-4">
+                                <div class="form-check custom-radio">
+                                    <input class="form-check-input" type="radio" asp-for="Type" value="Email" id="typeEmail" checked>
+                                    <label class="form-check-label" for="typeEmail">Email</label>
+                                </div>
+                                <div class="form-check custom-radio">
+                                    <input class="form-check-input" type="radio" asp-for="Type" value="SMS" id="typeSms">
+                                    <label class="form-check-label" for="typeSms">SMS</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="TemplateName" class="form-label small text-dim uppercase fw-bold">Select Template (Optional)</label>
+                            <select asp-for="TemplateName" class="form-select glass text-white py-3 px-4 rounded-4" id="templateSelect">
+                                <option value="">-- No Template (Manual Message) --</option>
+                            </select>
+                            <div class="form-text text-dim mt-2">Selecting a template will use the predefined content from the server.</div>
+                        </div>
+
+                        <div class="mb-4" id="subjectGroup">
+                            <label asp-for="Subject" class="form-label small text-dim uppercase fw-bold">Subject</label>
+                            <input asp-for="Subject" class="form-control glass text-white py-3 px-4 rounded-4" placeholder="Enter email subject..." />
+                            <span asp-validation-for="Subject" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="ContactGroupId" class="form-label small text-dim uppercase fw-bold">Select Recipient Group (Optional)</label>
+                            <select asp-for="ContactGroupId" class="form-select glass text-white py-3 px-4 rounded-4" id="groupSelect">
+                                <option value="">-- No Group (Manual/File Only) --</option>
+                            </select>
+                            <div class="form-text text-dim mt-2">Selecting a group will add all its members to the recipient list.</div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="RecipientFile" class="form-label small text-dim uppercase fw-bold">Upload Recipients File (Optional)</label>
+                            <input asp-for="RecipientFile" type="file" class="form-control glass text-white py-2 px-4 rounded-4" accept=".csv,.txt" />
+                            <div class="form-text text-dim mt-2">Upload a .csv or .txt file with recipients.</div>
+                            <span asp-validation-for="RecipientFile" class="text-danger small"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="mb-4 h-100 d-flex flex-column">
+                            <label asp-for="Recipients" class="form-label small text-dim uppercase fw-bold">Manual Recipients Entry</label>
+                            <textarea asp-for="Recipients" class="form-control glass text-white py-3 px-4 rounded-4 flex-grow-1" style="min-height: 200px;" placeholder="Paste emails or phone numbers here... (Comma, semicolon or newline separated)"></textarea>
+                            <div class="form-text text-dim mt-2">Example: user1@email.com, user2@email.com or +233240000000, +233240000001</div>
+                            <span asp-validation-for="Recipients" class="text-danger small"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-12" id="messageGroup">
+                        <div class="mb-4">
+                            <label asp-for="Message" class="form-label small text-dim uppercase fw-bold">Message Content</label>
+                            <textarea asp-for="Message" class="form-control glass text-white py-3 px-4 rounded-4" rows="6" placeholder="Type your message here..."></textarea>
+                            <div class="form-text text-accent mt-2" id="templateNotice" style="display:none;">
+                                <i class="bi bi-info-circle me-1"></i> A template is selected. This message box will be ignored in favor of the template.
+                            </div>
+                            <span asp-validation-for="Message" class="text-danger small"></span>
+                        </div>
+                    </div>
+
+                    <input type="hidden" asp-for="IsTemplate" id="isTemplateHidden" />
+
+                    <div class="col-md-12">
+                        <div class="mb-4 card glass p-4 rounded-4">
+                            <div class="form-check form-switch mb-3">
+                                <input asp-for="IsScheduled" class="form-check-input" type="checkbox" id="isScheduledToggle">
+                                <label class="form-check-label fw-bold text-white" for="isScheduledToggle">Schedule for Later Delivery</label>
+                            </div>
+                            <div id="scheduleOptions" style="display: none;">
+                                <label asp-for="ScheduledFor" class="form-label small text-dim uppercase fw-bold">Delivery Date & Time</label>
+                                <input asp-for="ScheduledFor" type="datetime-local" class="form-control glass text-white py-3 px-4 rounded-4" id="scheduledForInput" />
+                                <div class="form-text text-dim mt-2 text-info">
+                                    <i class="bi bi-clock-history me-1"></i> The message will be processed by the background worker at the specified time.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 text-end mt-5">
+                        <button type="submit" class="btn btn-primary rounded-pill px-5 py-3 shadow fs-5" id="sendBtn">
+                            <i class="bi bi-send-fill me-2"></i> Send Notification
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            function updateVisibility() {
+                const type = $('input[name="Type"]:checked').val();
+                const templateName = $('#templateSelect').val();
+                const isTemplate = templateName !== "";
+                const isScheduled = $('#isScheduledToggle').is(':checked');
+                
+                $('#isTemplateHidden').val(isTemplate);
+
+                // Template effects
+                $('#templateNotice').toggle(isTemplate);
+                $('#messageGroup textarea').toggleClass('opacity-50', isTemplate);
+                $('#messageGroup textarea').attr('readonly', isTemplate);
+                
+                // Subject visibility (Email only and not template)
+                $('#subjectGroup').toggle(!isTemplate && type === 'Email');
+
+                // Scheduling effects
+                $('#scheduleOptions').toggle(isScheduled);
+                
+                const sendBtn = $('#sendBtn');
+                if (isScheduled) {
+                    sendBtn.html('<i class="bi bi-calendar-event me-2"></i> Schedule Notification');
+                    $('#scheduledForInput').attr('required', true);
+                } else {
+                    sendBtn.html('<i class="bi bi-send-fill me-2"></i> Send Notification');
+                    $('#scheduledForInput').attr('required', false);
+                }
+            }
+
+            function loadAppData() {
+                const appId = $('#ApplicationId').val();
+                if (!appId) {
+                     $('#templateSelect').empty().append('<option value="">-- Select Application First --</option>');
+                     $('#groupSelect').empty().append('<option value="">-- Select Application First --</option>');
+                     return;
+                }
+
+                const type = $('input[name="Type"]:checked').val();
+                
+                // Load Templates
+                $.get('/BulkMessaging/GetTemplates', { appId: appId }, function(data) {
+                    const select = $('#templateSelect');
+                    select.empty().append('<option value="">-- No Template (Manual Message) --</option>');
+                    const templates = type === 'Email' ? data.emailTemplates : data.smsTemplates;
+                    templates.forEach(t => {
+                        select.append(`<option value="${t}">${t}</option>`);
+                    });
+                    updateVisibility();
+                });
+
+                // Load Groups
+                $.get('/BulkMessaging/GetGroups', { appId: appId }, function(data) {
+                    const select = $('#groupSelect');
+                    select.empty().append('<option value="">-- No Group (Manual/File Only) --</option>');
+                    data.forEach(g => {
+                        select.append(`<option value="${g.id}">${g.name}</option>`);
+                    });
+                });
+            }
+
+            $('input[name="Type"], #ApplicationId, #isScheduledToggle').change(loadAppData);
+            $('#templateSelect, #isScheduledToggle').change(updateVisibility);
+            
+            // Initial check
+            updateVisibility();
+        });
+    </script>
+}

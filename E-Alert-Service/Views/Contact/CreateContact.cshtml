@@ -1,0 +1,83 @@
+@model EAlertService.ViewModels.ContactEditViewModel
+@{
+    ViewData["Title"] = "Add Contact";
+    Layout = "_AdminLayout";
+}
+
+<div class="row justify-content-center animate-fade-in">
+    <div class="col-xl-8">
+        <div class="card glass shadow-lg p-4 p-lg-5">
+            <div class="d-flex align-items-center mb-4">
+                <div class="rounded-4 bg-primary bg-opacity-10 p-3 text-accent me-3">
+                    <i class="bi bi-person-plus fs-3"></i>
+                </div>
+                <div>
+                    <h4 class="fw-bold mb-0">Add New Contact</h4>
+                    <p class="text-dim mb-0">Create a persistent recipient profile.</p>
+                </div>
+            </div>
+
+            <form asp-action="CreateContact" method="post">
+                @Html.AntiForgeryToken()
+                
+                <div class="row g-4">
+                    <div class="col-md-12">
+                        <label asp-for="ApplicationId" class="form-label small text-dim uppercase fw-bold">Application Context</label>
+                        <select asp-for="ApplicationId" class="form-select glass text-white py-3 px-4 rounded-4" required>
+                            <option value="">Select Application...</option>
+                            @foreach (var app in Model.Applications)
+                            {
+                                <option value="@app.Id">@app.Name</option>
+                            }
+                        </select>
+                        <span asp-validation-for="ApplicationId" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-12">
+                        <label asp-for="Name" class="form-label small text-dim uppercase fw-bold">Full Name</label>
+                        <input asp-for="Name" class="form-control glass text-white py-3 px-4 rounded-4" placeholder="John Doe" required />
+                        <span asp-validation-for="Name" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="Email" class="form-label small text-dim uppercase fw-bold">Email Address</label>
+                        <input asp-for="Email" type="email" class="form-control glass text-white py-3 px-4 rounded-4" placeholder="john@example.com" />
+                        <span asp-validation-for="Email" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="PhoneNumber" class="form-label small text-dim uppercase fw-bold">Phone Number</label>
+                        <input asp-for="PhoneNumber" class="form-control glass text-white py-3 px-4 rounded-4" placeholder="+233..." />
+                        <span asp-validation-for="PhoneNumber" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label small text-dim uppercase fw-bold">Assign to Groups</label>
+                        <div class="row g-3 p-3 bg-white bg-opacity-5 rounded-4 border border-white border-opacity-10">
+                            @if (!Model.AllGroups.Any())
+                            {
+                                <p class="text-dim small mb-0 w-100 text-center py-2">No groups available. Create a group first.</p>
+                            }
+                            @foreach (var group in Model.AllGroups)
+                            {
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="SelectedGroupIds" value="@group.Id" id="group_@group.Id">
+                                        <label class="form-check-label text-white-50" for="group_@group.Id">
+                                            @group.Name
+                                        </label>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="col-12 text-end mt-5">
+                        <a asp-action="Index" class="btn btn-outline-light rounded-pill px-5 py-3 me-2">Cancel</a>
+                        <button type="submit" class="btn btn-primary rounded-pill px-5 py-3 shadow">Save Contact</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

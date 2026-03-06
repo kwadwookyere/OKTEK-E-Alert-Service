@@ -1,0 +1,56 @@
+@model EAlertService.ViewModels.ContactGroupEditViewModel
+@{
+    ViewData["Title"] = "Create Group";
+    Layout = "_AdminLayout";
+}
+
+<div class="row justify-content-center animate-fade-in">
+    <div class="col-xl-6">
+        <div class="card glass shadow-lg p-4 p-lg-5">
+            <div class="d-flex align-items-center mb-4">
+                <div class="rounded-4 bg-primary bg-opacity-10 p-3 text-accent me-3">
+                    <i class="bi bi-folder-plus fs-3"></i>
+                </div>
+                <div>
+                    <h4 class="fw-bold mb-0">Create Recipient Group</h4>
+                    <p class="text-dim mb-0">Segment your contacts for easier sending.</p>
+                </div>
+            </div>
+
+            <form asp-action="CreateGroup" method="post">
+                @Html.AntiForgeryToken()
+                
+                <div class="row g-4">
+                    <div class="col-md-12">
+                        <label asp-for="ApplicationId" class="form-label small text-dim uppercase fw-bold">Application Context</label>
+                        <select asp-for="ApplicationId" class="form-select glass text-white py-3 px-4 rounded-4" required>
+                            <option value="">Select Application...</option>
+                            @foreach (var app in Model.Applications)
+                            {
+                                <option value="@app.Id">@app.Name</option>
+                            }
+                        </select>
+                        <span asp-validation-for="ApplicationId" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-12">
+                        <label asp-for="Name" class="form-label small text-dim uppercase fw-bold">Group Name</label>
+                        <input asp-for="Name" class="form-control glass text-white py-3 px-4 rounded-4" placeholder="e.g. All Customers, VIP Staff" required />
+                        <span asp-validation-for="Name" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-12">
+                        <label asp-for="Description" class="form-label small text-dim uppercase fw-bold">Description (Optional)</label>
+                        <textarea asp-for="Description" class="form-control glass text-white py-3 px-4 rounded-4" rows="3" placeholder="Describe the purpose of this group..."></textarea>
+                        <span asp-validation-for="Description" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-12 text-end mt-5">
+                        <a asp-action="Index" class="btn btn-outline-light rounded-pill px-5 py-3 me-2">Cancel</a>
+                        <button type="submit" class="btn btn-primary rounded-pill px-5 py-3 shadow">Create Group</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

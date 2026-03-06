@@ -1,0 +1,233 @@
+@model List<EAlertService.Models.DomainModels.BulkMessageBatch>
+@{
+    ViewData["Title"] = "Bulk Reporting & Scheduling";
+    Layout = "_AdminLayout";
+    var scheduledBatches = Model.Where(b => b.Status == "Scheduled").ToList();
+    var processedBatches = Model.Where(b => b.Status != "Scheduled").ToList();
+}
+
+
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="fw-bold mb-0">Communication History</h2>
+            <p class="text-dim">Monitor background batches and manage scheduled deliveries.</p>
+        </div>
+        <div class="d-flex gap-3">
+            <a asp-action="Compose" class="btn btn-primary">
+                <i class="bi bi-plus-lg me-2"></i> New Message
+            </a>
+        </div>
+    </div>
+
+    <!-- Enterprise Analytics Section -->
+    <div class="row mb-4 animate-fade-in">
+        <div class="col-lg-12">
+            <div class="card glass border-0">
+                <div class="card-body p-4">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h5 class="fw-bold mb-2">Batch Success Rate</h5>
+                            <p class="text-dim small mb-0">Overview of total delivery efficiency across all processed batches.</p>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            @{
+                                var totalSent = processedBatches.Sum(b => b.SuccessCount + b.FailureCount);
+                                var totalSuccess = processedBatches.Sum(b => b.SuccessCount);
+                                var successRate = totalSent > 0 ? (int)((double)totalSuccess / totalSent * 100) : 0;
+                            }
+                            <div class="position-relative d-inline-block">
+                                <svg width="150" height="150" viewBox="0 0 150 150">
+                                    <circle cx="75" cy="75" r="65" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="12" />
+                                    <circle cx="75" cy="75" r="65" fill="none" stroke="var(--accent-primary)" stroke-width="12" 
+                                            stroke-dasharray="408.4" stroke-dashoffset="@((408.4 * (1 - successRate / 100.0)).ToString("0.0", System.Globalization.CultureInfo.InvariantCulture))"
+                                            stroke-linecap="round" style="transition: stroke-dashoffset 1s ease-out;" />
+                                </svg>
+                                <div class="position-absolute top-50 start-50 translate-middle">
+                                    <h2 class="fw-bold mb-0">@successRate%</h2>
+                                    <small class="text-dim">Overall</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ul class="nav nav-pills glass p-1 rounded-4 mb-4 d-inline-flex" id="historyTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link @(scheduledBatches.Any() ? "" : "active") rounded-4 px-4" id="batches-tab" data-bs-toggle="tab" data-bs-target="#batches-pane" type="button">
+                <i class="bi bi-layers-fill me-2"></i> Bulk Batches
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link @(scheduledBatches.Any() ? "active" : "") rounded-4 px-4" id="scheduled-tab" data-bs-toggle="tab" data-bs-target="#scheduled-pane" type="button">
+                <i class="bi bi-calendar-event me-2"></i> Scheduled Messages
+                @if (scheduledBatches.Any())
+                {
+                    <span class="badge bg-primary ms-2">@scheduledBatches.Count</span>
+                }
+            </button>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="historyTabsContent">
+        <!-- Batches Pane -->
+        <div class="tab-pane fade @(scheduledBatches.Any() ? "" : "show active")" id="batches-pane" role="tabpanel">
+            <div class="row g-4">
+                @foreach (var batch in processedBatches)
+                {
+                    <div class="col-12">
+                        <div class="card glass border-0 overflow-hidden animate-fade-in">
+                            <div class="card-body p-4">
+                                <div class="row align-items-center">
+                                    <div class="col-md-4">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <span class="badge @(batch.Type == "Email" ? "bg-info" : "bg-warning") me-2">@batch.Type</span>
+                                            <span class="text-dim small">@batch.CreatedAt.ToString("MMM dd, yyyy HH:mm")</span>
+                                        </div>
+                                        <h5 class="mb-1">@(batch.Subject ?? "No Subject")</h5>
+                                        <p class="text-dim small mb-0 text-truncate">@batch.MessagePreview</p>
+                                        <div class="mt-2">
+                                            <small class="text-dim">Application:</small>
+                                            <span class="badge bg-secondary">@batch.Application.Name</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span class="small fw-bold">Delivery Progress</span>
+                                            <span class="small text-dim">@batch.SuccessCount / @batch.TotalRecipients Sent</span>
+                                        </div>
+                                        @{
+                                            var progress = batch.TotalRecipients > 0 ? (int)((double)(batch.SuccessCount + batch.FailureCount) / batch.TotalRecipients * 100) : 0;
+                                        }
+                                        <div class="progress glass mb-3" style="height: 8px;">
+                                            <div class="progress-bar @(batch.Status == "Completed" ? "bg-success" : "bg-primary")" 
+                                                 role="progressbar" style="width: @progress%" aria-valuenow="@progress" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <div class="d-flex gap-4">
+                                            <div class="text-center">
+                                                <div class="h5 mb-0 text-success">@batch.SuccessCount</div>
+                                                <small class="text-dim text-uppercase" style="font-size: 0.6rem;">Success</small>
+                                            </div>
+                                            <div class="text-center">
+                                                <div class="h5 mb-0 text-danger">@batch.FailureCount</div>
+                                                <small class="text-dim text-uppercase" style="font-size: 0.6rem;">Failed</small>
+                                            </div>
+                                            <div class="text-center">
+                                                <div class="h5 mb-0 text-primary">@batch.PendingCount</div>
+                                                <small class="text-dim text-uppercase" style="font-size: 0.6rem;">Pending</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 text-md-end mt-3 mt-md-0">
+                                        @if (batch.Status == "Processing")
+                                        {
+                                            <div class="d-flex align-items-center justify-content-md-end mb-2">
+                                                <div class="spinner-border spinner-border-sm text-primary me-2" role="status"></div>
+                                                <span class="text-primary fw-bold">Processing...</span>
+                                            </div>
+                                        }
+                                        else if (batch.Status == "Completed")
+                                        {
+                                            <div class="text-success mb-2">
+                                                <i class="bi bi-check-circle-fill me-1"></i> Completed
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="text-dim mb-2">
+                                                <i class="bi bi-clock me-1"></i> @batch.Status
+                                            </div>
+                                        }
+                                        <a href="@Url.Action("Logs", "Admin", new { batchId = batch.Id })" class="btn btn-sm btn-outline-info">
+                                            <i class="bi bi-list-ul me-1"></i> View Detailed Logs
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                @if (!processedBatches.Any())
+                {
+                    <div class="col-12 text-center py-5">
+                        <div class="glass p-5 rounded-4">
+                            <i class="bi bi-inbox fs-1 text-dim d-block mb-3"></i>
+                            <h4>No bulk history found</h4>
+                            <p class="text-dim">Start by sending your first bulk message batch.</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <!-- Scheduled Pane -->
+        <div class="tab-pane fade @(scheduledBatches.Any() ? "show active" : "")" id="scheduled-pane" role="tabpanel">
+            <div class="row g-4">
+                @foreach (var batch in scheduledBatches)
+                {
+                    <div class="col-12">
+                        <div class="card glass border-0 overflow-hidden animate-fade-in">
+                            <div class="card-body p-4">
+                                <div class="row align-items-center">
+                                    <div class="col-md-5">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <span class="badge @(batch.Type == "Email" ? "bg-info" : "bg-warning") me-2">@batch.Type</span>
+                                            <span class="text-accent small fw-bold">
+                                                <i class="bi bi-calendar-check me-1"></i> Scheduled for: @(batch.ScheduledFor?.ToString("MMM dd, yyyy HH:mm") ?? "N/A")
+                                            </span>
+                                        </div>
+                                        <h5 class="mb-1">@(batch.Subject ?? "No Subject")</h5>
+                                        <p class="text-dim small mb-0 text-truncate">@batch.MessagePreview</p>
+                                        <div class="mt-2">
+                                            <small class="text-dim">Application:</small>
+                                            <span class="badge bg-secondary">@batch.Application.Name</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="bg-primary bg-opacity-10 p-2 rounded-3 text-center" style="min-width: 80px;">
+                                                <div class="h5 mb-0">@batch.TotalRecipients</div>
+                                                <small class="text-dim text-uppercase" style="font-size: 0.6rem;">Recipients</small>
+                                            </div>
+                                            <div>
+                                                <div class="small fw-bold mb-1">Status</div>
+                                                <span class="badge glass border-warning text-warning">Waiting</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 text-md-end mt-3 mt-md-0">
+                                        <form asp-action="CancelScheduled" method="post" style="display:inline;" onsubmit="return confirm('Are you sure you want to cancel this scheduled message?');">
+                                            @Html.AntiForgeryToken()
+                                            <input type="hidden" name="id" value="@batch.Id" />
+                                            <button type="submit" class="btn btn-sm btn-outline-danger">
+                                                <i class="bi bi-trash3 me-1"></i> Cancel
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                @if (!scheduledBatches.Any())
+                {
+                    <div class="col-12 text-center py-5">
+                        <div class="glass p-5 rounded-4">
+                            <i class="bi bi-calendar-x fs-1 text-dim d-block mb-3"></i>
+                            <h4>No scheduled messages</h4>
+                            <p class="text-dim">Use the scheduler in the Compose page to plan future deliveries.</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
