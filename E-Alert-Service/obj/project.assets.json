@@ -6109,11 +6109,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/E-Alert-Service/E-Alert-Service.csproj",
+      "projectUniqueName": "/Users/kwadwookyere/Oakwood/Projects/1111AdvansE-Alert/E-Alert-Service/E-Alert-Service.csproj",
       "projectName": "E-Alert-Service",
-      "projectPath": "/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/E-Alert-Service/E-Alert-Service.csproj",
+      "projectPath": "/Users/kwadwookyere/Oakwood/Projects/1111AdvansE-Alert/E-Alert-Service/E-Alert-Service.csproj",
       "packagesPath": "/Users/kwadwookyere/.nuget/packages/",
-      "outputPath": "/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/E-Alert-Service/obj/",
+      "outputPath": "/Users/kwadwookyere/Oakwood/Projects/1111AdvansE-Alert/E-Alert-Service/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/kwadwookyere/.nuget/NuGet/NuGet.Config"
@@ -6227,5 +6227,17 @@
         "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.102/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'MailKit' 4.10.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-9j88-vvj5-vhgr",
+      "libraryId": "MailKit",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }

@@ -160,7 +160,7 @@ public class SmsLog
     public Application Application { get; set; } = null!;
 
     [Required]
-    [MaxLength(20)]
+    [MaxLength(30)] // Bug fix #14: E.164 max is 15 digits + prefix/spaces; 30 adds safe headroom
     public string Recipient { get; set; } = string.Empty;
 
     [Required]

@@ -1,13 +1,10 @@
 using EAlertService.Data;
 using EAlertService.Models.DomainModels;
+using EAlertService.Services.Interfaces;
 
 namespace EAlertService.Services.Implementations;
 
-public interface IAuditService
-{
-    Task LogAsync(string userId, string action, string entity, int? entityId, string details, string ipAddress);
-}
-
+// Bug fix #13: IAuditService interface moved to Services.Interfaces namespace (IAuditService.cs).
 public class AuditService : IAuditService
 {
     private readonly IServiceScopeFactory _scopeFactory;

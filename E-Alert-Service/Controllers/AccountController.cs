@@ -1,6 +1,7 @@
 using System.Security.Claims;
 using EAlertService.Data;
 using EAlertService.Models.DomainModels;
+using EAlertService.Services.Interfaces;
 using EAlertService.ViewModels;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -13,13 +14,21 @@ public class AccountController : Controller
 {
     private readonly ApplicationDbContext _context;
     private readonly ILogger<AccountController> _logger;
-    private readonly Services.Implementations.IAuditService _auditService;
+    private readonly IAuditService _auditService;
+    private readonly IEmailService _emailService;
 
-    public AccountController(ApplicationDbContext context, ILogger<AccountController> logger, Services.Implementations.IAuditService auditService)
+    // Bug fix #5 (partial) + Bug fix #13: IEmailService injected; IAuditService
+    // is now referenced from the Interfaces namespace.
+    public AccountController(
+        ApplicationDbContext context,
+        ILogger<AccountController> logger,
+        IAuditService auditService,
+        IEmailService emailService)
     {
         _context = context;
         _logger = logger;
         _auditService = auditService;
+        _emailService = emailService;
     }
 
     [HttpGet]
@@ -123,8 +132,7 @@ public class AccountController : Controller
             await _context.SaveChangesAsync();
 
             var resetLink = Url.Action("ResetPassword", "Account", new { token = user.ResetToken }, Request.Scheme);
-            
-            // In a real app, we'd use a template. For now, simple body.
+
             var body = $@"
                 <h3>Password Reset Request</h3>
                 <p>Hello {user.Username},</p>
@@ -134,20 +142,18 @@ public class AccountController : Controller
                 <p>If you didn't request this, please ignore this email.</p>
             ";
 
-            // Using applicationId 1 (Admin) for system emails
-            await _context.EmailLogs.AddAsync(new EmailLog
-            {
-                ApplicationId = 1,
-                Recipient = email,
-                Subject = "Password Reset Request",
-                Body = body,
-                Status = "Pending",
-                Timestamp = DateTime.UtcNow
-            });
-            await _context.SaveChangesAsync();
+            // Bug fix #5: Actually send the reset email via IEmailService (previously only
+            // logged a Pending record that was never dispatched).
+            var sent = await _emailService.SendEmailAsync(
+                applicationId: 1,
+                recipient: email,
+                subject: "Password Reset Request",
+                body: body);
 
-            // Since IEmailService is available, let's use it if possible, but the existing pattern seems to be logging.
-            // Actually, IController has IEmailService in AdminController. Let's see if AccountController needs it.
+            if (!sent)
+            {
+                _logger.LogWarning("Password reset email could not be sent to {Email}. Check SMTP config for ApplicationId=1.", email);
+            }
         }
         else
         {

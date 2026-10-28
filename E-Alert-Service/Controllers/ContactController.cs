@@ -1,5 +1,6 @@
 using EAlertService.Data;
 using EAlertService.Models.DomainModels;
+using EAlertService.Services.Interfaces;
 using EAlertService.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -11,21 +12,53 @@ namespace EAlertService.Controllers;
 public class ContactController : Controller
 {
     private readonly ApplicationDbContext _context;
-    private readonly Services.Implementations.IAuditService _auditService;
+    private readonly IAuditService _auditService;
 
-    public ContactController(ApplicationDbContext context, Services.Implementations.IAuditService auditService)
+    public ContactController(ApplicationDbContext context, IAuditService auditService)
     {
         _context = context;
         _auditService = auditService;
     }
 
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int? groupId, string? search, int page = 1, int pageSize = 15)
     {
+        if (page < 1) page = 1;
+        if (pageSize < 5) pageSize = 15;
+
+        var query = _context.Contacts
+            .Include(c => c.Application)
+            .Include(c => c.GroupAssignments)
+                .ThenInclude(ga => ga.ContactGroup)
+            .AsQueryable();
+
+        if (groupId.HasValue)
+        {
+            query = query.Where(c => c.GroupAssignments.Any(ga => ga.ContactGroupId == groupId.Value));
+        }
+
+        if (!string.IsNullOrWhiteSpace(search))
+        {
+            var s = search.Trim();
+            query = query.Where(c => c.Name.Contains(s) || (c.Email != null && c.Email.Contains(s)) || (c.PhoneNumber != null && c.PhoneNumber.Contains(s)));
+        }
+
+        var total = await query.CountAsync();
+        var contacts = await query
+            .OrderByDescending(c => c.CreatedAt)
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
         var viewModel = new ContactListViewModel
         {
-            Contacts = await _context.Contacts.Include(c => c.Application).Include(c => c.GroupAssignments).ThenInclude(ga => ga.ContactGroup).ToListAsync(),
+            Contacts = contacts,
             Groups = await _context.ContactGroups.Include(g => g.Application).ToListAsync(),
-            Applications = await _context.Applications.Where(a => a.IsEnabled).ToListAsync()
+            Applications = await _context.Applications.Where(a => a.IsEnabled).ToListAsync(),
+            SelectedGroupId = groupId,
+            SearchTerm = search,
+            PageNumber = page,
+            PageSize = pageSize,
+            TotalRecords = total
         };
         return View(viewModel);
     }

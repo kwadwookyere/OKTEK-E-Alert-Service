@@ -1,0 +1,209 @@
+@{
+    var apps = (IEnumerable<EAlertService.Models.DomainModels.Application>)(ViewBag.Applications ?? new List<EAlertService.Models.DomainModels.Application>());
+}
+
+<!-- New Message / Compose Modal -->
+<div class="modal fade" id="newMessageModal" tabindex="-1" aria-labelledby="newMessageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <form id="newMessageForm" class="modal-content glass shadow-2xl border-secondary" asp-controller="BulkMessaging" asp-action="Send" method="post" enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="IsTemplate" id="modalIsTemplateHidden" value="false" />
+
+            <div class="modal-header border-bottom border-white border-opacity-10">
+                <div class="d-flex align-items-center gap-2">
+                    <div class="bg-primary bg-opacity-20 text-primary rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                        <i class="bi bi-send-plus fs-5"></i>
+                    </div>
+                    <div>
+                        <h5 class="modal-title fw-bold text-white mb-0" id="newMessageModalLabel">New Message</h5>
+                        <small class="text-dim">Compose and dispatch or schedule a bulk communication.</small>
+                    </div>
+                </div>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body p-4" style="max-height: calc(85vh - 130px); overflow-y: auto;">
+                <div class="row g-3">
+                    <!-- Application Context -->
+                    <div class="col-md-6">
+                        <label class="form-label small text-dim text-uppercase fw-bold">Application Context <span class="text-danger">*</span></label>
+                        <select name="ApplicationId" id="modalApplicationId" class="form-select glass text-white py-2 px-3 rounded-3" required>
+                            <option value="">-- Select Application --</option>
+                            @foreach (var app in apps)
+                            {
+                                <option value="@app.Id">@app.Name</option>
+                            }
+                        </select>
+                    </div>
+
+                    <!-- Communication Channel -->
+                    <div class="col-md-6">
+                        <label class="form-label small text-dim text-uppercase fw-bold">Channel</label>
+                        <div class="d-flex gap-4 pt-2">
+                            <div class="form-check custom-radio">
+                                <input class="form-check-input" type="radio" name="Type" value="Email" id="modalTypeEmail" checked>
+                                <label class="form-check-label text-white" for="modalTypeEmail">
+                                    <i class="bi bi-envelope me-1 text-primary"></i> Email
+                                </label>
+                            </div>
+                            <div class="form-check custom-radio">
+                                <input class="form-check-input" type="radio" name="Type" value="SMS" id="modalTypeSms">
+                                <label class="form-check-label text-white" for="modalTypeSms">
+                                    <i class="bi bi-chat-left-dots me-1 text-warning"></i> SMS
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Select Template -->
+                    <div class="col-md-6">
+                        <label class="form-label small text-dim text-uppercase fw-bold">Select Template (Optional)</label>
+                        <select name="TemplateName" id="modalTemplateSelect" class="form-select glass text-white py-2 px-3 rounded-3">
+                            <option value="">-- No Template (Custom Message) --</option>
+                        </select>
+                        <div class="form-text text-dim small">Predefined templates load based on selected app.</div>
+                    </div>
+
+                    <!-- Subject (Email Only) -->
+                    <div class="col-md-6" id="modalSubjectContainer">
+                        <label class="form-label small text-dim text-uppercase fw-bold">Subject <span class="text-danger">*</span></label>
+                        <input name="Subject" id="modalSubjectInput" class="form-control glass text-white py-2 px-3 rounded-3" placeholder="Enter email subject..." />
+                    </div>
+
+                    <!-- Recipient Group -->
+                    <div class="col-md-6">
+                        <label class="form-label small text-dim text-uppercase fw-bold">Contact Group (Optional)</label>
+                        <select name="ContactGroupId" id="modalGroupSelect" class="form-select glass text-white py-2 px-3 rounded-3">
+                            <option value="">-- No Group Selected --</option>
+                        </select>
+                    </div>
+
+                    <!-- Recipient File Upload -->
+                    <div class="col-md-6">
+                        <label class="form-label small text-dim text-uppercase fw-bold">Upload Recipients File (Optional)</label>
+                        <input name="RecipientFile" type="file" class="form-control glass text-white py-2 px-3 rounded-3" accept=".csv,.txt" />
+                        <div class="form-text text-dim small">CSV or TXT file of emails/numbers.</div>
+                    </div>
+
+                    <!-- Manual Recipients Entry -->
+                    <div class="col-12">
+                        <label class="form-label small text-dim text-uppercase fw-bold">Manual Recipients</label>
+                        <textarea name="Recipients" id="modalRecipientsText" class="form-control glass text-white py-2 px-3 rounded-3" rows="3" placeholder="Paste emails or phone numbers here (separated by commas, semicolons, or newlines)..."></textarea>
+                    </div>
+
+                    <!-- Message Content -->
+                    <div class="col-12" id="modalMessageContainer">
+                        <label class="form-label small text-dim text-uppercase fw-bold">Message Content <span class="text-danger">*</span></label>
+                        <textarea name="Message" id="modalMessageText" class="form-control glass text-white py-2 px-3 rounded-3" rows="5" placeholder="Compose your message here..."></textarea>
+                        <div class="form-text text-accent mt-1" id="modalTemplateNotice" style="display:none;">
+                            <i class="bi bi-info-circle me-1"></i> A template is selected; manual message content will be ignored in favor of the template.
+                        </div>
+                    </div>
+
+                    <!-- Scheduling Switch -->
+                    <div class="col-12">
+                        <div class="glass p-3 rounded-3">
+                            <div class="form-check form-switch mb-2">
+                                <input name="IsScheduled" class="form-check-input" type="checkbox" value="true" id="modalIsScheduledToggle">
+                                <label class="form-check-label fw-bold text-white" for="modalIsScheduledToggle">
+                                    <i class="bi bi-calendar-event me-1 text-info"></i> Schedule for Later Delivery
+                                </label>
+                            </div>
+                            <div id="modalScheduleOptions" style="display: none;">
+                                <label class="form-label small text-dim text-uppercase fw-bold">Delivery Date & Time</label>
+                                <input name="ScheduledFor" type="datetime-local" class="form-control glass text-white py-2 px-3 rounded-3" id="modalScheduledForInput" />
+                                <small class="text-dim d-block mt-1">The message will be processed automatically by the background worker at this time.</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer border-top border-white border-opacity-10 d-flex justify-content-between">
+                <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary shadow px-4" id="modalSendBtn">
+                    <i class="bi bi-send-fill me-1"></i> Send Notification
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        function updateModalVisibility() {
+            const channel = $('input[name="Type"]:checked', '#newMessageForm').val();
+            const templateName = $('#modalTemplateSelect').val();
+            const isTemplate = !!templateName;
+            const isScheduled = $('#modalIsScheduledToggle').is(':checked');
+
+            $('#modalIsTemplateHidden').val(isTemplate);
+
+            // Subject visibility (Email only, not needed when template is picked)
+            if (channel === 'Email' && !isTemplate) {
+                $('#modalSubjectContainer').show();
+            } else if (channel === 'Email' && isTemplate) {
+                $('#modalSubjectContainer').hide();
+            } else {
+                $('#modalSubjectContainer').hide();
+            }
+
+            // Template notice and message readonly state
+            if (isTemplate) {
+                $('#modalTemplateNotice').show();
+                $('#modalMessageText').addClass('opacity-50').prop('readonly', true);
+            } else {
+                $('#modalTemplateNotice').hide();
+                $('#modalMessageText').removeClass('opacity-50').prop('readonly', false);
+            }
+
+            // Schedule toggle
+            if (isScheduled) {
+                $('#modalScheduleOptions').slideDown(150);
+                $('#modalScheduledForInput').prop('required', true);
+                $('#modalSendBtn').html('<i class="bi bi-calendar-event me-1"></i> Schedule Notification');
+            } else {
+                $('#modalScheduleOptions').slideUp(150);
+                $('#modalScheduledForInput').prop('required', false);
+                $('#modalSendBtn').html('<i class="bi bi-send-fill me-1"></i> Send Notification');
+            }
+        }
+
+        function loadModalAppData() {
+            const appId = $('#modalApplicationId').val();
+            if (!appId) {
+                $('#modalTemplateSelect').empty().append('<option value="">-- Select Application First --</option>');
+                $('#modalGroupSelect').empty().append('<option value="">-- Select Application First --</option>');
+                updateModalVisibility();
+                return;
+            }
+
+            const channel = $('input[name="Type"]:checked', '#newMessageForm').val();
+
+            // Load Templates
+            $.get('/BulkMessaging/GetTemplates', { appId: appId }, function(data) {
+                const select = $('#modalTemplateSelect');
+                select.empty().append('<option value="">-- No Template (Custom Message) --</option>');
+                const templates = channel === 'Email' ? (data.emailTemplates || []) : (data.smsTemplates || []);
+                templates.forEach(t => {
+                    select.append(`<option value="${t}">${t}</option>`);
+                });
+                updateModalVisibility();
+            });
+
+            // Load Groups
+            $.get('/BulkMessaging/GetGroups', { appId: appId }, function(data) {
+                const select = $('#modalGroupSelect');
+                select.empty().append('<option value="">-- No Group Selected --</option>');
+                (data || []).forEach(g => {
+                    select.append(`<option value="${g.id}">${g.name}</option>`);
+                });
+            });
+        }
+
+        $('#modalApplicationId, input[name="Type"]', '#newMessageForm').on('change', loadModalAppData);
+        $('#modalTemplateSelect, #modalIsScheduledToggle', '#newMessageForm').on('change', updateModalVisibility);
+
+        updateModalVisibility();
+    });
+</script>

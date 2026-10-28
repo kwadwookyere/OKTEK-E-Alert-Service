@@ -17,7 +17,17 @@ public class EmailController : ControllerBase
         _logger = logger;
     }
 
-    private int ApplicationId => (int)HttpContext.Items["ApplicationId"]!;
+    // Bug fix #3: Safe ApplicationId — throws 500 with a clear message instead of
+    // a cryptic NullReferenceException if middleware did not set the context item.
+    private int ApplicationId
+    {
+        get
+        {
+            if (HttpContext.Items.TryGetValue("ApplicationId", out var id) && id is int appId)
+                return appId;
+            throw new InvalidOperationException("ApplicationId was not set by API key middleware. Ensure the request passed API key authentication.");
+        }
+    }
 
     [HttpPost("send")]
     public async Task<IActionResult> SendTemplate([FromBody] EmailTemplateRequest request)
@@ -65,7 +75,17 @@ public class SmsController : ControllerBase
         _logger = logger;
     }
 
-    private int ApplicationId => (int)HttpContext.Items["ApplicationId"]!;
+    // Bug fix #3: Safe ApplicationId — throws 500 with a clear message instead of
+    // a cryptic NullReferenceException if middleware did not set the context item.
+    private int ApplicationId
+    {
+        get
+        {
+            if (HttpContext.Items.TryGetValue("ApplicationId", out var id) && id is int appId)
+                return appId;
+            throw new InvalidOperationException("ApplicationId was not set by API key middleware. Ensure the request passed API key authentication.");
+        }
+    }
 
     [HttpPost("send")]
     public async Task<IActionResult> SendTemplate([FromBody] SmsTemplateRequest request)

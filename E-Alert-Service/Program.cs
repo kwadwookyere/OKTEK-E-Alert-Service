@@ -22,8 +22,17 @@ try
     builder.Host.UseNLog();
 
 // Add services to the container.
+// Bug fix #11: EnableRetryOnFailure for transient network issues with remote EC2 SQL Server.
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        sqlOptions => sqlOptions.EnableRetryOnFailure(
+            maxRetryCount: 5,
+            maxRetryDelay: TimeSpan.FromSeconds(10),
+            errorNumbersToAdd: null)));
+
+// Bug fix #2: IMemoryCache is required by ApiKeyAuthMiddleware to cache verified keys.
+builder.Services.AddMemoryCache();
 
 builder.Services.AddHttpClient();
 builder.Services.AddSingleton<IEncryptionService, EncryptionService>();
@@ -32,6 +41,7 @@ builder.Services.AddScoped<ISmtpResolver, SmtpResolver>();
 builder.Services.AddScoped<ISmsProviderResolver, SmsProviderResolver>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<ISmsService, SmsService>();
+// Bug fix #13: IAuditService now lives in Services.Interfaces namespace.
 builder.Services.AddSingleton<IAuditService, AuditService>();
 
 builder.Services.AddHostedService<MessagingBackgroundService>();

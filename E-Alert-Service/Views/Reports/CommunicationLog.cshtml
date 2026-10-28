@@ -6,6 +6,7 @@
 
 <div class="card glass p-4 mb-4">
     <form method="get" class="row g-3 align-items-end">
+        <input type="hidden" name="pageSize" value="@Model.PageSize" />
         <div class="col-md-2">
             <label class="form-label small text-dim uppercase">Application</label>
             <select name="app" class="form-select glass text-white">
@@ -61,50 +62,82 @@
                     <th>Recipient</th>
                     <th>Subject / Message</th>
                     <th>Status</th>
+                    <th class="text-end pe-4">Actions</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (var log in Model.EmailLogs)
+                @foreach (var log in Model.Items)
                 {
                     <tr>
                         <td class="ps-4"><span class="text-dim small">@log.Timestamp.ToString("G")</span></td>
-                        <td><span class="badge bg-primary bg-opacity-10 text-primary small">Email</span></td>
-                        <td><span class="fw-medium">@log.Application.Name</span></td>
-                        <td>@log.Recipient</td>
                         <td>
-                            <div class="text-truncate" style="max-width: 300px;" title="@log.Subject">@log.Subject</div>
+                            @if (log.Type == "Email")
+                            {
+                                <span class="badge bg-primary bg-opacity-15 text-primary border border-primary border-opacity-25 small">
+                                    <i class="bi bi-envelope-fill me-1"></i> Email
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-warning bg-opacity-15 text-warning border border-warning border-opacity-25 small">
+                                    <i class="bi bi-chat-left-dots-fill me-1"></i> SMS
+                                </span>
+                            }
+                        </td>
+                        <td><span class="fw-medium text-white">@log.ApplicationName</span></td>
+                        <td><span class="text-break">@log.Recipient</span></td>
+                        <td>
+                            <div class="text-truncate" style="max-width: 320px;" title="@log.SubjectOrMessage">
+                                @log.SubjectOrMessage
+                            </div>
+                            @if (!string.IsNullOrEmpty(log.ErrorMessage))
+                            {
+                                <small class="text-danger d-block text-truncate" style="max-width: 320px;" title="@log.ErrorMessage">
+                                    <i class="bi bi-exclamation-circle me-1"></i>@log.ErrorMessage
+                                </small>
+                            }
                         </td>
                         <td>
                             @if (log.Status == "Sent") { <span class="badge glass border-success text-success">Sent</span> }
                             else if (log.Status == "Failed") { <span class="badge glass border-danger text-danger">Failed</span> }
                             else { <span class="badge glass border-warning text-warning">@log.Status</span> }
                         </td>
+                        <td class="text-end pe-4">
+                            @if (log.Type == "Email")
+                            {
+                                <div class="btn-group btn-group-sm">
+                                    <button type="button" class="btn btn-outline-info" title="View email content and tracking details" onclick="openViewEmailModal(@log.Id)">
+                                        <i class="bi bi-eye"></i> View
+                                    </button>
+                                    <button type="button" class="btn btn-outline-warning" title="Resend this email" onclick="confirmResendEmail(@log.Id, '@Html.Raw(Html.Encode(log.Recipient))')">
+                                        <i class="bi bi-arrow-repeat"></i> Resend
+                                    </button>
+                                </div>
+                            }
+                            else
+                            {
+                                <span class="text-dim small">—</span>
+                            }
+                        </td>
                     </tr>
                 }
-                @foreach (var log in Model.SmsLogs)
+                @if (!Model.Items.Any())
                 {
                     <tr>
-                        <td class="ps-4"><span class="text-dim small">@log.Timestamp.ToString("G")</span></td>
-                        <td><span class="badge bg-warning bg-opacity-10 text-warning small">SMS</span></td>
-                        <td><span class="fw-medium">@log.Application.Name</span></td>
-                        <td>@log.Recipient</td>
-                        <td>
-                            <div class="text-truncate text-dim" style="max-width: 300px;" title="@log.Message">@log.Message</div>
+                        <td colspan="7" class="text-center py-5 text-dim">
+                            <i class="bi bi-inbox fs-2 d-block mb-2 text-dim opacity-50"></i>
+                            No communication log records found matching the filters.
                         </td>
-                        <td>
-                            @if (log.Status == "Sent") { <span class="badge glass border-success text-success">Sent</span> }
-                            else if (log.Status == "Failed") { <span class="badge glass border-danger text-danger">Failed</span> }
-                            else { <span class="badge glass border-warning text-warning">@log.Status</span> }
-                        </td>
-                    </tr>
-                }
-                @if (!Model.EmailLogs.Any() && !Model.SmsLogs.Any())
-                {
-                    <tr>
-                        <td colspan="6" class="text-center py-5 text-dim">No records found matching the filters.</td>
                     </tr>
                 }
             </tbody>
         </table>
     </div>
+
+    @await Html.PartialAsync("_Pagination", Model)
 </div>
+
+@section Modals {
+    @await Html.PartialAsync("_EmailViewModals")
+    @await Html.PartialAsync("_NewMessageModal")
+}

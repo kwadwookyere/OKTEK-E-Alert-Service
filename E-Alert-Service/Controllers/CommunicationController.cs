@@ -17,7 +17,15 @@ public class CommunicationController : ControllerBase
         _smsService = smsService;
     }
 
-    private int ApplicationId => (int)HttpContext.Items["ApplicationId"]!;
+    private int ApplicationId
+    {
+        get
+        {
+            if (HttpContext.Items.TryGetValue("ApplicationId", out var id) && id is int appId)
+                return appId;
+            throw new InvalidOperationException("ApplicationId was not set by API key middleware.");
+        }
+    }
 
     [HttpPost("notify")]
     public async Task<IActionResult> Notify([FromBody] UnifiedNotificationRequest request)

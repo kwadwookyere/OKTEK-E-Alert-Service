@@ -1,5 +1,6 @@
 using EAlertService.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace EAlertService.Middleware;
 
@@ -7,12 +8,15 @@ public class ApiKeyAuthMiddleware
 {
     private readonly RequestDelegate _next;
     private readonly ILogger<ApiKeyAuthMiddleware> _logger;
-    private const string APIKEYNAME = "X-API-KEY";
+    private readonly IMemoryCache _cache;
+    private const string ApiKeyName = "X-API-KEY";
+    private static readonly TimeSpan CacheDuration = TimeSpan.FromMinutes(5);
 
-    public ApiKeyAuthMiddleware(RequestDelegate next, ILogger<ApiKeyAuthMiddleware> logger)
+    public ApiKeyAuthMiddleware(RequestDelegate next, ILogger<ApiKeyAuthMiddleware> logger, IMemoryCache cache)
     {
         _next = next;
         _logger = logger;
+        _cache = cache;
     }
 
     public async Task InvokeAsync(HttpContext context, ApplicationDbContext dbContext)
@@ -23,40 +27,51 @@ public class ApiKeyAuthMiddleware
             return;
         }
 
-        if (!context.Request.Headers.TryGetValue(APIKEYNAME, out var extractedApiKey))
+        if (!context.Request.Headers.TryGetValue(ApiKeyName, out var extractedApiKey) ||
+            string.IsNullOrWhiteSpace(extractedApiKey))
         {
             context.Response.StatusCode = 401;
             await context.Response.WriteAsync("API Key was not provided.");
             return;
         }
 
-        // In a production app, we would hash the incoming key and compare with ApiKeyHash
-        // For simplicity here, we assume the DB contains the clear text or we use BCrypt
-        var app = await dbContext.Applications
-            .FirstOrDefaultAsync(a => a.IsEnabled); // Need a better way to find the app from the key
+        string rawKey = extractedApiKey.ToString();
 
-        // Implementation Note: In a real scenario, you'd iterate or use a cache to find the app by key
-        // Let's assume we have a way to verify the key. For now, we'll check all active apps.
-        bool authorized = false;
-        var apps = await dbContext.Applications.Where(a => a.IsEnabled).ToListAsync();
-        foreach (var activeApp in apps)
+        // Bug fix #2: Check cache first to avoid BCrypt on every request
+        if (_cache.TryGetValue<int>(rawKey, out var cachedAppId))
         {
-            if (BCrypt.Net.BCrypt.Verify(extractedApiKey, activeApp.ApiKeyHash))
+            context.Items["ApplicationId"] = cachedAppId;
+            await _next(context);
+            return;
+        }
+
+        // Load only active apps and verify — BCrypt is slow by design; cache the result
+        var apps = await dbContext.Applications
+            .Where(a => a.IsEnabled)
+            .ToListAsync();
+
+        int? authorizedAppId = null;
+        foreach (var app in apps)
+        {
+            if (BCrypt.Net.BCrypt.Verify(rawKey, app.ApiKeyHash))
             {
-                context.Items["ApplicationId"] = activeApp.Id;
-                authorized = true;
+                authorizedAppId = app.Id;
                 break;
             }
         }
 
-        if (!authorized)
+        if (authorizedAppId is null)
         {
-            _logger.LogWarning("Unauthorized client Attempt. IP: {RemoteIpAddress}", context.Connection.RemoteIpAddress);
+            _logger.LogWarning("Unauthorized API access attempt. IP: {RemoteIpAddress}", context.Connection.RemoteIpAddress);
             context.Response.StatusCode = 401;
             await context.Response.WriteAsync("Unauthorized client.");
             return;
         }
 
+        // Cache the verified mapping so subsequent requests skip BCrypt
+        _cache.Set(rawKey, authorizedAppId.Value, CacheDuration);
+
+        context.Items["ApplicationId"] = authorizedAppId.Value;
         await _next(context);
     }
 }

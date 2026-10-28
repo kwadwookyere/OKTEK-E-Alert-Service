@@ -84,8 +84,21 @@ public class ReportsController : Controller
         return View(viewModel);
     }
 
-    public async Task<IActionResult> CommunicationLog(string? app, string? type, string? status, DateTime? start, DateTime? end)
+    public async Task<IActionResult> CommunicationLog(
+        string? app, 
+        string? type, 
+        string? status, 
+        DateTime? start, 
+        DateTime? end, 
+        int page = 1, 
+        int pageSize = 20)
     {
+        if (page < 1) page = 1;
+        if (pageSize < 5) pageSize = 20;
+
+        var apps = await _context.Applications.ToListAsync();
+        ViewBag.Applications = apps;
+
         var viewModel = new CommunicationLogViewModel
         {
             SelectedApp = app,
@@ -93,29 +106,119 @@ public class ReportsController : Controller
             SelectedStatus = status,
             StartDate = start,
             EndDate = end,
-            Applications = await _context.Applications.Select(a => a.Name).ToListAsync()
+            PageNumber = page,
+            PageSize = pageSize,
+            Applications = apps.Select(a => a.Name).ToList()
         };
 
-        if (string.IsNullOrEmpty(type) || type == "Email")
-        {
-            var emailQuery = _context.EmailLogs.Include(l => l.Application).AsQueryable();
-            if (!string.IsNullOrEmpty(app)) emailQuery = emailQuery.Where(l => l.Application.Name == app);
-            if (!string.IsNullOrEmpty(status)) emailQuery = emailQuery.Where(l => l.Status == status);
-            if (start.HasValue) emailQuery = emailQuery.Where(l => l.Timestamp >= start.Value);
-            if (end.HasValue) emailQuery = emailQuery.Where(l => l.Timestamp <= end.Value.AddDays(1));
+        var emailQuery = _context.EmailLogs.Include(l => l.Application).AsQueryable();
+        var smsQuery = _context.SmsLogs.Include(l => l.Application).AsQueryable();
 
-            viewModel.EmailLogs = await emailQuery.OrderByDescending(l => l.Timestamp).Take(500).ToListAsync();
+        if (!string.IsNullOrEmpty(app))
+        {
+            emailQuery = emailQuery.Where(l => l.Application.Name == app);
+            smsQuery = smsQuery.Where(l => l.Application.Name == app);
         }
 
-        if (string.IsNullOrEmpty(type) || type == "SMS")
+        if (!string.IsNullOrEmpty(status))
         {
-            var smsQuery = _context.SmsLogs.Include(l => l.Application).AsQueryable();
-            if (!string.IsNullOrEmpty(app)) smsQuery = smsQuery.Where(l => l.Application.Name == app);
-            if (!string.IsNullOrEmpty(status)) smsQuery = smsQuery.Where(l => l.Status == status);
-            if (start.HasValue) smsQuery = smsQuery.Where(l => l.Timestamp >= start.Value);
-            if (end.HasValue) smsQuery = smsQuery.Where(l => l.Timestamp <= end.Value.AddDays(1));
+            emailQuery = emailQuery.Where(l => l.Status == status);
+            smsQuery = smsQuery.Where(l => l.Status == status);
+        }
 
-            viewModel.SmsLogs = await smsQuery.OrderByDescending(l => l.Timestamp).Take(500).ToListAsync();
+        if (start.HasValue)
+        {
+            emailQuery = emailQuery.Where(l => l.Timestamp >= start.Value);
+            smsQuery = smsQuery.Where(l => l.Timestamp >= start.Value);
+        }
+
+        if (end.HasValue)
+        {
+            var endInclusive = end.Value.Date.AddDays(1);
+            emailQuery = emailQuery.Where(l => l.Timestamp < endInclusive);
+            smsQuery = smsQuery.Where(l => l.Timestamp < endInclusive);
+        }
+
+        if (type == "Email")
+        {
+            viewModel.TotalRecords = await emailQuery.CountAsync();
+            var emailItems = await emailQuery
+                .OrderByDescending(l => l.Timestamp)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            viewModel.EmailLogs = emailItems;
+            viewModel.Items = emailItems.Select(e => new CommunicationLogItem
+            {
+                Id = e.Id,
+                Timestamp = e.Timestamp,
+                Type = "Email",
+                ApplicationName = e.Application?.Name ?? "Unknown",
+                Recipient = e.Recipient,
+                SubjectOrMessage = e.Subject ?? "",
+                Status = e.Status,
+                ErrorMessage = e.ErrorMessage
+            }).ToList();
+        }
+        else if (type == "SMS")
+        {
+            viewModel.TotalRecords = await smsQuery.CountAsync();
+            var smsItems = await smsQuery
+                .OrderByDescending(l => l.Timestamp)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            viewModel.SmsLogs = smsItems;
+            viewModel.Items = smsItems.Select(s => new CommunicationLogItem
+            {
+                Id = s.Id,
+                Timestamp = s.Timestamp,
+                Type = "SMS",
+                ApplicationName = s.Application?.Name ?? "Unknown",
+                Recipient = s.Recipient,
+                SubjectOrMessage = s.Message ?? "",
+                Status = s.Status,
+                ErrorMessage = s.ErrorMessage
+            }).ToList();
+        }
+        else
+        {
+            var emailCount = await emailQuery.CountAsync();
+            var smsCount = await smsQuery.CountAsync();
+            viewModel.TotalRecords = emailCount + smsCount;
+
+            var emailProjected = emailQuery.Select(e => new CommunicationLogItem
+            {
+                Id = e.Id,
+                Timestamp = e.Timestamp,
+                Type = "Email",
+                ApplicationName = e.Application.Name,
+                Recipient = e.Recipient,
+                SubjectOrMessage = e.Subject,
+                Status = e.Status,
+                ErrorMessage = e.ErrorMessage
+            });
+
+            var smsProjected = smsQuery.Select(s => new CommunicationLogItem
+            {
+                Id = s.Id,
+                Timestamp = s.Timestamp,
+                Type = "SMS",
+                ApplicationName = s.Application.Name,
+                Recipient = s.Recipient,
+                SubjectOrMessage = s.Message,
+                Status = s.Status,
+                ErrorMessage = s.ErrorMessage
+            });
+
+            viewModel.Items = await emailProjected
+                .Concat(smsProjected)
+                .OrderByDescending(x => x.Timestamp)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
         }
 
         return View(viewModel);

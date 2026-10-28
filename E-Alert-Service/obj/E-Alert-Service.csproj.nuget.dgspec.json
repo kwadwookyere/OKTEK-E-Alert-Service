@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/E-Alert-Service/E-Alert-Service.csproj": {}
+    "/Users/kwadwookyere/Oakwood/Projects/1111AdvansE-Alert/E-Alert-Service/E-Alert-Service.csproj": {}
   },
   "projects": {
-    "/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/E-Alert-Service/E-Alert-Service.csproj": {
+    "/Users/kwadwookyere/Oakwood/Projects/1111AdvansE-Alert/E-Alert-Service/E-Alert-Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/E-Alert-Service/E-Alert-Service.csproj",
+        "projectUniqueName": "/Users/kwadwookyere/Oakwood/Projects/1111AdvansE-Alert/E-Alert-Service/E-Alert-Service.csproj",
         "projectName": "E-Alert-Service",
-        "projectPath": "/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/E-Alert-Service/E-Alert-Service.csproj",
+        "projectPath": "/Users/kwadwookyere/Oakwood/Projects/1111AdvansE-Alert/E-Alert-Service/E-Alert-Service.csproj",
         "packagesPath": "/Users/kwadwookyere/.nuget/packages/",
-        "outputPath": "/Users/kwadwookyere/Oakwood/Projects/AdvansE-Alert/E-Alert-Service/obj/",
+        "outputPath": "/Users/kwadwookyere/Oakwood/Projects/1111AdvansE-Alert/E-Alert-Service/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/kwadwookyere/.nuget/NuGet/NuGet.Config"

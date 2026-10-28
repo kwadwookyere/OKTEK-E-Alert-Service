@@ -2,6 +2,7 @@ using EAlertService.Data;
 using EAlertService.Infrastructure.Encryption;
 using EAlertService.Models.DomainModels;
 using EAlertService.Services.Interfaces;
+using EAlertService.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -15,13 +16,20 @@ public class AdminController : Controller
     private readonly ApplicationDbContext _context;
     private readonly IEncryptionService _encryptionService;
     private readonly IEmailService _emailService;
+    private readonly IAuditService _auditService;
     private readonly ILogger<AdminController> _logger;
 
-    public AdminController(ApplicationDbContext context, IEncryptionService encryptionService, IEmailService emailService, ILogger<AdminController> logger)
+    public AdminController(
+        ApplicationDbContext context,
+        IEncryptionService encryptionService,
+        IEmailService emailService,
+        IAuditService auditService,
+        ILogger<AdminController> logger)
     {
         _context = context;
         _encryptionService = encryptionService;
         _emailService = emailService;
+        _auditService = auditService;
         _logger = logger;
     }
 
@@ -35,7 +43,10 @@ public class AdminController : Controller
 
     public async Task<IActionResult> Applications()
     {
-        var apps = await _context.Applications.ToListAsync();
+        // Bug fix #7: AsNoTracking() prevents EF from tracking these entities.
+        // Without it, mutating ApiKeyEncrypted below could accidentally persist
+        // the decrypted plaintext to the DB on any stray SaveChangesAsync call.
+        var apps = await _context.Applications.AsNoTracking().ToListAsync();
         foreach (var app in apps)
         {
             if (!string.IsNullOrEmpty(app.ApiKeyEncrypted))
@@ -281,34 +292,187 @@ public class AdminController : Controller
         return RedirectToAction(nameof(Templates));
     }
 
-    public async Task<IActionResult> Logs(int? batchId)
+    public async Task<IActionResult> Logs(
+        int? batchId, 
+        int emailPage = 1, 
+        int smsPage = 1, 
+        int pageSize = 20, 
+        string tab = "email")
     {
-        var emailQuery = _context.EmailLogs.AsQueryable();
-        var smsQuery = _context.SmsLogs.AsQueryable();
+        if (emailPage < 1) emailPage = 1;
+        if (smsPage < 1) smsPage = 1;
+        if (pageSize < 5) pageSize = 20;
+
+        var emailQuery = _context.EmailLogs.Include(l => l.Application).AsQueryable();
+        var smsQuery = _context.SmsLogs.Include(l => l.Application).AsQueryable();
 
         if (batchId.HasValue)
         {
             emailQuery = emailQuery.Where(l => l.BatchId == batchId.Value);
             smsQuery = smsQuery.Where(l => l.BatchId == batchId.Value);
-            ViewBag.BatchId = batchId.Value;
         }
 
-        var emailLogs = await emailQuery.OrderByDescending(l => l.Timestamp).Take(100).ToListAsync();
-        var smsLogs = await smsQuery.OrderByDescending(l => l.Timestamp).Take(100).ToListAsync();
-        
+        var emailTotal = await emailQuery.CountAsync();
+        var emailLogs = await emailQuery
+            .OrderByDescending(l => l.Timestamp)
+            .Skip((emailPage - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+        var smsTotal = await smsQuery.CountAsync();
+        var smsLogs = await smsQuery
+            .OrderByDescending(l => l.Timestamp)
+            .Skip((smsPage - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+        var viewModel = new AdminLogsViewModel
+        {
+            EmailLogs = new PagedResult<EmailLog>(emailLogs, emailTotal, emailPage, pageSize),
+            SmsLogs = new PagedResult<SmsLog>(smsLogs, smsTotal, smsPage, pageSize),
+            BatchId = batchId,
+            ActiveTab = string.Equals(tab, "sms", StringComparison.OrdinalIgnoreCase) ? "sms" : "email"
+        };
+
+        ViewBag.BatchId = batchId;
         ViewBag.SmsLogs = smsLogs;
-        return View(emailLogs);
+        ViewBag.Applications = await _context.Applications.Where(a => a.IsEnabled).ToListAsync();
+        return View(viewModel);
     }
 
-    public async Task<IActionResult> Users()
+    [HttpGet]
+    public async Task<IActionResult> GetEmailDetails(long id)
     {
-        var users = await _context.Users
+        var log = await _context.EmailLogs
+            .Include(l => l.Application)
+            .AsNoTracking()
+            .FirstOrDefaultAsync(l => l.Id == id);
+
+        if (log == null)
+            return NotFound(new { error = "Email log entry not found." });
+
+        string? smtpHost = null;
+        if (log.UsedSmtpConfigurationId.HasValue)
+        {
+            var smtp = await _context.SmtpConfigurations.FindAsync(log.UsedSmtpConfigurationId.Value);
+            smtpHost = smtp?.Host;
+        }
+
+        return Json(new
+        {
+            id = log.Id,
+            applicationId = log.ApplicationId,
+            applicationName = log.Application?.Name ?? "Unknown",
+            recipient = log.Recipient,
+            subject = log.Subject,
+            body = log.Body ?? string.Empty,
+            status = log.Status,
+            errorMessage = log.ErrorMessage,
+            timestamp = log.Timestamp.ToString("yyyy-MM-dd HH:mm:ss UTC"),
+            openedAt = log.OpenedAt?.ToString("yyyy-MM-dd HH:mm:ss UTC"),
+            clickedAt = log.ClickedAt?.ToString("yyyy-MM-dd HH:mm:ss UTC"),
+            clickCount = log.ClickCount,
+            retryCount = log.RetryCount,
+            lastAttemptedAt = log.LastAttemptedAt?.ToString("yyyy-MM-dd HH:mm:ss UTC"),
+            smtpHost = smtpHost,
+            batchId = log.BatchId
+        });
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> ResendEmail(long id, string? returnUrl = null)
+    {
+        var log = await _context.EmailLogs
+            .Include(l => l.Application)
+            .FirstOrDefaultAsync(l => l.Id == id);
+
+        if (log == null)
+        {
+            TempData["Error"] = "Email log entry not found.";
+            return RedirectToReturnUrl(returnUrl);
+        }
+
+        if (string.IsNullOrEmpty(log.Body))
+        {
+            TempData["Error"] = "Email body is empty; cannot resend.";
+            return RedirectToReturnUrl(returnUrl);
+        }
+
+        try
+        {
+            var success = await _emailService.SendEmailAsync(
+                log.ApplicationId,
+                log.Recipient,
+                log.Subject,
+                log.Body);
+
+            var currentUser = User.Identity?.Name ?? "Admin";
+            var ip = Request.HttpContext.Connection.RemoteIpAddress?.ToString() ?? "Unknown";
+            await _auditService.LogAsync(
+                currentUser,
+                "ResendEmail",
+                "EmailLog",
+                (int)log.Id,
+                $"Resent email #{log.Id} to {log.Recipient} (Subject: {log.Subject}). Result: {(success ? "Success" : "Failed")}",
+                ip);
+
+            if (success)
+            {
+                TempData["Message"] = $"Email #{log.Id} was successfully resent to {log.Recipient}.";
+            }
+            else
+            {
+                TempData["Error"] = $"Failed to resend email to {log.Recipient}. Check SMTP configuration and logs.";
+            }
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error occurred while resending email #{LogId}", id);
+            TempData["Error"] = $"Error resending email: {ex.Message}";
+        }
+
+        return RedirectToReturnUrl(returnUrl);
+    }
+
+    private IActionResult RedirectToReturnUrl(string? returnUrl)
+    {
+        if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
+        {
+            return Redirect(returnUrl);
+        }
+        return RedirectToAction(nameof(Logs));
+    }
+
+    public async Task<IActionResult> Users(int page = 1, int pageSize = 10, string? search = null)
+    {
+        if (page < 1) page = 1;
+        if (pageSize < 5) pageSize = 10;
+
+        var query = _context.Users
             .Include(u => u.UserRoles)
             .ThenInclude(ur => ur.Role)
+                .ThenInclude(r => r.RolePermissions)
+                    .ThenInclude(rp => rp.Permission)
+            .AsQueryable();
+
+        if (!string.IsNullOrWhiteSpace(search))
+        {
+            var s = search.Trim();
+            query = query.Where(u => u.Username.Contains(s) || u.Email.Contains(s));
+        }
+
+        var total = await query.CountAsync();
+        var users = await query
+            .OrderBy(u => u.Username)
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
             .ToListAsync();
-        
+
+        var pagedUsers = new PagedResult<User>(users, total, page, pageSize);
         ViewBag.Roles = await _context.Roles.ToListAsync();
-        return View(users);
+        ViewBag.Search = search;
+        return View(pagedUsers);
     }
 
     [HttpPost]
@@ -363,8 +527,16 @@ public class AdminController : Controller
     }
 
     [HttpPost]
+    [ValidateAntiForgeryToken] // Bug fix #8: CSRF protection was missing
     public async Task<IActionResult> ResetPassword(int id, string password)
     {
+        // Bug fix #8: Validate password strength before accepting it
+        if (string.IsNullOrWhiteSpace(password) || password.Length < 8)
+        {
+            TempData["Error"] = "Password must be at least 8 characters long.";
+            return RedirectToAction(nameof(Users));
+        }
+
         var user = await _context.Users.FindAsync(id);
         if (user == null) return NotFound();
 
@@ -381,7 +553,9 @@ public class AdminController : Controller
         var user = await _context.Users.FindAsync(id);
         if (user == null) return NotFound();
 
-        if (user.Username.ToLower() == "admin")
+        // Bug fix #15: Guard against deleting the seeded admin by ID (not username string),
+        // so a username rename cannot bypass this check.
+        if (user.Id == 1)
         {
             TempData["Error"] = "Cannot delete the default admin user.";
             return RedirectToAction(nameof(Users));

@@ -12,8 +12,8 @@ public interface IEncryptionService
 
 public class EncryptionService : IEncryptionService
 {
+    private const int IvSize = 16;
     private readonly byte[] _key;
-    private readonly byte[] _iv = new byte[16]; // Fixed IV for simplicity in this centralized service, or store IV with cipher text
 
     public EncryptionService(IConfiguration configuration)
     {
@@ -21,17 +21,21 @@ public class EncryptionService : IEncryptionService
         _key = Encoding.UTF8.GetBytes(keyString);
     }
 
+    /// <summary>
+    /// Encrypts clearText using AES-CBC with a randomly generated IV.
+    /// The IV is prepended to the ciphertext (first 16 bytes of the Base64 output).
+    /// </summary>
     public string Encrypt(string clearText)
     {
         using Aes aes = Aes.Create();
         aes.Key = _key;
-        aes.IV = _iv;
+        aes.GenerateIV(); // Bug fix #1: random IV per encryption — never reuse a fixed IV
 
-        ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
+        using var ms = new MemoryStream();
+        ms.Write(aes.IV, 0, IvSize); // Prepend IV so Decrypt can recover it
 
-        using MemoryStream ms = new MemoryStream();
-        using CryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write);
-        using (StreamWriter sw = new StreamWriter(cs))
+        using (var cs = new CryptoStream(ms, aes.CreateEncryptor(), CryptoStreamMode.Write))
+        using (var sw = new StreamWriter(cs))
         {
             sw.Write(clearText);
         }
@@ -39,18 +43,43 @@ public class EncryptionService : IEncryptionService
         return Convert.ToBase64String(ms.ToArray());
     }
 
+    /// <summary>
+    /// Decrypts a ciphertext produced by Encrypt().
+    /// Supports both the new format (IV-prefixed) and the legacy all-zero IV format
+    /// to allow gradual re-encryption of existing DB records.
+    /// </summary>
     public string Decrypt(string cipherText)
     {
-        using Aes aes = Aes.Create();
-        aes.Key = _key;
-        aes.IV = _iv;
+        var data = Convert.FromBase64String(cipherText);
 
-        ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+        // New format: first 16 bytes are the IV, rest is ciphertext
+        if (data.Length > IvSize)
+        {
+            try
+            {
+                using Aes aes = Aes.Create();
+                aes.Key = _key;
+                aes.IV = data[..IvSize];
 
-        using MemoryStream ms = new MemoryStream(Convert.FromBase64String(cipherText));
-        using CryptoStream cs = new CryptoStream(ms, decryptor, CryptoStreamMode.Read);
-        using StreamReader sr = new StreamReader(cs);
-        
-        return sr.ReadToEnd();
+                using var ms = new MemoryStream(data[IvSize..]);
+                using var cs = new CryptoStream(ms, aes.CreateDecryptor(), CryptoStreamMode.Read);
+                using var sr = new StreamReader(cs);
+                return sr.ReadToEnd();
+            }
+            catch (CryptographicException)
+            {
+                // Fall through to legacy path
+            }
+        }
+
+        // Legacy fallback: zero IV (for records encrypted before this fix)
+        using Aes legacyAes = Aes.Create();
+        legacyAes.Key = _key;
+        legacyAes.IV = new byte[IvSize];
+
+        using var legacyMs = new MemoryStream(data);
+        using var legacyCs = new CryptoStream(legacyMs, legacyAes.CreateDecryptor(), CryptoStreamMode.Read);
+        using var legacySr = new StreamReader(legacyCs);
+        return legacySr.ReadToEnd();
     }
 }

@@ -47,7 +47,7 @@ public class EmailService : IEmailService
             ApplicationId = applicationId,
             Recipient = recipient,
             Subject = subject,
-            Body = body.Length > 1000 ? body[..1000] + "..." : body, // Truncate log body
+            Body = body,
             UsedSmtpConfigurationId = config.Id,
             Status = "Pending"
         };
@@ -61,12 +61,8 @@ public class EmailService : IEmailService
             message.To.Add(new MailboxAddress("", recipient));
             message.Subject = subject;
 
-            // Inject Tracking Pixel
-            var baseUrl = _context.Database.GetDbConnection().ConnectionString.Contains("localhost") 
-                ? "https://localhost:7193" // Fallback for local dev if config is missing
-                : _context.Applications.Find(applicationId)?.Name; // Placeholder logic
-            
-            // Better: use injected configuration
+            // Bug fix #4: Removed dead/wrong baseUrl block that returned app Name instead of a URL.
+            // _baseUrl is already correctly injected from configuration in the constructor.
             var trackingUrl = $"{_baseUrl}/t/o/{log.TrackingGuid}";
             
             // Wrap links for tracking

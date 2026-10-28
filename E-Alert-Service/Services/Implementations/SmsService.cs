@@ -110,13 +110,19 @@ public class SmsService : ISmsService
 
     private async Task<bool> SendViaHubtel(SmsProviderConfiguration config, string recipient, string message)
     {
-        // Hubtel REST API Implementation
+        // Bug fix #10: Credentials moved from query string (where they appear in server/proxy logs)
+        // to HTTP Basic Auth header, which is the secure and standard approach.
         var client = _httpClientFactory.CreateClient();
         var clientId = _encryptionService.Decrypt(config.ApiKeyEncrypted);
         var clientSecret = _encryptionService.Decrypt(config.ApiSecretEncrypted ?? string.Empty);
 
-        var url = $"https://smsc.hubtel.com/v1/messages/send?clientid={clientId}&clientsecret={clientSecret}&from={config.SenderId}&to={recipient}&content={Uri.EscapeDataString(message)}";
-        
+        var credentials = Convert.ToBase64String(
+            System.Text.Encoding.UTF8.GetBytes($"{clientId}:{clientSecret}"));
+        client.DefaultRequestHeaders.Authorization =
+            new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", credentials);
+
+        var url = $"https://smsc.hubtel.com/v1/messages/send?from={Uri.EscapeDataString(config.SenderId ?? string.Empty)}&to={Uri.EscapeDataString(recipient)}&content={Uri.EscapeDataString(message)}";
+
         var response = await client.GetAsync(url);
         return response.IsSuccessStatusCode;
     }

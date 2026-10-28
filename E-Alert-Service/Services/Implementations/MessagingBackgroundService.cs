@@ -102,6 +102,9 @@ public class MessagingBackgroundService : BackgroundService
                 }
 
                 message.IsProcessed = true;
+                // Bug fix #6: SaveChangesAsync immediately after marking IsProcessed to prevent
+                // duplicate sends if the service restarts before the outer SaveChangesAsync runs.
+                await context.SaveChangesAsync(stoppingToken);
                 _logger.LogInformation("Activated batch reporting for scheduled message {Id}.", message.Id);
             }
             catch (Exception ex)
@@ -110,6 +113,7 @@ public class MessagingBackgroundService : BackgroundService
             }
         }
 
+        // Final save for any remaining state changes (e.g. batch status updates)
         await context.SaveChangesAsync(stoppingToken);
     }
 

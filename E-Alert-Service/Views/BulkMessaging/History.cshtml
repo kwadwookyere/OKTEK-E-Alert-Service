@@ -14,9 +14,12 @@
             <h2 class="fw-bold mb-0">Communication History</h2>
             <p class="text-dim">Monitor background batches and manage scheduled deliveries.</p>
         </div>
-        <div class="d-flex gap-3">
-            <a asp-action="Compose" class="btn btn-primary">
+        <div class="d-flex gap-2">
+            <button type="button" class="btn btn-primary shadow-lg" data-bs-toggle="modal" data-bs-target="#newMessageModal">
                 <i class="bi bi-plus-lg me-2"></i> New Message
+            </button>
+            <a asp-action="Compose" class="btn btn-outline-light glass-hover" title="Open Full Screen Compose Page">
+                <i class="bi bi-arrows-fullscreen"></i>
             </a>
         </div>
     </div>
@@ -229,5 +232,9 @@
         </div>
     </div>
 </div>
+
+@section Modals {
+    @await Html.PartialAsync("_NewMessageModal")
+}
 
 

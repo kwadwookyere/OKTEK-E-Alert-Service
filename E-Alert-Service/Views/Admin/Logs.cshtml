@@ -1,61 +1,79 @@
-@model IEnumerable<EAlertService.Models.DomainModels.EmailLog>
+@model EAlertService.ViewModels.AdminLogsViewModel
 @{
     ViewData["Title"] = "Communication Logs";
     Layout = "_AdminLayout";
-    var smsLogs = (IEnumerable<EAlertService.Models.DomainModels.SmsLog>)ViewBag.SmsLogs;
-    var batchId = ViewBag.BatchId as int?;
+    var isSmsActive = Model.ActiveTab == "sms";
 }
 
-<div class="animate-fade-in">
-    @if (batchId.HasValue)
+<div>
+    @if (Model.BatchId.HasValue)
     {
         <div class="alert glass border-info text-info d-flex justify-content-between align-items-center mb-4">
-            <span><i class="bi bi-filter-circle me-2"></i> Viewing logs for Bulk Batch <strong>#@batchId.Value</strong></span>
+            <span><i class="bi bi-filter-circle me-2"></i> Viewing logs for Bulk Batch <strong>#@Model.BatchId.Value</strong></span>
             <a asp-action="Logs" class="btn btn-sm btn-outline-info">Clear Filter</a>
         </div>
     }
 
-    <ul class="nav nav-pills glass p-1 rounded-4 mb-4 d-inline-flex" id="logTabs" role="tablist">
-        <li class="nav-item" role="presentation">
-            <button class="nav-link active rounded-4 px-4" id="email-log-tab" data-bs-toggle="tab" data-bs-target="#email-log-pane" type="button">Email Logs</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link rounded-4 px-4" id="sms-log-tab" data-bs-toggle="tab" data-bs-target="#sms-log-pane" type="button">SMS Logs</button>
-        </li>
-    </ul>
+    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+        <ul class="nav nav-pills glass p-1 rounded-4 d-inline-flex mb-0" id="logTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link @(!isSmsActive ? "active" : "") rounded-4 px-4" id="email-log-tab" data-bs-toggle="tab" data-bs-target="#email-log-pane" type="button">
+                    <i class="bi bi-envelope me-1"></i> Email Logs 
+                    <span class="badge bg-secondary ms-1">@Model.EmailLogs.TotalRecords</span>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link @(isSmsActive ? "active" : "") rounded-4 px-4" id="sms-log-tab" data-bs-toggle="tab" data-bs-target="#sms-log-pane" type="button">
+                    <i class="bi bi-chat-left-dots me-1"></i> SMS Logs
+                    <span class="badge bg-secondary ms-1">@Model.SmsLogs.TotalRecords</span>
+                </button>
+            </li>
+        </ul>
+        <button type="button" class="btn btn-primary shadow-lg" data-bs-toggle="modal" data-bs-target="#newMessageModal">
+            <i class="bi bi-send-plus me-2"></i> New Message
+        </button>
+    </div>
 
     <div class="tab-content" id="logTabsContent">
-        <div class="tab-pane fade show active" id="email-log-pane" role="tabpanel">
-            <div class="card glass shadow-lg">
+        <!-- Email Logs Tab -->
+        <div class="tab-pane fade @(!isSmsActive ? "show active" : "")" id="email-log-pane" role="tabpanel">
+            <div class="card glass shadow-lg overflow-hidden">
                 <div class="table-responsive">
-                    <table class="table mb-0">
+                    <table class="table mb-0 align-middle">
                         <thead>
                             <tr>
                                 <th>Time</th>
+                                <th>App</th>
                                 <th>Recipient</th>
                                 <th>Subject</th>
                                 <th>Opened</th>
                                 <th class="text-center">Clicks</th>
                                 <th>Status</th>
+                                <th class="text-end pe-3">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var log in Model)
+                            @foreach (var log in Model.EmailLogs.Items)
                             {
                                 <tr>
                                     <td><span class="text-dim small">@log.Timestamp.ToString("G")</span></td>
-                                    <td><span class="fw-medium">@log.Recipient</span></td>
-                                    <td>@log.Subject</td>
+                                    <td><span class="badge bg-secondary bg-opacity-25 text-white small">@(log.Application?.Name ?? "App #" + log.ApplicationId)</span></td>
+                                    <td><span class="fw-medium text-break">@log.Recipient</span></td>
+                                    <td>
+                                        <div class="text-truncate" style="max-width: 260px;" title="@log.Subject">
+                                            @log.Subject
+                                        </div>
+                                    </td>
                                     <td>
                                         @if (log.OpenedAt.HasValue)
                                         {
-                                            <span class="text-success small" title="Opened at @log.OpenedAt.Value.ToString("G")">
-                                                <i class="bi bi-envelope-open-fill"></i> Opened
+                                            <span class="badge rounded-pill bg-success bg-opacity-10 text-success">
+                                                <i class="bi bi-check2 me-1"></i> @log.OpenedAt.Value.ToString("HH:mm")
                                             </span>
                                         }
                                         else
                                         {
-                                            <span class="text-dim small"><i class="bi bi-envelope-fill"></i> Sent</span>
+                                            <span class="text-dim small">—</span>
                                         }
                                     </td>
                                     <td class="text-center">
@@ -84,33 +102,54 @@
                                             <span class="badge glass border-warning text-warning">@log.Status</span>
                                         }
                                     </td>
+                                    <td class="text-end pe-3">
+                                        <div class="btn-group btn-group-sm">
+                                            <button type="button" class="btn btn-outline-info" title="View email content and tracking details" onclick="openViewEmailModal(@log.Id)">
+                                                <i class="bi bi-eye"></i> View
+                                            </button>
+                                            <button type="button" class="btn btn-outline-warning" title="Resend this email" onclick="confirmResendEmail(@log.Id, '@Html.Raw(Html.Encode(log.Recipient))')">
+                                                <i class="bi bi-arrow-repeat"></i> Resend
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                            @if (!Model.EmailLogs.Items.Any())
+                            {
+                                <tr>
+                                    <td colspan="8" class="text-center py-5 text-dim">No email log records found.</td>
                                 </tr>
                             }
                         </tbody>
                     </table>
                 </div>
+
+                @await Html.PartialAsync("_Pagination", Model.EmailLogs, new ViewDataDictionary(ViewData) { { "PageParam", "emailPage" }, { "Fragment", "email-log-pane" } })
             </div>
         </div>
 
-        <div class="tab-pane fade" id="sms-log-pane" role="tabpanel">
-            <div class="card glass shadow-lg">
+        <!-- SMS Logs Tab -->
+        <div class="tab-pane fade @(isSmsActive ? "show active" : "")" id="sms-log-pane" role="tabpanel">
+            <div class="card glass shadow-lg overflow-hidden">
                 <div class="table-responsive">
                     <table class="table mb-0">
                         <thead>
                             <tr>
                                 <th>Time</th>
+                                <th>App</th>
                                 <th>Recipient</th>
                                 <th>Message Preview</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var log in smsLogs)
+                            @foreach (var log in Model.SmsLogs.Items)
                             {
                                 <tr>
                                     <td><span class="text-dim small">@log.Timestamp.ToString("G")</span></td>
+                                    <td><span class="badge bg-secondary bg-opacity-25 text-white small">@(log.Application?.Name ?? "App #" + log.ApplicationId)</span></td>
                                     <td><span class="fw-medium">@log.Recipient</span></td>
-                                    <td><span class="text-dim">@(log.Message.Length > 50 ? log.Message[..50] + "..." : log.Message)</span></td>
+                                    <td><span class="text-dim">@(log.Message.Length > 60 ? log.Message[..60] + "..." : log.Message)</span></td>
                                     <td>
                                         @if (log.Status == "Sent")
                                         {
@@ -127,10 +166,23 @@
                                     </td>
                                 </tr>
                             }
+                            @if (!Model.SmsLogs.Items.Any())
+                            {
+                                <tr>
+                                    <td colspan="5" class="text-center py-5 text-dim">No SMS log records found.</td>
+                                </tr>
+                            }
                         </tbody>
                     </table>
                 </div>
+
+                @await Html.PartialAsync("_Pagination", Model.SmsLogs, new ViewDataDictionary(ViewData) { { "PageParam", "smsPage" }, { "Fragment", "sms-log-pane" } })
             </div>
         </div>
     </div>
 </div>
+
+@section Modals {
+    @await Html.PartialAsync("_EmailViewModals")
+    @await Html.PartialAsync("_NewMessageModal")
+}

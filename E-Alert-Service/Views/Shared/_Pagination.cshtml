@@ -1,0 +1,142 @@
+@model EAlertService.ViewModels.IPagedResult
+@{
+    if (Model == null) return;
+
+    var pageParam = ViewData["PageParam"]?.ToString() ?? "page";
+    var pageSizeParam = ViewData["PageSizeParam"]?.ToString() ?? "pageSize";
+    var fragment = ViewData["Fragment"]?.ToString();
+    var extraClasses = ViewData["ContainerClass"]?.ToString() ?? "pagination-container";
+
+    // Build query dictionary preserving all current query string parameters
+    var queryDict = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+    foreach (var q in Context.Request.Query)
+    {
+        queryDict[q.Key] = q.Value.ToString();
+    }
+
+    string BuildUrl(int page, int? pageSize = null)
+    {
+        var dict = new Dictionary<string, string>(queryDict, StringComparer.OrdinalIgnoreCase);
+        dict[pageParam] = page.ToString();
+        if (pageSize.HasValue)
+        {
+            dict[pageSizeParam] = pageSize.Value.ToString();
+        }
+
+        var qs = string.Join("&", dict.Select(kvp => $"{Uri.EscapeDataString(kvp.Key)}={Uri.EscapeDataString(kvp.Value)}"));
+        var url = Context.Request.Path + (string.IsNullOrEmpty(qs) ? "" : "?" + qs);
+        if (!string.IsNullOrEmpty(fragment))
+        {
+            url += "#" + fragment;
+        }
+        return url;
+    }
+
+    // Determine window of page numbers
+    var currentPage = Model.PageNumber;
+    var totalPages = Model.TotalPages;
+    var startPage = Math.Max(1, currentPage - 2);
+    var endPage = Math.Min(totalPages, currentPage + 2);
+
+    // Adjust to show up to 5 page numbers if possible
+    if (endPage - startPage < 4)
+    {
+        if (startPage == 1)
+        {
+            endPage = Math.Min(totalPages, startPage + 4);
+        }
+        else if (endPage == totalPages)
+        {
+            startPage = Math.Max(1, endPage - 4);
+        }
+    }
+}
+
+<div class="@extraClasses">
+    <div class="d-flex align-items-center gap-3 flex-wrap">
+        <small class="text-dim">
+            Showing <span class="fw-bold text-white">@Model.StartRecord</span> to 
+            <span class="fw-bold text-white">@Model.EndRecord</span> of 
+            <span class="fw-bold text-accent">@Model.TotalRecords</span> entries
+        </small>
+
+        <div class="d-flex align-items-center gap-2">
+            <small class="text-dim text-uppercase" style="font-size: 0.72rem;">Per page:</small>
+            <div class="btn-group btn-group-sm" role="group">
+                @foreach (var size in new[] { 10, 20, 50, 100 })
+                {
+                    <a href="@BuildUrl(1, size)" 
+                       class="btn btn-sm @(Model.PageSize == size ? "btn-primary active" : "btn-outline-secondary text-dim")" 
+                       style="padding: 0.15rem 0.55rem; font-size: 0.75rem;">
+                        @size
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+
+    @if (totalPages > 1)
+    {
+        <nav aria-label="Page navigation">
+            <ul class="pagination pagination-sm mb-0">
+                <!-- First Page -->
+                <li class="page-item @(!Model.HasPreviousPage ? "disabled" : "")">
+                    <a class="page-link" href="@(Model.HasPreviousPage ? BuildUrl(1) : "#")" aria-label="First" title="First Page">
+                        <i class="bi bi-chevron-double-left"></i>
+                    </a>
+                </li>
+
+                <!-- Previous Page -->
+                <li class="page-item @(!Model.HasPreviousPage ? "disabled" : "")">
+                    <a class="page-link" href="@(Model.HasPreviousPage ? BuildUrl(currentPage - 1) : "#")" aria-label="Previous" title="Previous Page">
+                        <i class="bi bi-chevron-left"></i>
+                    </a>
+                </li>
+
+                @if (startPage > 1)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="@BuildUrl(1)">1</a>
+                    </li>
+                    @if (startPage > 2)
+                    {
+                        <li class="page-item disabled"><span class="page-link">…</span></li>
+                    }
+                }
+
+                @for (var p = startPage; p <= endPage; p++)
+                {
+                    <li class="page-item @(p == currentPage ? "active" : "")">
+                        <a class="page-link" href="@BuildUrl(p)">@p</a>
+                    </li>
+                }
+
+                @if (endPage < totalPages)
+                {
+                    @if (endPage < totalPages - 1)
+                    {
+                        <li class="page-item disabled"><span class="page-link">…</span></li>
+                    }
+                    <li class="page-item">
+                        <a class="page-link" href="@BuildUrl(totalPages)">@totalPages</a>
+                    </li>
+                }
+
+                <!-- Next Page -->
+                <li class="page-item @(!Model.HasNextPage ? "disabled" : "")">
+                    <a class="page-link" href="@(Model.HasNextPage ? BuildUrl(currentPage + 1) : "#")" aria-label="Next" title="Next Page">
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                </li>
+
+                <!-- Last Page -->
+                <li class="page-item @(!Model.HasNextPage ? "disabled" : "")">
+                    <a class="page-link" href="@(Model.HasNextPage ? BuildUrl(totalPages) : "#")" aria-label="Last" title="Last Page">
+                        <i class="bi bi-chevron-double-right"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    }
+</div>
+

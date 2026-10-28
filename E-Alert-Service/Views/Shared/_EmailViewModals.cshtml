@@ -1,0 +1,292 @@
+<!-- Email View Modal -->
+<div class="modal fade" id="viewEmailModal" tabindex="-1" aria-labelledby="viewEmailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content glass shadow-2xl border-secondary">
+            <div class="modal-header border-bottom border-white border-opacity-10">
+                <div class="d-flex align-items-center gap-2">
+                    <div class="bg-primary bg-opacity-20 text-primary rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                        <i class="bi bi-envelope-paper-fill fs-5"></i>
+                    </div>
+                    <div>
+                        <h5 class="modal-title fw-bold text-white mb-0" id="viewEmailModalLabel">Email Details</h5>
+                        <small class="text-dim" id="modalEmailIdBadge">Log #...</small>
+                    </div>
+                </div>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4" style="max-height: calc(85vh - 130px); overflow-y: auto;">
+                <!-- Meta summary cards -->
+                <div class="row g-3 mb-3">
+                    <div class="col-md-6">
+                        <div class="glass p-3 rounded-3 h-100">
+                            <small class="text-dim text-uppercase d-block mb-1" style="font-size:0.75rem;">Recipient</small>
+                            <span class="fw-semibold text-white text-break" id="modalRecipient"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="glass p-3 rounded-3 h-100">
+                            <small class="text-dim text-uppercase d-block mb-1" style="font-size:0.75rem;">Status & Timestamp</small>
+                            <div class="d-flex align-items-center gap-2">
+                                <span id="modalStatusBadge"></span>
+                                <small class="text-dim" id="modalTimestamp"></small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="glass p-3 rounded-3 h-100">
+                            <small class="text-dim text-uppercase d-block mb-1" style="font-size:0.75rem;">Application & Host</small>
+                            <span class="fw-medium text-white" id="modalAppName"></span>
+                            <small class="text-dim d-block" id="modalSmtpHost"></small>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="glass p-3 rounded-3 h-100">
+                            <small class="text-dim text-uppercase d-block mb-1" style="font-size:0.75rem;">Engagement & Tracking</small>
+                            <div id="modalTracking"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Error message alert if failed -->
+                <div id="modalErrorContainer" class="alert glass border-danger text-danger mb-3 d-none">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                    <strong>Error:</strong> <span id="modalErrorMessage"></span>
+                </div>
+
+                <!-- Subject -->
+                <div class="mb-3">
+                    <label class="form-label small text-dim text-uppercase mb-1">Subject</label>
+                    <div class="p-3 glass rounded-3 fw-bold text-white text-break" id="modalSubject"></div>
+                </div>
+
+                <!-- Content Preview with Tabs (Rendered HTML vs Raw Source) -->
+                <div>
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <label class="form-label small text-dim text-uppercase mb-0">Message Content</label>
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="btn-group btn-group-sm" role="group">
+                                <button type="button" class="btn btn-outline-info active" id="btnPreviewHtml" onclick="switchEmailTab('html')">
+                                    <i class="bi bi-browser-chrome me-1"></i> Preview
+                                </button>
+                                <button type="button" class="btn btn-outline-info" id="btnPreviewSource" onclick="switchEmailTab('source')">
+                                    <i class="bi bi-code-slash me-1"></i> Source
+                                </button>
+                            </div>
+                            <button type="button" class="btn btn-sm btn-outline-light" id="btnCopyBody" onclick="copyRawEmailBody()" title="Copy email body">
+                                <i class="bi bi-clipboard"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Rendered HTML frame -->
+                    <div id="emailHtmlContainer" class="rounded-3 overflow-hidden bg-white shadow-inner" style="min-height: 280px; max-height: 450px;">
+                        <iframe id="emailPreviewFrame" style="width: 100%; height: 350px; border: none; background: white;" sandbox="allow-popups allow-popups-to-escape-sandbox"></iframe>
+                    </div>
+
+                    <!-- Raw text/HTML pre block -->
+                    <div id="emailSourceContainer" class="rounded-3 p-3 glass d-none" style="max-height: 350px; overflow-y: auto; background: rgba(0,0,0,0.4);">
+                        <pre class="text-dim mb-0" style="white-space: pre-wrap; font-family: monospace; font-size: 0.85rem;" id="modalRawBody"></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer border-top border-white border-opacity-10 d-flex justify-content-between">
+                <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-warning" id="modalResendBtn" onclick="resendFromModal()">
+                    <i class="bi bi-arrow-repeat me-1"></i> Resend Email
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Resend Confirmation Modal -->
+<div class="modal fade" id="resendConfirmModal" tabindex="-1" aria-labelledby="resendConfirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <form id="resendEmailForm" class="modal-content glass shadow-2xl border-warning" method="post" asp-controller="Admin" asp-action="ResendEmail">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="id" id="resendEmailId" value="" />
+            <input type="hidden" name="returnUrl" id="resendReturnUrl" value="" />
+            <div class="modal-header border-bottom border-white border-opacity-10">
+                <h5 class="modal-title fw-bold text-white" id="resendConfirmModalLabel">
+                    <i class="bi bi-arrow-repeat text-warning me-2"></i> Resend Email
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+                <p class="text-white mb-2">
+                    Are you sure you want to resend this email to <strong class="text-info text-break" id="resendRecipientText"></strong>?
+                </p>
+                <p class="text-dim small mb-0">
+                    A new delivery attempt will be dispatched through the application's configured SMTP server and a new log entry will be created.
+                </p>
+            </div>
+            <div class="modal-footer border-top border-white border-opacity-10">
+                <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-warning">
+                    <i class="bi bi-send-fill me-1"></i> Confirm & Resend
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    let currentViewEmailId = null;
+    let currentRawBody = '';
+
+    function prepareEmailPreview(content) {
+        if (!content || !content.trim()) {
+            return '<div style="font-family:-apple-system,BlinkMacSystemFont,\'Segoe UI\',Roboto,sans-serif;color:#888;padding:24px;text-align:center;">No content in email body</div>';
+        }
+
+        // Strip <script> tags and inline event handlers to prevent sandbox execution warnings.
+        let sanitized = content
+            .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+            .replace(/\son\w+\s*=\s*(["']).*?\1/gi, '')
+            .replace(/\son\w+\s*=\s*[^\s>]+/gi, '');
+
+        // Add base target="_blank" so clicked links open safely in a new tab
+        if (sanitized.toLowerCase().includes('<head>')) {
+            sanitized = sanitized.replace(/(<head[^>]*>)/i, '$1<base target="_blank">');
+        } else {
+            sanitized = '<base target="_blank">' + sanitized;
+        }
+
+        // If body doesn't contain HTML tags, style it nicely as pre-formatted text
+        if (!/<[a-z][\s\S]*>/i.test(content)) {
+            sanitized = '<div style="font-family:-apple-system,BlinkMacSystemFont,\'Segoe UI\',Roboto,sans-serif;padding:20px;color:#222;white-space:pre-wrap;line-height:1.6;">' + sanitized + '</div>';
+        }
+
+        return sanitized;
+    }
+
+    function openViewEmailModal(id) {
+        currentViewEmailId = id;
+        const modalEl = document.getElementById('viewEmailModal');
+        const modalInstance = bootstrap.Modal.getOrCreateInstance(modalEl);
+        modalInstance.show();
+
+        // Reset state
+        $('#modalEmailIdBadge').text('Loading #' + id + '...');
+        $('#modalRecipient').text('Loading...');
+        $('#modalAppName').text('Loading...');
+        $('#modalSmtpHost').text('');
+        $('#modalTimestamp').text('');
+        $('#modalStatusBadge').html('<span class="spinner-border spinner-border-sm text-info"></span>');
+        $('#modalTracking').html('<span class="text-dim small">Loading...</span>');
+        $('#modalSubject').text('Loading...');
+        $('#modalRawBody').text('Loading...');
+        $('#modalErrorContainer').addClass('d-none');
+        currentRawBody = '';
+
+        const frame = document.getElementById('emailPreviewFrame');
+        if (frame) {
+            frame.srcdoc = '<div style="font-family:-apple-system,BlinkMacSystemFont,\'Segoe UI\',Roboto,sans-serif;color:#888;padding:24px;text-align:center;">Loading preview...</div>';
+        }
+
+        switchEmailTab('html');
+
+        $.ajax({
+            url: '/Admin/GetEmailDetails/' + id,
+            type: 'GET',
+            success: function(data) {
+                $('#modalEmailIdBadge').text('Log #' + data.id + (data.batchId ? ' (Batch #' + data.batchId + ')' : ''));
+                $('#modalRecipient').text(data.recipient);
+                $('#modalAppName').text(data.applicationName);
+                if (data.smtpHost) {
+                    $('#modalSmtpHost').text('via ' + data.smtpHost);
+                } else {
+                    $('#modalSmtpHost').text('');
+                }
+                $('#modalTimestamp').text(data.timestamp);
+                $('#modalSubject').text(data.subject || '(No Subject)');
+                currentRawBody = data.body || '';
+                $('#modalRawBody').text(currentRawBody || '(Empty body)');
+
+                // Status badge
+                let badgeClass = 'badge glass ';
+                if (data.status === 'Sent') badgeClass += 'border-success text-success';
+                else if (data.status === 'Failed') badgeClass += 'border-danger text-danger';
+                else badgeClass += 'border-warning text-warning';
+                $('#modalStatusBadge').html('<span class="' + badgeClass + '">' + data.status + '</span>');
+
+                // Tracking
+                let trackingHtml = '<div class="d-flex align-items-center gap-2 flex-wrap">';
+                if (data.openedAt) {
+                    trackingHtml += '<span class="text-success small" title="Opened at ' + data.openedAt + '"><i class="bi bi-envelope-open-fill me-1"></i> Opened (' + data.openedAt + ')</span>';
+                } else {
+                    trackingHtml += '<span class="text-dim small"><i class="bi bi-envelope-fill me-1"></i> Not opened yet</span>';
+                }
+                if (data.clickCount > 0) {
+                    trackingHtml += '<span class="badge rounded-pill bg-info bg-opacity-20 text-info"><i class="bi bi-cursor-fill me-1"></i> ' + data.clickCount + ' clicks</span>';
+                }
+                trackingHtml += '</div>';
+                $('#modalTracking').html(trackingHtml);
+
+                // Error message
+                if (data.errorMessage) {
+                    $('#modalErrorMessage').text(data.errorMessage);
+                    $('#modalErrorContainer').removeClass('d-none');
+                } else {
+                    $('#modalErrorContainer').addClass('d-none');
+                }
+
+                // Render into iframe with scripts stripped
+                if (frame) {
+                    frame.srcdoc = prepareEmailPreview(currentRawBody);
+                }
+            },
+            error: function(xhr) {
+                $('#modalSubject').text('Failed to load email details');
+                $('#modalRawBody').text(xhr.responseJSON?.error || 'Could not retrieve email log details.');
+                if (frame) {
+                    frame.srcdoc = '<div style="color:#d9534f;font-family:-apple-system,BlinkMacSystemFont,\'Segoe UI\',Roboto,sans-serif;padding:24px;text-align:center;">Error loading email preview.</div>';
+                }
+            }
+        });
+    }
+
+    function switchEmailTab(type) {
+        if (type === 'html') {
+            $('#btnPreviewHtml').addClass('active');
+            $('#btnPreviewSource').removeClass('active');
+            $('#emailHtmlContainer').removeClass('d-none');
+            $('#emailSourceContainer').addClass('d-none');
+        } else {
+            $('#btnPreviewSource').addClass('active');
+            $('#btnPreviewHtml').removeClass('active');
+            $('#emailSourceContainer').removeClass('d-none');
+            $('#emailHtmlContainer').addClass('d-none');
+        }
+    }
+
+    function copyRawEmailBody() {
+        if (!currentRawBody) return;
+        navigator.clipboard.writeText(currentRawBody).then(function() {
+            const btn = $('#btnCopyBody');
+            const originalHtml = btn.html();
+            btn.html('<i class="bi bi-check2 text-success"></i>');
+            setTimeout(function() { btn.html(originalHtml); }, 1500);
+        });
+    }
+
+    function confirmResendEmail(id, recipient) {
+        $('#resendEmailId').val(id);
+        $('#resendRecipientText').text(recipient);
+        $('#resendReturnUrl').val(window.location.pathname + window.location.search);
+        const modalEl = document.getElementById('resendConfirmModal');
+        const modalInstance = bootstrap.Modal.getOrCreateInstance(modalEl);
+        modalInstance.show();
+    }
+
+    function resendFromModal() {
+        if (!currentViewEmailId) return;
+        const recipient = $('#modalRecipient').text();
+        const viewModalEl = document.getElementById('viewEmailModal');
+        const viewModal = bootstrap.Modal.getInstance(viewModalEl);
+        if (viewModal) {
+            viewModal.hide();
+        }
+        confirmResendEmail(currentViewEmailId, recipient);
+    }
+</script>

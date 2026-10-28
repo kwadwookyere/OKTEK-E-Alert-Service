@@ -63,26 +63,19 @@ public class BulkMessagingController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Send(BulkMessageViewModel model)
     {
+        // Bug fix #9: Validate recipient sources upfront before checking ModelState,
+        // so a file upload can substitute for the [Required] Recipients field without
+        // using fragile ModelState.Remove() to bypass other real validation errors.
+        if (model.RecipientFile != null)
+            ModelState.Remove(nameof(model.Recipients));
+
         if (!ModelState.IsValid)
         {
             if (model.RecipientFile == null && string.IsNullOrEmpty(model.Recipients))
-            {
-                // Custom validation if both are empty
                 ModelState.AddModelError("Recipients", "Please provide recipients via text or file upload.");
-                model.Applications = await _context.Applications.Where(a => a.IsEnabled).ToListAsync();
-                return View("Compose", model);
-            }
-            
-            // If it's just the recipients field that is empty but file is present, we might still be valid
-            if (model.RecipientFile != null)
-            {
-                ModelState.Remove("Recipients");
-            }
-            else
-            {
-                model.Applications = await _context.Applications.Where(a => a.IsEnabled).ToListAsync();
-                return View("Compose", model);
-            }
+
+            model.Applications = await _context.Applications.Where(a => a.IsEnabled).ToListAsync();
+            return View("Compose", model);
         }
 
         var recipients = new List<string>();
@@ -162,9 +155,10 @@ public class BulkMessagingController : Controller
                 IsTemplate = model.IsTemplate,
                 TemplateName = model.TemplateName,
                 ScheduledFor = model.ScheduledFor.Value,
-                IsProcessed = false
-                // Note: I should add BatchId to ScheduledMessage model if I want clean linking, 
-                // but I'll search by ScheduledFor for now or just trust the new batch logic.
+                IsProcessed = false,
+                // Bug fix #12: Link to the already-created batch so the background worker
+                // can activate it correctly instead of leaving it permanently in "Scheduled".
+                BatchId = batch.Id
             };
 
             _context.ScheduledMessages.Add(scheduledMessage);
@@ -219,6 +213,7 @@ public class BulkMessagingController : Controller
             .OrderByDescending(b => b.CreatedAt)
             .ToListAsync();
 
+        ViewBag.Applications = await _context.Applications.Where(a => a.IsEnabled).ToListAsync();
         return View(batches);
     }
 

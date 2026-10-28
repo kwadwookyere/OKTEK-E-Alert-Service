@@ -3,11 +3,24 @@ using EAlertService.Models.DomainModels;
 
 namespace EAlertService.ViewModels;
 
-public class ContactListViewModel
+public class ContactListViewModel : IPagedResult
 {
     public List<Contact> Contacts { get; set; } = new();
     public List<ContactGroup> Groups { get; set; } = new();
     public List<Application> Applications { get; set; } = new();
+    public int? SelectedGroupId { get; set; }
+    public string? SearchTerm { get; set; }
+
+    // Pagination
+    public int PageNumber { get; set; } = 1;
+    public int PageSize { get; set; } = 15;
+    public int TotalRecords { get; set; }
+
+    public int TotalPages => TotalRecords > 0 ? (int)Math.Ceiling((double)TotalRecords / Math.Max(PageSize, 1)) : 1;
+    public bool HasPreviousPage => PageNumber > 1;
+    public bool HasNextPage => PageNumber < TotalPages;
+    public int StartRecord => TotalRecords == 0 ? 0 : (PageNumber - 1) * PageSize + 1;
+    public int EndRecord => Math.Min(PageNumber * PageSize, TotalRecords);
 }
 
 public class ContactEditViewModel
